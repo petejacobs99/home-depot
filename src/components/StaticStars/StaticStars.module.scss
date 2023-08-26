@@ -1,0 +1,12 @@
+.StarStatic span {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 3vh;
+  }
+  .StarStatic .on {
+    color: var(--yellow);
+  }
+  .StarStatic .off {
+    color: var(--gray);
+  }

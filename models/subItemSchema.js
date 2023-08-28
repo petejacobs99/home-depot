@@ -1,6 +1,5 @@
 const item = require('./item')
 const subItem = require('./subItem')
-
 const Schema = require('mongoose').Schema;
 
 const subItemSchema = new Schema({

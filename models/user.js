@@ -1,5 +1,3 @@
-// mel is responsible for this user model eep
-
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const Schema = mongoose.Schema;

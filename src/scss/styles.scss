@@ -3,6 +3,16 @@
 @import "reset";
 @import "grid";
 
+:root {
+  --white: #FFFFFF;
+  --tan-1: #FBF9F6;
+  --tan-2: #CCC7BC;
+  --medium-tan: #E7DCC9;
+  --moss-green: #777E49;
+  --brown: #8C7C63;
+  --black: #000000;
+}
+
 body {
   font-size: 16px;
 }

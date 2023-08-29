@@ -34,16 +34,17 @@ orderSchema.static.getCart = function (userId) {
 	);
 };
 
-orderSchema.methods.addItemToCart = async function (itemId) {
+orderSchema.methods.addItemToCart = async function (itemId, subItemId) {
 	const cart = this;
 	const lineItem = cart.lineItems.find((lineItem) =>
-		lineItem.item._id.equals(itemId)
-	);
+		lineItem.subitem._id.equals(subItemId)
+	)
 	if (lineItem) {
 		lineItem.qty += 1;
 	} else {
-		const item = await mongoose.model('Item').findById(itemId);
-		cart.lineItems.push({ item });
+		const item = await mongoose.model('Item').findById(itemId)
+		const subItem = await mongoose.model('SubItem').findById(subItemId)
+		cart.lineItems.push({ item: item, subItem: subItem })
 	}
 	return cart.save();
 };

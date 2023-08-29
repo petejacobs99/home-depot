@@ -1,0 +1,11 @@
+.DepartmentList {
+    justify-content: space-between;
+}
+
+.DepartmentList span:hover:not(.active) {
+    cursor: pointer;
+}
+
+.DepartmentList span:active {
+    font-size: 130%;
+}

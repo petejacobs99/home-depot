@@ -5,8 +5,9 @@
 
 .DepartmentList span:hover:not(.active) {
     cursor: pointer;
+    transform: scale(0.9);
 }
 
 .DepartmentList span:active {
-    font-size: 130%;
+    transform: scale(0.7);
 }

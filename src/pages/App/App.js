@@ -33,6 +33,7 @@ export default function App() {
             <Route path="/faq" element={<FAQPage user={user} setUser={setUser} />} />
             <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser} />} />
             <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} />} />
+            <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/home" />} />
           </Routes>
         </>

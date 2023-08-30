@@ -12,7 +12,7 @@ The home page features category content blocks, a featured items carousel, and l
 
 ## Category List Page
 
-Similar to the Department List Page, this page displays categories within a department, aiding users in finding their desired products.
+This page displays categories within a department, aiding users in finding their desired products.
 
 ## Item Listing Page
 
@@ -71,6 +71,7 @@ Here are some example API routes, requests, and responses for reference:
 # User Authentication - Login:
 
 POST /api/auth/login
+
 Request Payload:
 
 ```
@@ -95,6 +96,7 @@ Example Response:
 # User Registration:
 
 POST /api/auth/register
+
 Request Payload:
 
 ```
@@ -110,6 +112,7 @@ Example Response: (Same as login response)
 # Get item Listing:
 
 GET /api/items
+
 Example Response:
 
 ```

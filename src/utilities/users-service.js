@@ -31,3 +31,18 @@ export function getUser() {
 export function logOut() {
   localStorage.removeItem('token');
 }
+
+export async function deleteUser() {
+  const token = getToken();
+
+  if (token) {
+    try {
+      await usersAPI.deleteUser(); // Call the deleteUser API method
+      logOut(); // Log out the user after deletion
+    } catch (error) {
+      throw new Error(`An error occurred while deleting the user: ${error.message}`);
+    }
+  } else {
+    throw new Error('User not authenticated.');
+  }
+}

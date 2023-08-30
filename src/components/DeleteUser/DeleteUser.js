@@ -6,7 +6,7 @@ export default function DeleteUser({ user, setUser }) {
     try {
       await deleteUser(); // Call the deleteUser function
       setUser(null);
-    } catch {
+    } catch (error) {
       // Handle any error that may occur during deletion
       console.error("An error occurred while deleting the user.");
     }

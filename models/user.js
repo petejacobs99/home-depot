@@ -48,7 +48,12 @@ const userSchema = new Schema({
       price: Number,
       imageUrl: String
     }
-  ]
+  ],
+  // New field for guest status
+  isGuest: {
+    type: Boolean,
+    default: false // Default to non-guest user
+  }
 }, {
   timestamps: true,
   toJSON: {

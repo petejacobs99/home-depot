@@ -1,3 +1,4 @@
+import "./HamMenu.module.scss";
 import { getUser } from '../../utilities/users-service';
 
 export default function HamMenu() {

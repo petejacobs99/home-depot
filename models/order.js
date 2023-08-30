@@ -1,6 +1,23 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const lineItemSchema = require('./lineItem');
+const itemSchema = require('./itemSchema');
+const subItemSchema = require('./subItemSchema');
+
+const lineItemSchema = new Schema(
+	{
+		qty: { type: Number, default: 1 },
+		item: itemSchema,
+		subItem: subItemSchema
+	},
+	{
+		timeStamps: true,
+		toJSON: { virtuals: true }
+	}
+);
+
+lineItemSchema.virtual('extPrice').get(function () {
+	return this.qty * this.item.price;
+});
 
 const orderSchema = new Schema(
 	{
@@ -34,16 +51,18 @@ orderSchema.static.getCart = function (userId) {
 	);
 };
 
-orderSchema.methods.addItemToCart = async function (itemId) {
+orderSchema.methods.addItemToCart = async function (itemId, subItemId) {
 	const cart = this;
 	const lineItem = cart.lineItems.find((lineItem) =>
-		lineItem.item._id.equals(itemId)
-	);
+		lineItem.subitem._id.equals(subItemId)
+	)
 	if (lineItem) {
 		lineItem.qty += 1;
 	} else {
-		const item = await mongoose.model('Item').findById(itemId);
-		cart.lineItems.push({ item });
+		const item = await mongoose.model('Item').findById(itemId)
+		const subItem = await mongoose.model('SubItem').findById(subItemId)
+		cart.lineItems.push({ item: item, subItem: subItem })
+
 	}
 	return cart.save();
 };

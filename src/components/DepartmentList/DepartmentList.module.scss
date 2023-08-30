@@ -1,0 +1,13 @@
+.DepartmentList {
+    justify-content: space-between;
+    background-color: var(--tan-2);
+}
+
+.DepartmentList span:hover:not(.active) {
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.DepartmentList span:active {
+    transform: scale(0.7);
+}

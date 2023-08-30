@@ -16,11 +16,14 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(require('./config/checkToken'));
 
 // Put API routes here, before the "catch all" route
-app.use('/api/users', require('./routes/api/users'));
+app.use('/api/users', require('./routes/api/users'))
 // Protect the API routes below from anonymous users
-const ensureLoggedIn = require('./config/ensureLoggedIn');
-app.use('/api/items', ensureLoggedIn, require('./routes/api/items'));
-app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+const ensureLoggedIn = require('./config/ensureLoggedIn')
+app.use('/api/items', ensureLoggedIn, require('./routes/api/items'))
+app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'))
+app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'))
+app.use('/api/wishlist', ensureLoggedIn, require('./routes/api/wishlist'))
+app.use('/api/category', ensureLoggedIn, require('./routes/api/category'))
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public', 'index.html'))

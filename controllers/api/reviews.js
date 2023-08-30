@@ -6,7 +6,7 @@ module.exports = {
   updateReview,
   deleteReview,
   showOne,
-};
+}
 
 async function showAll(req, res) {
   try{

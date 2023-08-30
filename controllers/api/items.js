@@ -9,7 +9,7 @@ module.exports = {
   createOne,
   deleteOne,
   updateOne
-};
+}
 
 async function index(req, res) {
   try{
@@ -21,7 +21,7 @@ async function index(req, res) {
 }
 async function showByCategory(req, res) {
   try{
-    const data = await Item.find({category: req.params.id}).populate('subItem').exec()
+    const data = await Item.find({category: req.params.id}).populate('category subItem').exec()
     res.status(200).json(data)
   } catch(error){
     res.status(400).json({ message: error.message})
@@ -29,7 +29,7 @@ async function showByCategory(req, res) {
 }
 async function show(req, res) {
   try{
-    const item = await Item.findById(req.params.id).populate('type type2').exec()
+    const item = await Item.findById(req.params.id).populate('category subItem').exec()
     res.status(200).json(item);
   }catch(error){
     res.status(400).json({message: error.message})

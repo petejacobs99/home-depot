@@ -32,7 +32,7 @@ handleSubmit = async (evt) => {
     this.props.setUser(user);
   } catch {
     // An error happened on the server
-    this.setState({ error: 'Were sorry, the password you entered is incorrect. Please try again.' });
+    this.setState({ error: 'Sign up failed. Please try again.' });
   }
 };
 

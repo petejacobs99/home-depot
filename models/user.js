@@ -1,65 +1,77 @@
-// mel is responsible for this user model eep
-
-const User = require('../../models/user')
-const jwt = require('jsonwebtoken')
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema;
 
-const checkToken = (req, res) => {
-  console.log('req.user', req.user)
-  res.json(req.exp)
-}
+const SALT_ROUNDS = 10;
 
-const dataController = {
-  async create (req, res, next) {
-    try {
-      const user = await User.create(req.body)
-      // token will be a string
-      const token = createJWT(user)
-      // send back the token as a string
-      // which we need to account for
-      // in the client
-      res.locals.data.user = user
-      res.locals.data.token = token
-      next()
-    } catch (e) {
-      console.log('you got a database problem, girl')
-      res.status(400).json(e)
-    }
+const userSchema = new Schema({
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
+  email: {
+    type: String,
+    unique: true,
+    trim: true,
+    lowercase: true,
+    required: true
   },
-  async login (req, res, next) {
-    try {
-      const user = await User.findOne({ email: req.body.email })
-      if (!user) throw new Error()
-      const match = await bcrypt.compare(req.body.password, user.password)
-      if (!match) throw new Error()
-      res.locals.data.user = user
-      res.locals.data.token = createJWT(user)
-      next()
-    } catch {
-      res.status(400).json('Bad Credentials')
+  password: {
+    type: String,
+    required: true
+  },
+  shippingAddress: {
+    addressLine1: String,
+    addressLine2: String,
+    city: String,
+    state: String,
+    postalCode: String,
+    country: String
+  },
+  orderHistory: [
+    {
+      orderId: String,
+      date: Date,
+      totalAmount: Number,
+      items: [
+        {
+          productId: String,
+          productName: String,
+          quantity: Number,
+          price: Number
+        }
+      ]
+    }
+  ],
+  savedItems: [
+    {
+      productId: String,
+      productName: String,
+      price: Number,
+      imageUrl: String
+    }
+  ],
+  // New field for guest status
+  isGuest: {
+    type: Boolean,
+    default: false // Default to non-guest user
+  }
+}, {
+  timestamps: true,
+  toJSON: {
+    transform: function(doc, ret) {
+      delete ret.password;
+      return ret;
     }
   }
-}
+});
 
-const apiController = {
-  auth (req, res) {
-    res.json(res.locals.data.token)
-  }
-}
+userSchema.pre('save', async function(next) {
+  if (!this.isModified('password')) return next();
+  this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
+  return next();
+});
 
-module.exports = {
-  checkToken,
-  dataController,
-  apiController
-}
+userSchema.methods.comparePassword = async function(candidatePassword) {
+  return await bcrypt.compare(candidatePassword, this.password);
+};
 
-/* -- Helper Functions -- */
-
-function createJWT (user) {
-  return jwt.sign(
-    // data payload
-    { user },
-    process.env.SECRET,
-    { expiresIn: '24h' }
-  )
-}
+module.exports = mongoose.model('User', userSchema);

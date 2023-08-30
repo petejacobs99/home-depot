@@ -31,7 +31,6 @@ handleSubmit = async (evt) => {
     // Baby step
     this.props.setUser(user);
   } catch {
-    // An error happened on the server
     this.setState({ error: 'Sign up failed. Please try again.' });
   }
 };

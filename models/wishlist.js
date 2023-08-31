@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const wishlistSchema = new Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product'}]
+  products: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Item'}]
 })
 
-module.exports = mongoose.model('Wishlist', wishlistSchema);
+module.exports = mongoose.model('Wishlist', wishlistSchema)

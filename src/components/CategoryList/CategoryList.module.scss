@@ -1,0 +1,16 @@
+.App {
+    font-family: "Gill Sans", sans-serif;
+    text-align: center;
+  }
+  
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .categories div {
+    border: 0.5vmin solid var(--khaki);
+    margin: 2vmin;
+    padding: 5vmin 13vmin 2vmin;
+  }

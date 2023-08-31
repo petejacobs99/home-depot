@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import styles from './DynamicStar.module.scss'
+import styles from './DynamicStars.module.scss'
 
 export default function DynamicStar({ formData, handleChange }) {
     // const [rating, setRating] = useState(0);

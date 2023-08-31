@@ -12,7 +12,6 @@ const usersFAQs = [
     answer:
       "You can change your password by going to the 'Account Settings' section and selecting 'Change Password.'"
   }
-  // Add more user-related questions and answers
 ];
 
 const itemsFAQs = [
@@ -26,7 +25,6 @@ const itemsFAQs = [
     answer:
       "Our return policy allows returns within 30 days of purchase. Please review our return policy for more details."
   }
-  // Add more item-related questions and answers
 ];
 
 const techSupportFAQs = [
@@ -40,7 +38,6 @@ const techSupportFAQs = [
     answer:
       "You can track your order by logging into your account and going to the 'Order History' section."
   }
-  // Add more tech support-related questions and answers
 ];
 
 const FAQPage = () => {

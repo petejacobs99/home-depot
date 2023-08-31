@@ -7,7 +7,7 @@ export default function ReviewForm({ itemId, addReview, user }) {
         user: user._id,
         body: '',
         rating: 0,
-        pokemon: itemId
+        item: itemId
     })
     const [error, setError] = useState('')
     const [complete, setComplete] = useState(false)
@@ -17,7 +17,7 @@ export default function ReviewForm({ itemId, addReview, user }) {
                 user: userId,
                 body: '',
                 rating: 0,
-                pokemon: itemId
+                item: itemId
             }
             setFormData(newFormData)
             setComplete(false)

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const itemCtrl = require('../../controllers/api/pokemon')
+const itemCtrl = require('../../controllers/api/items')
 
 router.get('/', itemCtrl.index)
 router.get('/category/:category', itemCtrl.showByCategory)

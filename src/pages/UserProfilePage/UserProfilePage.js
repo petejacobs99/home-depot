@@ -12,21 +12,16 @@ const UserProfilePage = () => {
   };
 
   const handleSaveProfile = () => {
-    // Save edited profile details to backend or state
     setIsEditing(false);
   };
 
   const handleWishlist = () => {
-    // Navigate to wishlist page or show wishlist data
   };
 
   const handleOrderHistory = () => {
-    // Navigate to order history page or show order history data
   };
 
   const handleDeleteAccount = () => {
-    // Implement account deletion logic
-    // This is just a placeholder example
     alert("Account deleted!");
   };
 

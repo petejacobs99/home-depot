@@ -2,7 +2,7 @@ import styles from './SearchBar.module.scss';
 import { searchItems } from '../../utilities/items-api';
 
 export default function SearchBar({ onSearch }) {
-	handleEnterKey = async (e) => {
+	const handleEnterKey = async (e) => {
         e.preventDefault()
 		if (e.key === 'Enter') {
 			const items = await searchItems(e.target.value)
@@ -14,8 +14,8 @@ export default function SearchBar({ onSearch }) {
 		<div className={styles.SearchBar}>
 			<input
 				type="text"
-				placeholder="Search..."
-				handleEnterKey={handleEnterKey}
+				placeholder="SEARCH..."
+				onEnterKey={handleEnterKey}
 			/>
 		</div>
 	);

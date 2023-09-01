@@ -1,11 +1,11 @@
-// const express = require('express')
-// const router = express.Router()
-// const categoryController = require('../../controllers/api/categories')
+const express = require('express')
+const router = express.Router()
+const categoryController = require('../../controllers/api/categories')
 
-// // Route for getting all categories
-// router.get('/', categoryController.getAllCategories)
+// Route for getting all categories
+router.get('/', categoryController.getAllCategories)
 
-// // Route for getting categories by department
-// router.get('/:departmentName', categoryController.getCategoriesByDepartment)
+// Route for getting categories by department
+router.get('/:departmentName', categoryController.getCategoriesByDepartment)
 
-// module.exports = router
+ module.exports = router

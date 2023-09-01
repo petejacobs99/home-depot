@@ -16,7 +16,7 @@ const dataController = {
   async create (req, res, next) {
     try {
       const user = await User.create(req.body)
-      const isGuest = req.body.isGuest;
+      const isGuest = req.body.isGuest
       // token will be a string
       const token = createJWT(user)
       // send back the token as a string

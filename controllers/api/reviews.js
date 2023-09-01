@@ -54,7 +54,7 @@ async function updateReview(req, res) {
 async function deleteReview(req, res) {
   try{
     const review = await Review.findOneAndDelete({user: req.user._id, item: req.params.id})
-    res.status(200).json(review);
+    res.status(200).json(review)
   }catch(error){
     res.status(400).json({message: error.message})
   } 

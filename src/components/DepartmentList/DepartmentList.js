@@ -1,4 +1,4 @@
-import styles from "./DepartmentList.module.scss";
+import styles from "./DepartmentList.module.scss"
 
 export default function DepartmentList({ departments, handleOpenCategoryListPage }) {
     /*
@@ -43,5 +43,5 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
           <p>HARDWARE</p>
         </div>
       </div>
-    );
+    )
   }

@@ -6,4 +6,4 @@ const departmentSchema = new Schema({
     categories: [{type: mongoose.Schema.Types.ObjectId, ref: 'Category'}],
 })
 
-module.exports = mongoose.model('Department', departmentSchema);
+module.exports = mongoose.model('Department', departmentSchema)

@@ -1,7 +1,12 @@
 const Category = require('../models/Category')
 const Department = require('../models/Department')
 
-exports.getAllCategories = async (req, res) => {
+module.exports = {
+    getAllCategories,
+    getCategoriesByDepartment,
+}
+
+async function getAllCategories(req, res) {
     try {
         const categories = await Category.find().populate('department')
         res.status(200).json(categories)
@@ -10,7 +15,7 @@ exports.getAllCategories = async (req, res) => {
     }
 }
 
-exports.getCategoriesByDepartment = async (req, res) => {
+async function getCategoriesByDepartment (req, res) {
     try {
         const departmentName = req.params.departmentName
 

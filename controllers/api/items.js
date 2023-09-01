@@ -1,17 +1,7 @@
 const Item = require('../../models/item')
 const SubItem = require('../../models/subItem')
 
-module.exports = {
-  index,
-  showByCategory,
-  show,
-  search,
-  createOne,
-  deleteOne,
-  updateOne
-}
-
-async function index(req, res) {
+exports.index = async (req, res) => {
   try{
     const data = await Item.find({}).sort('name').populate('category subItem').exec()
     res.status(200).json({items: data})
@@ -19,7 +9,7 @@ async function index(req, res) {
     res.status(400).json({message: error.message})
   }
 }
-async function showByCategory(req, res) {
+exports.showByCategory = async (req, res) => {
   try{
     const data = await Item.find({category: req.params.id}).populate('category subItem').exec()
     res.status(200).json(data)
@@ -27,7 +17,7 @@ async function showByCategory(req, res) {
     res.status(400).json({ message: error.message})
   }
 }
-async function show(req, res) {
+exports.show = async (req, res) => {
   try{
     const item = await Item.findById(req.params.id).populate('category subItem').exec()
     res.status(200).json(item);
@@ -35,7 +25,7 @@ async function show(req, res) {
     res.status(400).json({message: error.message})
   } 
 }
-async function search(req, res){
+exports.search = async (req, res) => {
     try{
         const items = await Item.find({searchTerm: req.params.term})
         res.status(200).json({items: items})
@@ -43,7 +33,7 @@ async function search(req, res){
         res.status(400).json({message: error.message})
     }
 }
-async function createOne(req, res){
+exports.createOne = async (req, res) => {
     try{
         const item = new Item(req.body)
         res.status(200).json(item)
@@ -51,7 +41,7 @@ async function createOne(req, res){
         res.status(400).json({message: error.message})
     }
 }
-async function deleteOne(req, res){
+exports.deleteOne = async (req, res) => {
     try{
         const item = Item.findByIdAndDelete(req.params.id)
         res.status(200).json(item)
@@ -59,7 +49,7 @@ async function deleteOne(req, res){
         res.status(400).json({message: error.message})
     }
 }
-async function updateOne(req, res){
+exports.updateOne = async (req, res) => {
     try{
         const item = Item.findByIdAndUpdate(req.params.id, req.body, {new: true})
         res.status(200).json(item)

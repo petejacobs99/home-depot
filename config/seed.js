@@ -1,5 +1,5 @@
-require('dotenv').config();
-require('./database');
+require('dotenv').config()
+require('./database')
 const Category = require('../models/category')
 const Department = require('../models/department')
 const SubItem = require('../models/subItem')
@@ -7,12 +7,12 @@ const Item = require('../models/item')
 
     (async function () {
 
-        await Department.deleteMany({});
+        await Department.deleteMany({})
         const department = await Department.create({name: test})
-        await Category.deleteMany({});
+        await Category.deleteMany({})
         const category = await Category.create({name: test, image: test, department: department})
 
-        await SubItem.deleteMany({});
+        await SubItem.deleteMany({})
         const subItems = await SubItem.create([
             {
                 color: 'test',

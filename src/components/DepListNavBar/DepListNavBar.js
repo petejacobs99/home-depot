@@ -1,4 +1,4 @@
-import styles from "./DepListNavBar.module.scss";
+import styles from "./DepListNavBar.module.scss"
 
 export default function DepListNavBar({
   departments,
@@ -13,6 +13,6 @@ export default function DepListNavBar({
     >
       {dep}
     </div>
-  ));
-  return <span className={styles.DepartmentList}>{deps}</span>;
+  ))
+  return <span className={styles.DepartmentList}>{deps}</span>
 }

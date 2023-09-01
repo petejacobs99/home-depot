@@ -13,4 +13,4 @@ module.exports = function(req, res, next) {
     req.user = null
     return next()
   }
-};
+}

@@ -24,10 +24,7 @@ app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'))
 app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'))
 app.use('/api/wishlist', ensureLoggedIn, require('./routes/api/wishlist'))
 app.use('/api/category', ensureLoggedIn, require('./routes/api/categories'))
-<<<<<<< HEAD
-=======
 app.use('/api/department', ensureLoggedIn, require('./routes/api/departments'))
->>>>>>> 1407c2c877df8144731115878157120388b7ae0a
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public', 'index.html'))

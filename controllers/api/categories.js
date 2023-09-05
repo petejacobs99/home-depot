@@ -1,12 +1,10 @@
-const Category = require('../models/Category')
-const Department = require('../models/Department')
+const Category = require('../../models/category')
+const Department = require('../../models/department')
+const Item = require('../../models/item')
 
-module.exports = {
-    getAllCategories,
-    getCategoriesByDepartment,
-}
 
-async function getAllCategories(req, res) {
+// Get all categories and the associated deparment, display featured categories and items on the home page
+exports.getAllCategories = async (req, res) => {
     try {
         const categories = await Category.find().populate('department')
         res.status(200).json(categories)
@@ -15,17 +13,13 @@ async function getAllCategories(req, res) {
     }
 }
 
-async function getCategoriesByDepartment (req, res) {
+// Get categories based on the selected department for the category list page
+exports.getCategoriesByDepartment = async (req, res) => {
     try {
         const departmentName = req.params.departmentName
 
         // Find the department based on the departmentName
-        const department = await Department.findOne({ name: departmentName }).populate({
-            path: 'categories',
-            populate: {
-                path: 'items'
-            }
-        })
+        const department = await Department.findOne({ name: departmentName }).populate('categories')
 
         if (!department) {
             return res.status(404).json({ error: 'Department not found' })
@@ -36,5 +30,3 @@ async function getCategoriesByDepartment (req, res) {
         res.status(400).json({ message: error.message })
     }
 }
-
-

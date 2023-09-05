@@ -10,7 +10,8 @@ const itemSchema = new Schema(
 		category: { type: Schema.Types.ObjectId, ref: 'Category' },
 		details: String,
 		searchTerms: [String],
-		subItems: [subItemSchema]
+		subItems: [subItemSchema],
+		featured: { type: Boolean, default: false }
 	},
 	{
 		timestamps: true

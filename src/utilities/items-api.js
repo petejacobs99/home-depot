@@ -11,6 +11,9 @@ export function getByCategory(category){
 export function searchItems(searchTerm) {
   return sendRequest(`${BASE_URL}/items/search/${searchTerm}`)
 }
+export function getFeaturedItems() {
+  return sendRequest(`${BASE_URL}/items/featured`)
+}
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`)
 }

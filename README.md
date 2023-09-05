@@ -1,68 +1,152 @@
-# Big Poppa Code React Starter Kit
-This Starter Kit is being created for New Web Developers that want to get started with react
+<div style="text-align: center;">
 
-Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
+### Buckets and Beyond
 
-The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
-everything under the hood and no opinionated set up
+Buckets and Beyond is a full-stack web application inspired by the Home Depot website. It offers a wide range of products, categories, and features to enhance your shopping experience.
 
-I will base all my tutorials on this Starter Kit.
+### Pages and Components
 
-# Who Am I?
+## Home Page
 
-![arthurbernierjr.com](http://progressandfortune.com/smac_images/profile.jpg)
+The home page features category content blocks, a featured items carousel, and links to important pages including About Us, FAQ, and My Account.
 
-I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
-subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
-I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you. I also am a Full-Time Instructor at General Assembly as well as a Software Engineer at Blavity Inc.
+## Category List Page
 
+This page displays categories within a department, aiding users in finding their desired products.
 
-# My Favorite Online Instructors
+## Item Listing Page
 
-[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
+Displays a list of items with search, filter, and sorting mechanisms.
 
-[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+## Item Detail Page
 
-[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
+Provides detailed information about an item, including variations/types, reviews, photos, and links to suggested items.
 
-[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
+## Order Page
 
-## Steps
+Shows items added to the user's cart, with the ability to edit quantities, delete items, or save items for later.
 
-**Install Gulp Globally**
-```bash
-npm i -g gulp-cli
+## Checkout Page
+
+Displays a summary of items for purchase, allowing users to proceed to payment. Also provides sign-in/sign-up options for guests.
+
+## User Profile Page
+
+Displays user account information, settings, order history, reviews, and saved items.
+
+## Authentication Page
+
+Provides options for users to log in or create an account.
+
+## Search Results Page
+
+Similar to the Item Listing Page, this page shows filtered views of search results.
+
+### CRUD Operations
+
+Create: Users and reviews.
+
+Read: Displaying items, cart items, orders, reviews.
+
+Update: Modifying cart contents, updating user profile, editing reviews.
+
+Delete: Removing items from the cart, canceling orders, deleting reviews, deleting account.
+
+### Features
+
+Add to Cart: Users can add items to their cart.
+
+Add to Wishlist: Users can add items to their wishlist for future purchase.
+
+Checkout: Users can review and proceed to payment for items in their cart.
+
+Review and Rate: Users can leave reviews and ratings on items.
+
+Search for Items: Users can search for specific items using keywords.
+
+### API Routes and Requests
+
+Here are some example API routes, requests, and responses for reference:
+
+# User Authentication - Login:
+
+POST /api/auth/login
+
+Request Payload:
+
+```
+{
+  "email": "you@email.com",
+  "password": "1234567abc123!"
+}
 ```
 
-**Start the dev server**
-```bash
-npm run dev
+Example Response:
+
 ```
-### or
-```bash
-yarn dev
+{
+  "token": "cbqgoibhcoqbhqouibgcuiqabgcuio",
+  "user": {
+    "email": "you@email.com",
+    "name": "Your Name"
+  }
+}
 ```
 
-**Start the dev server with proxy**
-```bash
-npm run proxy
+# User Registration:
+
+POST /api/auth/register
+
+Request Payload:
+
+```
+{
+  "name": "Your Name",
+  "email": "you@email.com",
+  "password": "1234567abc123!"
+}
 ```
 
-**Build files for production**
-```bash
-yarn build
-```
-### or
+Example Response: (Same as login response)
 
-```bash
-npm run build
+# Get item Listing:
+
+GET /api/items
+
+Example Response:
+
+```
+[
+  {
+    "itemId": "12345",
+    "name": "item 1",
+    "price": 29.99,
+    "imageUrl": "https://something.com/img/item1.jpg"
+  },
+  {
+    "itemId": "67890",
+    "name": "item 2",
+    "price": 49.99,
+    "imageUrl": "https://something.com/img/item2.jpg"
+  }
+]
 ```
 
-**Deploy for production script**
-```bash
-npm start
-```
-### or
-```bash
-yarn start
-```
+### Contributors
+
+Elysea Crawford
+Mel Blanco
+Mimi Zhou
+San Lae Lae Cho
+Jillian Guerra
+Joey Zazzi
+Laura Cohen
+Peter Jacobs
+
+</div>
+
+
+
+
+
+

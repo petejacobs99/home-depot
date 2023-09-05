@@ -1,0 +1,5 @@
+// router.get('api/items/', itemCtrl.index)
+// router.get(`api/items/featured`, itemCtrl.showFeaturedItems)
+// router.get('api/items/category/:category', itemCtrl.showByCategory)
+// router.get('api/items/items/search/:searchTerm', itemCtrl.search)
+// router.get('api/items/:id', itemCtrl.show)

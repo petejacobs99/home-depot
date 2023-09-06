@@ -18,7 +18,7 @@ async function getWishlist(req, res) {
             return res.status(404).json({ message: 'Wishlist not found' })
         }
 
-        res.status(200).json(wishlist);
+        res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }

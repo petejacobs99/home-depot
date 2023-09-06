@@ -8,10 +8,10 @@ const Item = require('../models/item');
 
     (async function () {
         //clean out the database:
-        // await Item.deleteMany({})
-        // await SubItem.deleteMany({})
-        // await Department.deleteMany({})
-        // await Category.deleteMany({})
+        await Item.deleteMany({})
+        await SubItem.deleteMany({})
+        await Department.deleteMany({})
+        await Category.deleteMany({})
 
         // generate departments:
         Department.create([
@@ -22,8 +22,8 @@ const Item = require('../models/item');
         ]).then( (departments) => {
             return Category.create([
                 { name: 'Cabinets', image: 'test', department: departments[0] },
-                { name: 'Faucets', image: 'test', department: departments[0] },
-                { name: 'Backsplash', image: 'test', department: departments[0] },
+                { name: 'Plumbing', image: 'test', department: departments[0] },
+                { name: 'Small Appliances', image: 'test', department: departments[0] },
                 { name: 'Garbage Disposal', image: 'test', department: departments[0] },
     
                 { name: 'Tubs', image: 'test', department: departments[1] },
@@ -66,7 +66,8 @@ const Item = require('../models/item');
                     category: categories[1],
                     details: `It's a faucet for the bathroom sink.`,
                     searchTerms: ['faucet', 'bathroom', 'nickel', 'bronze', 'chrome'],
-                    subItems: [faucets]
+                    subItems: [faucets],
+                    featured: true
                 })
             })
         })

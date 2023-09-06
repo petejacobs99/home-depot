@@ -1,4 +1,4 @@
-import "./ItemList.module.scss";
+import styles from "./ItemList.module.scss";
 import ItemListItem from "../ItemListItem/ItemListItem";
 
 export default function ItemList({
@@ -17,10 +17,10 @@ export default function ItemList({
   ); */
 
   const items = [...Array(16)].map((_, i) => (
-    <div className="item" key={i}>
+    <div className={styles.item} key={i}>
       <ItemListItem />
     </div>
   ));
 
-  return <div className="itemList">{items}</div>;
+  return <div className={styles.itemList}>{items}</div>;
 }

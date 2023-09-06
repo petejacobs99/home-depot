@@ -17,3 +17,4 @@ export function login(credentials) {
 export function deleteUser() {
   return sendRequest(`${BASE_URL}/delete`, 'DELETE');
 }
+//

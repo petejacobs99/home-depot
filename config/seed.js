@@ -33,11 +33,7 @@ const subItem = require('../models/subItem')(async function () {
 
 				{ name: 'Refridgerators', image: 'test', department: departments[2] },
 				{ name: 'Ovens', image: 'test', department: departments[2] },
-				{
-					name: 'Washers and Dryers',
-					image: 'test',
-					department: departments[2]
-				},
+				{ name: 'Washers and Dryers', image: 'test', department: departments[2] },
 				{ name: 'Microwaves', image: 'test', department: departments[2] },
 
 				{ name: 'Power Tools', image: 'test', department: departments[3] },

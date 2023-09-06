@@ -26,6 +26,5 @@ export default function AuthPage({ setUser }) {
     </main>
   );
 }
-// test
 
 

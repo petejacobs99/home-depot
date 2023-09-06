@@ -1,4 +1,4 @@
-import "./Hamburger.module.scss";
+import styles from "./Hamburger.module.scss";
 import { useState } from "react";
 
 export default function Hamburger() {
@@ -9,7 +9,7 @@ export default function Hamburger() {
   };
 
   return (
-    <div className="hamburger" onMouseEnter={handleHover}>
+    <div className={styles.hamburger} onMouseEnter={handleHover}>
       <div></div>
       <div></div>
       <div></div>

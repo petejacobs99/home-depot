@@ -33,11 +33,6 @@ async function showByCategory(req, res) {
     res.status(400).json({ message: error.message})
   }
 }
-
-const data = await Category.find({department: req.params.departmentId}).exec()
-    res.status(200).json(data)
-
-res.status(200).json(data)
 async function show(req, res) {
   try{
     const item = await Item.findById(req.params.id).populate('category subItem').exec()

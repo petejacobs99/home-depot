@@ -6,11 +6,6 @@ const checkToken = (req, res) => {
   console.log('req.user', req.user)
   res.json(req.exp)
 }
-module.exports = {
-  checkToken,
-  dataController,
-  apiController
-}
 
 const dataController = {
   async create (req, res, next) {
@@ -61,4 +56,9 @@ function createJWT (user) {
     process.env.SECRET,
     { expiresIn: '24h' }
   )
+}
+module.exports = {
+  checkToken,
+  dataController,
+  apiController
 }

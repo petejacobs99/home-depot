@@ -1,4 +1,4 @@
-/* .navBarTop,
+.navBarTop,
 .navBarBottom {
   display: flex;
   justify-content: space-between;
@@ -6,7 +6,7 @@
 
 .navBarTop {
   margin-right: 10vmin;
-} */
+}
 
 .navBarTop {
     margin-right: 10vmin;
@@ -14,17 +14,17 @@
     justify-content: space-between;
   }
 
-/* .navBarBottom { */
+.navBarBottom {
   /* border-top: 0.2vmin solid black;
   border-bottom: 0.2vmin solid black; */
-  /* margin-top: 2vmin;
+  margin-top: 2vmin;
   padding-top: 1vmin;
   padding-bottom: 1vmin;
   padding-left: 1vmin;
   padding-right: 1vmin;
   background-color: var(--olive-green);
   color: var(--white);
-} */
+}
 
 .hamContainer {
   position: absolute;

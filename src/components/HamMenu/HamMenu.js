@@ -1,4 +1,4 @@
-import "./HamMenu.module.scss";
+import styles from "./HamMenu.module.scss";
 import { getUser } from '../../utilities/users-service';
 
 export default function HamMenu() {
@@ -8,10 +8,10 @@ export default function HamMenu() {
     }
 
     return (
-        <ul className="menuContainer">
+        <ul className={styles.menuContainer}>
           <li>
             {user ? (
-              <ul className="userOptions">
+              <ul className={styles.userOptions}>
                 <li
                   onClick={handleClick}
                 >
@@ -31,14 +31,14 @@ export default function HamMenu() {
                 <li onClick={handleClick}>LOGOUT</li>
               </ul>
             ) : (
-              <p className="auth" onClick={handleClick}>
+              <p className={styles.auth} onClick={handleClick}>
                 SIGN IN / SIGN UP
               </p>
             )}
           </li>
           {/* <p>{result}</p> */}
           <li>
-            <ul className="info">
+            <ul className={styles.info}>
               <li onClick={handleClick}>
                 FAQ
               </li>

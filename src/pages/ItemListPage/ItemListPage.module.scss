@@ -8,12 +8,6 @@
   margin-right: 10vmin;
 }
 
-.navBarTop {
-    margin-right: 10vmin;
-    display: flex;
-    justify-content: space-between;
-  }
-
 .navBarBottom {
   /* border-top: 0.2vmin solid black;
   border-bottom: 0.2vmin solid black; */
@@ -29,4 +23,12 @@
 .hamContainer {
   position: absolute;
   right: 2vmin;
+}
+
+@media only screen and (max-width: 480px) {
+  .navBarBottom {
+    font-size: 3.5vmin;
+    padding-left: 2vmin;
+    padding-right: 2vmin;
+  }
 }

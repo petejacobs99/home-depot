@@ -1,3 +1,5 @@
+/* AuthPage.module.scss */
+
 .form-container {
     padding: 20px;
     background-color: #e7dcc9;
@@ -7,21 +9,23 @@
     text-align: center;
   }
   
-.form-container label {
+  /* Add this CSS to align labels with input fields */
+  .form-container label {
     display: block;
     margin-top: 10px;
+    text-align: left; /* Align labels to the left */
     color: #381806;
-}
+  }
   
-.form-container input {
+  .form-container input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: none;
     border-bottom: 1px solid #777e49;
-}
+  }
   
-.form-container button {
+  .form-container button {
     background-color: #777e49;
     color: white;
     border: none;
@@ -30,14 +34,14 @@
     cursor: pointer;
     border-radius: 4px;
     margin-top: 10px;
-}
+  }
   
-.form-container button:disabled {
+  .form-container button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-}
+  }
   
-.error-message {
+  .error-message {
     color: #d9534f;
-}
+  }
   

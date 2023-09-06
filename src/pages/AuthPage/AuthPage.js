@@ -1,25 +1,31 @@
-import styles from "./AuthPage.module.scss";
+import React, { useState } from 'react';
+import styles from './AuthPage.module.scss';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
-const AuthPage = () => {
+export default function AuthPage({ setUser }) {
+  const [showLogin, setShowLogin] = useState(true);
+
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Sign In</h1>
-      <div className={styles.form}>
-        <input
-          type="email"
-          placeholder="Email Address"
-          className={styles.input}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className={styles.input}
-        />
-        <button className={styles.signInBtn}>Sign In</button>
+    <main className={styles.AuthPage}>
+      <div className={styles.container}>
+        <div>
+          <h3
+            className={showLogin ? styles.signUpText : styles.logInText}
+            onClick={() => setShowLogin(!showLogin)}
+          >
+            {showLogin ? 'Sign In' : 'Create an Account'}
+          </h3>
+        </div>
+        {showLogin ? (
+          <LoginForm setUser={setUser} />
+        ) : (
+          <SignUpForm setUser={setUser} />
+        )}
       </div>
-      <button className={styles.createAccountBtn}>Create an Account</button>
-    </div>
+    </main>
   );
-};
+}
 
-export default AuthPage;
+
+

@@ -16,10 +16,8 @@ exports.getAllCategories = async (req, res) => {
 // Get categories based on the selected department for the category list page
 exports.getCategoriesByDepartment = async (req, res) => {
     try {
-        const departmentName = req.params.departmentName
-
         // Find the department based on the departmentName
-        const department = await Department.findOne({ name: departmentName }).populate('categories')
+        const department = await Department.findOne({ name: req.params.depId }).populate('categories')
 
         if (!department) {
             return res.status(404).json({ error: 'Department not found' })

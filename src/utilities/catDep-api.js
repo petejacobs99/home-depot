@@ -8,3 +8,6 @@ export function getDepartments() {
 export function getCategories(departmentId){
   return sendRequest(`${BASE_URL}/categories/${departmentId}`)
 }
+export function getAllCategories(){
+  return sendRequest(`${BASE_URL}/categories/`)
+}

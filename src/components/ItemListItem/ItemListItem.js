@@ -1,4 +1,4 @@
-import "./ItemListItem.module.scss";
+import styles from "./ItemListItem.module.scss";
 import { useState } from "react";
 
 export default function ItemListItem({
@@ -34,42 +34,42 @@ export default function ItemListItem({
   let emptyStars = [...Array(1)].map((_, i) => <span key={i}>☆</span>);
 
   return (
-    <div className="App">
-      <div className="itemListItem">
+    <div className={styles.App}>
+      <div className={styles.itemListItem}>
         <div
-          className="heart"
+          className={styles.heart}
           onMouseEnter={handleHeartHover}
           onMouseLeave={handleHeartHover}
           onClick={handleHeartClick}
         >
           {filledHeart || wishListItem ? "♥" : "♡"}
         </div>
-        <div className="imageContainer">
+        <div className={styles.imageContainer}>
           <img
-            className="image"
+            className={styles.image}
             src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
             alt="bucket"
             height="100vmin"
           />
         </div>
-        <div className="itemInfoLine1">
-          <div className="name">
+        <div className={styles.itemInfoLine1}>
+          <div className={styles.name}>
             {/* {itemListItem.name} */}
             Item
           </div>
-          <div className="price">
+          <div className={styles.price}>
             <span>$0.00</span>
           </div>
         </div>
-        <div className="itemInfoLine2">
-          <div className="rating">
+        <div className={styles.itemInfoLine2}>
+          <div className={styles.rating}>
             {filledStars}
             {emptyStars}
           </div>
           {inCart ? (
-            <button className="btn-disabled">IN CART</button>
+            <button className={styles.btnDisabled}>IN CART</button>
           ) : (
-            <button className="btn-sm" onClick={handleAddToOrder}>
+            <button className={styles.btnSm} onClick={handleAddToOrder}>
               ADD TO CART
             </button>
           )}

@@ -6,13 +6,15 @@
 }
 
 .menuContainer {
-  margin-left: 20vmin;
-  margin-right: 25vmin;
+  /* margin-left: 20vmin;
+  margin-right: 25vmin; */
+  margin-top: 5.5vmin;
   padding: 5vmin;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 94%;
+  /* height: 94%; */
+  height: 90vmin;
   background-color: var(--olive-green);
   color: var(--white);
   font-size: 5vmin;

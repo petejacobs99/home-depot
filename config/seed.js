@@ -11,7 +11,7 @@ const subItem = require('../models/subItem')(async function () {
 	// await SubItem.deleteMany({})
 	// await Department.deleteMany({})
 	// await Category.deleteMany({})
-
+  
 	// generate departments:
 	Department.create([
 		{ name: 'Kitchen' },

@@ -1,16 +1,16 @@
 import styles from "./CatListItem.module.scss";
 import * as catsAPI from '../../utilities/catDep-api';
 import * as itemsAPI from '../../utilities/items-api';
-import { useNavigate } from 'react-router-dom';
+/* import { useNavigate } from 'react-router-dom'; */
 
 
-export default function CatListItem({ categories, category }) {
-    const navigate = useNavigate();
+export default function CatListItem({ categories, category, handleClick }) {
+    /* const navigate = useNavigate(); */
 
-    async function handleClick() {
+    /* async function handleClick() {
         await itemsAPI.getByCategory(category);
         navigate(`/category/${category}`);
-    }
+    } */
 
     return (
         <div className={styles.catListItem} onClick={handleClick}>

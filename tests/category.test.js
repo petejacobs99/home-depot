@@ -20,6 +20,9 @@ afterAll(async () => {
 
 describe('Test the category endpoints', () => {
     test('It should display all categories', async () => {
+        const user = new User({name: 'test', email: 'test40@email.com', password: 'test'})
+        await user.save()
+        const token = await user.createJWT()
         const hardware = new Department({ name: 'hardware' })
         await hardware.save()
         const bathroom = new Department({ name: 'bathroom' })
@@ -28,12 +31,16 @@ describe('Test the category endpoints', () => {
         await kitchen.save()
         const response = await request(app)
             .get(`api/departments/`)
+            .set(`Authorization`, `Bearer ${token}`)
         expect(response.statusCode).toBe(200)
         expect.objectContaining(hardware)
         expect.objectContaining(bathroom)
         expect.objectContaining(kitchen)
     })
     test('It should display all categories in a department', async () => {
+        const user = new User({name: 'test', email: 'test41@email.com', password: 'test'})
+        await user.save()
+        const token = await user.createJWT()
         const department = new Department({ name: 'hardware' })
         await department.save()
         const buckets = new Category({ name: 'buckets', department: department._id })
@@ -42,6 +49,7 @@ describe('Test the category endpoints', () => {
         await hammers.save()
         const response = await request(app)
             .get(`api/categories/${department._id}`)
+            .set(`Authorization`, `Bearer ${token}`)
         expect(response.statusCode).toBe(200)
         expect.objectContaining(buckets)
         expect.objectContaining(hammers)

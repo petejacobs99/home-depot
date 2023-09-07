@@ -24,7 +24,7 @@ describe('Test the order endpoints', () => {
     test('It should add an item to the cart', async () => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
         const item = new Item({ name: 'test', image: 'test', description: 'test', subItems: [subItem] })
@@ -39,7 +39,7 @@ describe('Test the order endpoints', () => {
     test('It should add an item to the cart that is already in the cart.', async () => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const order = new Order({ user: user._id })
         await order.save()
         const subItem = new SubItem({ color: 'test', price: 100 })
@@ -60,7 +60,7 @@ describe('Test the order endpoints', () => {
     test('It should display items in the cart and the total', async () => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const order = new Order({ user: user._id })
         await order.save()
         const subItem = new SubItem({ color: 'test', price: 100 })
@@ -80,7 +80,7 @@ describe('Test the order endpoints', () => {
     test('It should change item quantity', async () => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const order = new Order({ user: user._id })
         await order.save()
         const subItem = new SubItem({ color: 'test', price: 100 })
@@ -99,7 +99,7 @@ describe('Test the order endpoints', () => {
     })
     test('It should delete an item from the cart', async () => {
         const user = new User({ guest: true })
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         await user.save()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
@@ -119,7 +119,7 @@ describe('Test the order endpoints', () => {
     })
     test('It should check out the cart', async() => {
         const user = new User({ guest: true })
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         await user.save()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
@@ -139,7 +139,7 @@ describe('Test the order endpoints', () => {
     test('It should show paid carts', async() => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const order = new Order({ user: user._id })
         await order.save()
         const subItem = new SubItem({ color: 'test', price: 100 })

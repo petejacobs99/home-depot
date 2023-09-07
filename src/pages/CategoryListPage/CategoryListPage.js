@@ -16,11 +16,10 @@ export default function CategoryListPage({ departments }) {
   const departmentsRef = useRef([]);
   const navigate = useNavigate();
 
-  useEffect(function () {
-    async function getCats() {
+  /* useEffect(function () {
+    async function getCats() { */
       /* const cats = await catsAPI.getCategories(department._id); */
-      const cats = await catsAPI.getAllCategories();
-      console.log(cats)
+      /* const cats = await catsAPI.getAllCategories();
       departmentsRef.current = cats.reduce((deps, cat) => {
         const dep = cat.department.name;
         return deps.includes(dep) ? deps : [...deps, dep];
@@ -29,7 +28,26 @@ export default function CategoryListPage({ departments }) {
       setActiveDep(departmentsRef.current[0]);
     }
     getCats();
+  }, []); */
+
+  useEffect(function () {
+    async function getDeps() {
+      const deps = await catsAPI.getDepartments();
+      console.log(deps)
+      departmentsRef.current = [...deps]
+      let name = departmentsRef.current[0].name
+      let id = departmentsRef.current[0]._id
+      setActiveDep(name);
+      getCats(name, id)
+    }
+    getDeps();
   }, []);
+
+  async function getCats(depName, depId) {
+    const data = await catsAPI.getCategories(depId);
+    setCategories(data);
+    setActiveDep(depName)
+  }
 
   const handleHover = () => {
     setDrop(!drop);

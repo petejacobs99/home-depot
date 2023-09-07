@@ -23,9 +23,9 @@ afterAll(async () => {
 
 describe('Test the item endpoints', () => {
     test('It should display an item', async () => {
-        const user = new User({ guest: true })
+        const user = new User({ name: 'test', email: 'test20@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
         const item = new Item({ name: 'test', description: 'test', subItems: [subItem]})
@@ -38,9 +38,9 @@ describe('Test the item endpoints', () => {
     expect(response.body.subItems).toContain(subItem)
     })
     test('It should search for an item', async () => {
-        const user = new User({ guest: true })
+        const user = new User({ name: 'test', email: 'test21@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToke()
+        const token = await user.createJWT()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
         const item = new Item({ name: 'test', description: 'test', subItems: [subItem], searchTerm: ['test']})
@@ -52,9 +52,9 @@ describe('Test the item endpoints', () => {
         expect.objectContaining(item)
     })
     test('It should display all items', async() => {
-        const user = new User({ guest: true })
+        const user = new User({ name: 'test', email: 'test22@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToke()
+        const token = await user.createJWT()
         const subItem1 = new SubItem({ color: 'test', price: 100 })
         await subItem1.save()
         const item1 = new Item({ name: 'test', description: 'test', subItems: [subItem1]})
@@ -71,9 +71,9 @@ describe('Test the item endpoints', () => {
         expect.objectContaining(item2)
     })
     test('It should display all featured items', async() => {
-        const user = new User({ guest: true })
+        const user = new User({ name: 'test', email: 'test23@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToke()
+        const token = await user.createJWT()
         const subItem1 = new SubItem({ color: 'test', price: 100 })
         await subItem1.save()
         const item1 = new Item({ name: 'test', description: 'test', subItems: [subItem1], featured: true})
@@ -90,9 +90,9 @@ describe('Test the item endpoints', () => {
         expect.objectContaining(item2)
     })
     test('It should display all items in a category', async() => {
-        const user = new User({ guest: true })
+        const user = new User({ name: 'test', email: 'test24@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToke()
+        const token = await user.createJWT()
         const department = new Department({name: 'hardware'})
         await department.save()
         const category = new Category({name: 'drills', department: department._id})

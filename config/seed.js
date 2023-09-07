@@ -376,14 +376,7 @@ const Item = require('../models/item');
             img: 'test',
             category: categories[9],
             details: '',
-            searchTerms: [
-                'refridgerators',
-                'fridge',
-                'kitchen',
-                'silver',
-                'white',
-                'black'
-            ],
+            searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'white', 'black'],
             subItems: [lGRefridgerators]
         },
         {

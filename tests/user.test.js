@@ -49,7 +49,7 @@ describe('Test the user endpoints', () => {
     test('It should update a user', async () => {
         const user = new User({ name: 'test', email: 'test3@email.com', password: 'test' })
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const response = await request(app)
             .put(`/users/${user._id}`)
             .set(`Authorization`, `Bearer ${token}`)
@@ -61,7 +61,7 @@ describe('Test the user endpoints', () => {
     test('It should check the user token', async () => {
         const user = new User({ name: 'test', email: 'test5@email.com', password: 'test'})
         await user.save()
-        const token = await user.generateAuthToken()
+        const token = await user.createJWT()
         const response = await request(app)
             .get(`/api/users/check-token`)
             .set(`Authorization`, `Bearer ${token}`)

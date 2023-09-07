@@ -44,6 +44,7 @@ export default function App() {
             <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser} />} />
             <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} />} />
             <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser} />} />
+            <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
             <Route path="/*" element={<Navigate to="/home/categories/items" />} />
           </Routes>
         </>

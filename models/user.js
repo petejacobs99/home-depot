@@ -8,7 +8,7 @@ const SALT_ROUNDS = 10;
 
 const userSchema = new Schema(
 	{
-		firstName: { type: String, required: true },
+		firstName: { type: String, required: true, default: "Guest" },
 		lastName: String,
 		email: { type: String, unique: true, lowercase: true },
 		password: String,

@@ -11,7 +11,7 @@ const userSchema = new Schema({
   lastName: String,
   email: { type: String, unique: true, lowercase: true },
   password: String,
-  isGuest: { type: Boolean, default: true }
+  isGuest: { type: Boolean, default: false }
 }, {
   timestamps: true,
   toJSON: {

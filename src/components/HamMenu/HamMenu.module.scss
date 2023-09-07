@@ -22,6 +22,7 @@
 
 .auth {
   margin-top: 0;
+  color: var(--white);
 }
 
 .userOptions,
@@ -29,9 +30,22 @@
   line-height: 1.4;
 }
 
+.faq {
+  color: var(--white);
+}
+
 .auth:hover,
 .userOptions li:hover,
 .info li:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: var(--white);
+}
+
+a {
+  color: var(--white);
+}
+
+a:hover {
+  color: var(--white);
 }

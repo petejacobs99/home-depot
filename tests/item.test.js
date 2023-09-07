@@ -25,7 +25,7 @@ describe('Test the item endpoints', () => {
     test('It should display an item', async () => {
         const user = new User({ guest: true })
         await user.save()
-        const token = await user.generateAuthToke()
+        const token = await user.generateAuthToken()
         const subItem = new SubItem({ color: 'test', price: 100 })
         await subItem.save()
         const item = new Item({ name: 'test', description: 'test', subItems: [subItem]})

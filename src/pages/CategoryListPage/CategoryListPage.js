@@ -20,6 +20,7 @@ export default function CategoryListPage({ departments }) {
     async function getCats() {
       /* const cats = await catsAPI.getCategories(department._id); */
       const cats = await catsAPI.getAllCategories();
+      console.log(cats)
       departmentsRef.current = cats.reduce((deps, cat) => {
         const dep = cat.department.name;
         return deps.includes(dep) ? deps : [...deps, dep];
@@ -33,6 +34,10 @@ export default function CategoryListPage({ departments }) {
   const handleHover = () => {
     setDrop(!drop);
   };
+
+  async function handleClick(category) {
+    navigate(`/category/${category}`);
+  }
 
   return (
     <div className={styles.App}>
@@ -66,7 +71,7 @@ export default function CategoryListPage({ departments }) {
         <CategoryList
           categories={categories.filter(cat => cat.category.name === activeDep)}
           setCategories={setCategories} 
-          /* onClick={handleClick} */
+          onClick={handleClick}
         />
       </div>
     </div>

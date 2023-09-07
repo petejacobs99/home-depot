@@ -7,10 +7,10 @@ const SubItem = require('../models/subItem');
 const Item = require('../models/item');
 const subItem = require('../models/subItem')(async function () {
 	//clean out the database:
-	// await Item.deleteMany({})
-	// await SubItem.deleteMany({})
-	// await Department.deleteMany({})
-	// await Category.deleteMany({})
+	await Item.deleteMany({})
+	await SubItem.deleteMany({})
+	await Department.deleteMany({})
+	await Category.deleteMany({})
   
 	// generate departments:
 	Department.create([

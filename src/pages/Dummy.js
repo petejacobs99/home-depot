@@ -1,3 +1,5 @@
+import SearchBar from "../components/SearchBar/SearchBar";
+
 export default function () {
-    return <h1>Dummy</h1>
+    return <SearchBar />
 }

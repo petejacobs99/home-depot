@@ -9,7 +9,7 @@ exports.getAllCategories = async (req, res) => {
         const categories = await Category.find().populate('department')
         res.status(200).json(categories)
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message, line: 'line 12 categories.js' })
     }
 }
 
@@ -25,6 +25,6 @@ exports.getCategoriesByDepartment = async (req, res) => {
 
         res.status(200).json(department.categories)
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message, line: 'line 28 categories.js' })
     }
 }

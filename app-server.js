@@ -19,12 +19,12 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'))
 // Protect the API routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn')
-app.use('/api/items', require('./routes/api/items'))
+app.use('/api/items', ensureLoggedIn, require('./routes/api/items'))
 app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'))
 app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'))
 app.use('/api/wishlist', ensureLoggedIn, require('./routes/api/wishlist'))
-app.use('/api/category', require('./routes/api/categories'))
-app.use('/api/department', require('./routes/api/departments'))
+app.use('/api/categories', require('./routes/api/categories'))
+app.use('/api/departments', require('./routes/api/departments'))
 
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public', 'index.html'))

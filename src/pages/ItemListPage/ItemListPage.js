@@ -1,9 +1,9 @@
 import "../../scss/styles.scss";
 import styles from "./ItemListPage.module.scss"
 import { useState } from "react";
-/* import NavBar from "../../components/NavBar/NavBar"; */
-import Hamburger from "../../components/Hamburger/Hamburger";
-import HamMenu from "../../components/HamMenu/HamMenu";
+import NavBar from "../../components/NavBar/NavBar";
+/* import Hamburger from "../../components/Hamburger/Hamburger";
+import HamMenu from "../../components/HamMenu/HamMenu"; */
 import ItemList from "../../components/ItemList/ItemList";
 
 export default function ItemListPage() {
@@ -15,7 +15,7 @@ export default function ItemListPage() {
 
   return (
     <div className={styles.App}>
-      <div className={styles.navBar}>
+      {/* <div className={styles.navBar}>
         <div className={styles.navBarTop}>
           <div>LOGO</div>
           <div>SEARCH</div>
@@ -39,8 +39,8 @@ export default function ItemListPage() {
           <div>HARDWARE</div>
           <div>&gt;</div>
         </div>
-      </div>
-      {/* <NavBar /> */}
+      </div> */}
+      <NavBar />
       <div className={styles.itemList}>
         <ItemList />
       </div>

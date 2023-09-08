@@ -12,7 +12,7 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
     ))
     
     return (
-      <div className="DepartmentList">
+      <div className={styles.DepartmentList}>
         {deps}
         <div>
           <img

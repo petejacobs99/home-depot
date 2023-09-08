@@ -1,7 +1,6 @@
 import styles from "./DepartmentList.module.scss"
 
 export default function DepartmentList({ departments, handleOpenCategoryListPage }) {
-    
     const deps = departments.map((dep) => (
       <div
         key={dep}

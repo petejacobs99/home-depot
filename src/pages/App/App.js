@@ -7,7 +7,7 @@ import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
-import HomePage from '../HomePage/HomePage'; 
+import HomePage from '../HomePage/HomePage';
 /* import ItemDetailPage from '../ItemDetailPage/ItemDetailPage'; */
 import ItemListPage from '../ItemListPage/ItemListPage';
 /* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */

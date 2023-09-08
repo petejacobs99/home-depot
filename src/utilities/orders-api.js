@@ -22,6 +22,6 @@ export function getOrderHistory() {
   return sendRequest(`${BASE_URL}/history`)
 }
 
-export function moveToCart(subItemId) {
-  return sendRequest(`${BASE_URL}/wishlist`, 'POST', subItemId)
-}
+// export function moveToCart(subItemId) {
+//   return sendRequest(`${BASE_URL}/wishlist`, 'POST', subItemId)
+// }

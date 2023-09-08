@@ -7,7 +7,7 @@ import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
-/* import HomePage from '../HomePage/HomePage'; */
+import HomePage from '../HomePage/HomePage';
 /* import ItemDetailPage from '../ItemDetailPage/ItemDetailPage'; */
 import ItemListPage from '../ItemListPage/ItemListPage';
 /* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */
@@ -17,7 +17,7 @@ import UserProfilePage from '../UserProfilePage/UserProfilePage';
 /* import WishlistPage from '../WishlistPage/WishlistPage'; */
 // holding pages
 import AboutUsPage from '../Dummy';
-import HomePage from '../Dummy';
+//import HomePage from '../Dummy';
 import ItemDetailPage from '../Dummy';
 import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
@@ -44,7 +44,8 @@ export default function App() {
             <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser} />} />
             <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} />} />
             <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser} />} />
-            <Route path="/*" element={<Navigate to="/home/categories/items" />} />
+            <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
+            {/*<Route path="/*" element={<Navigate to="/home" />} />*/}
           </Routes>
         </>
         {/* :

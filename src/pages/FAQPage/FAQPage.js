@@ -1,5 +1,8 @@
 import FAQDropdown from "./FAQDropdown";
 import styles from "./FAQPage.module.scss";
+import Hamburger from "../../components/Hamburger/Hamburger";
+import HamMenu from "../../components/HamMenu/HamMenu";
+import { useState } from "react";
 
 const usersFAQs = [
   {
@@ -41,7 +44,39 @@ const techSupportFAQs = [
 ];
 
 const FAQPage = () => {
+  const [drop, setDrop] = useState(false);
+
+  const handleHover = () => {
+    setDrop(!drop);
+  };
+  
   return (
+    <>
+    <div className={styles.navBar}>
+        <div className={styles.navBarTop}>
+          <div>LOGO</div>
+          <div>SEARCH</div>
+          <div>CART</div>
+          <div
+            className={styles.hamContainer}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleHover}
+          >
+            <div className={styles.hamburger}>
+              <Hamburger />
+            </div>
+            {drop && <HamMenu />}
+          </div>
+        </div>
+        <div className={styles.navBarBottom}>
+          <div>&lt;</div>
+          <div>KITCHEN</div>
+          <div>BATHROOM</div>
+          <div>APPLIANCES</div>
+          <div>HARDWARE</div>
+          <div>&gt;</div>
+        </div>
+      </div>
     <div className={styles.container}>
       <h1>Frequently Asked Questions</h1>
       <FAQDropdown
@@ -69,8 +104,8 @@ const FAQPage = () => {
         faqs={techSupportFAQs}
       />
     </div>
+    </>
   );
 };
 
 export default FAQPage;
-

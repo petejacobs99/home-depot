@@ -1,7 +1,6 @@
 import styles from "./DepartmentList.module.scss"
 
 export default function DepartmentList({ departments, handleOpenCategoryListPage }) {
-    /*
     const deps = departments.map((dep) => (
       <div
         key={dep}
@@ -11,10 +10,11 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
         {dep}
       </div>
     ))
-    */
+    
     return (
-      <div className="DepartmentList">
-        <div>
+      <div className={styles.DepartmentList}>
+        {deps}
+        {/* <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="bathroom"
@@ -41,7 +41,7 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
             alt="hardware"
           />
           <p>HARDWARE</p>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     )
   }

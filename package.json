@@ -73,6 +73,7 @@
     "mongoose": "^7.4.0",
     "morgan": "^1.10.0",
     "seed": "^0.4.4",
-    "serve-favicon": "^2.5.0"
+    "serve-favicon": "^2.5.0",
+    "react-responsive-carousel": "^3.2.23"
   }
 }

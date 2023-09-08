@@ -5,16 +5,16 @@ import NavBar from './components/NavBar/NavBar';
 import FeaturedItemCarousel from './components/FeaturedItemCarousel/FeaturedItemCarousel';
 import DepartmentList from './components/DepartmentList/DepartmentList';
 
-export default function App({ user, setUser }) {
+export default function App({ departments, user, setUser }) {
 	const [depList, setDepList] = useState([]);
 	const departmentsRef = useRef([]);
 	const navigate = useNavigate();
 
 	useEffect(function () {
 		async function getDeps() {
-			//const deps = await depAPI.getAllDepartments()
+			const deps = await depAPI.getAllDepartments()
 		}
-		//setDepList(deps)
+		setDepList(deps)
 	}, []);
 
 	return (
@@ -22,9 +22,9 @@ export default function App({ user, setUser }) {
 			<div className={styles.NavBar}>
 				<NavBar />
 			</div>
-			<FeaturedItemCarousel className={styles.Carousel} />
-			<div className="categoryList">
-				<CategoryList />
+			<FeaturedItemCarousel />
+			<div className={styles.DepartmentList}>
+				<DepartmentList />
 			</div>
 		</div>
 	);

@@ -14,7 +14,7 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
     return (
       <div className={styles.DepartmentList}>
         {deps}
-        <div>
+        {/* <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="bathroom"
@@ -41,7 +41,7 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
             alt="hardware"
           />
           <p>HARDWARE</p>
-        </div>
-      </div>
+        </div>*/}
+      </div> 
     )
   }

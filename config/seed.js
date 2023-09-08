@@ -17,7 +17,7 @@ const Item = require('../models/item');
     ])
     // generate categories:
     await Category.deleteMany({})
-    const categories = Category.create([
+    const categories = await Category.create([
         { name: 'Cabinets', image: 'test', department: departments[0] },
         { name: 'Faucets', image: 'test', department: departments[0] },
         { name: 'Backsplash', image: 'test', department: departments[0] },
@@ -346,7 +346,7 @@ const Item = require('../models/item');
     ])
     //Items:
     await Item.deleteMany({})
-    const items = Item.create([
+    const items = await Item.create([
         {
             name: 'bathroom faucet',
             img: 'test',

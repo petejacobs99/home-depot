@@ -1,17 +1,26 @@
-require('dotenv').config();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const Schema = mongoose.Schema;
 
-const SALT_ROUNDS = 10;
+const SALT_ROUNDS = 6;
 
 const userSchema = new Schema(
 	{
-		firstName: { type: String, required: true, default: "Guest" },
-		lastName: String,
-		email: { type: String, unique: true, lowercase: true },
-		password: String,
+		firstName: { type: String, required: true },
+		lastName: { type: String },
+		email: {
+			type: String,
+			unique: true,
+			trim: true,
+			lowercase: true,
+			required: true
+		},
+		password: {
+			type: String,
+			trim: true,
+			minlength: 3,
+			required: true
+		},
 		isGuest: { type: Boolean, default: false }
 	},
 	{
@@ -26,20 +35,11 @@ const userSchema = new Schema(
 );
 
 userSchema.pre('save', async function (next) {
+	// 'this' is the use document
 	if (!this.isModified('password')) return next();
+	// update the password with the computed hash
 	this.password = await bcrypt.hash(this.password, SALT_ROUNDS);
 	return next();
 });
-
-userSchema.methods.comparePassword = async function (candidatePassword) {
-	return await bcrypt.compare(candidatePassword, this.password);
-};
-userSchema.methods.createJWT = async function () {
-	const token = jwt.sign({ _id: this._id }, process.env.SECRET, {
-		expiresIn: '24h'
-	});
-	// creates a token using json web token, the token expires in 24 hours, the secret comes from the .env file
-	return token;
-};
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,4 +1,6 @@
+// /controllers/api/users.js
 const User = require('../../models/user');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
 const checkToken = (req, res) => {
@@ -7,36 +9,25 @@ const checkToken = (req, res) => {
 };
 
 const dataController = {
-	async create(req, res, next) {
+	async signUp(req, res, next) {
 		try {
+			console.log('create');
 			const user = await User.create(req.body);
-			const isGuest = req.body.isGuest;
+
 			// token will be a string
-			const token = await user.createJWT();
+			const token = createJWT(user);
 			// send back the token as a string
 			// which we need to account for
 			// in the client
+
 			res.locals.data.user = user;
 			res.locals.data.token = token;
 			next();
 		} catch (e) {
 			console.log('you got a database problem');
-			res.status(400).json(e);
-		}
-	},
-	//update put request findbyIdUpdate
-	async update(req, res, next) {
-		try {
-			const user = await User.findByIdAndUpdate(req.params.id, req.body, {
-				new: true
-			});
-			res.locals.data.user = user;
-			next();
-		} catch (e) {
 			res.status(400).json({ message: e.message });
 		}
 	},
-
 	async login(req, res, next) {
 		try {
 			const user = await User.findOne({ email: req.body.email });
@@ -44,7 +35,7 @@ const dataController = {
 			const match = await bcrypt.compare(req.body.password, user.password);
 			if (!match) throw new Error();
 			res.locals.data.user = user;
-			res.locals.data.token = await user.createJWT();
+			res.locals.data.token = createJWT(user);
 			next();
 		} catch {
 			res.status(400).json('Bad Credentials');
@@ -75,3 +66,14 @@ module.exports = {
 	dataController,
 	apiController
 };
+
+/* -- Helper Functions -- */
+
+function createJWT(user) {
+	return jwt.sign(
+		// data payload
+		{ user },
+		process.env.SECRET,
+		{ expiresIn: '24h' }
+	);
+}

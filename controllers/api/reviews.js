@@ -28,7 +28,8 @@ async function showAll(req, res) {
 }
 async function createReview(req, res) {
   try {
-    let review = await Review.findOne({user: req.body.user, item: req.params.id})
+    req.body.item = req.params.id
+    let review = await Review.findOne({user: req.body.user, item: req.body.item})
     if(review){
       review.body = req.body.body
       review.rating = req.body.rating

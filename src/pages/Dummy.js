@@ -1,5 +1,5 @@
-import SearchBar from "../components/SearchBar/SearchBar";
+import DepartmentList from '../components/DepartmentList/DepartmentList'
 
 export default function () {
-    return <SearchBar />
+    return <DepartmentList />
 }

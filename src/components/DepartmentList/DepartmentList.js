@@ -22,28 +22,28 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="kitchen"
           />
-          {department.name[0]}
+          {departments.name[0]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="bathroom"
           />
-          {department.name[1]}
+          {departments.name[1]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="appliances"
           />
-          {department.name[2]}
+          {departments.name[2]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="hardware"
           />
-          {department.name[3]}
+          {departments.name[3]}
         </div>
       </div> 
     )

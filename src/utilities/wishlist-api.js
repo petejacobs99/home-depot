@@ -6,10 +6,10 @@ export function showWishlist() {
   return sendRequest(`${BASE_URL}`)
 }
 
-export function addToWishlist(subItemId, itemId) {
-  return sendRequest(`${BASE_URL}/items/${subItemId}`, 'POST', {itemId})
+export function addToWishlist(itemId) {
+  return sendRequest(`${BASE_URL}/items/${itemId}`, 'POST')
 }
 
-export function removeFromWishlist(subItemId) {
-  return sendRequest(`${BASE_URL}/items/${subItemId}`, 'PUT')
+export function removeFromWishlist(itemId) {
+  return sendRequest(`${BASE_URL}/items/${itemId}`, 'PUT')
 }

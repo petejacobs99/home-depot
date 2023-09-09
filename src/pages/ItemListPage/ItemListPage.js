@@ -1,48 +1,43 @@
 import "../../scss/styles.scss";
 import styles from "./ItemListPage.module.scss"
-import { useState } from "react";
-import NavBar from "../../components/NavBar/NavBar";
-/* import Hamburger from "../../components/Hamburger/Hamburger";
-import HamMenu from "../../components/HamMenu/HamMenu"; */
+import { useState, useEffect, useRef } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
+import * as itemsAPI from "../../utilities/items-api";
 import ItemList from "../../components/ItemList/ItemList";
 
 export default function ItemListPage() {
-  const [drop, setDrop] = useState(false);
+  const [itemListItems, setItemListItems] = useState([]);
+  /* const [activeCat, setActiveCat] = useState(''); */
+  /* const categoriesRef = useRef([]); */
+  const navigate = useNavigate();
+  const params = useParams();
 
-  const handleHover = () => {
-    setDrop(!drop);
-  };
+  useEffect(function () {
+    async function getItems() {
+      /* const items = await itemsAPI.getAll();
+      categoriesRef.current = items.reduce((cats, item) => {
+        const cat = item.category.name;
+        return cats.includes(cat) ? cats : [...cats, cat];
+      }, []); */
+      const items = await itemsAPI.getByCategory(params.catName);
+      setItemListItems(items);
+      /* setActiveCat(categoriesRef.current[0]); */
+    }
+    getItems();
+  }, []);
+
+  async function handleClick(i) {
+    navigate(`/home/categories/items/${itemListItems[i]._id}`);
+  }
 
   return (
     <div className={styles.App}>
-      {/* <div className={styles.navBar}>
-        <div className={styles.navBarTop}>
-          <div>LOGO</div>
-          <div>SEARCH</div>
-          <div>CART</div>
-          <div
-            className={styles.hamContainer}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
-          >
-            <div className={styles.hamburger}>
-              <Hamburger />
-            </div>
-            {drop && <HamMenu />}
-          </div>
-        </div>
-        <div className={styles.navBarBottom}>
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
-        </div>
-      </div> */}
-      <NavBar />
       <div className={styles.itemList}>
-        <ItemList />
+        <ItemList 
+          itemListItems={itemListItems.filter(item => item.category.name === activeCat)}
+          setItemListItems={setItemListItems} 
+          onClick={handleClick}
+        />
       </div>
     </div>
   );

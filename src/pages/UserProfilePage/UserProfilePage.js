@@ -1,6 +1,8 @@
 import { useState } from "react";
 import styles from "./UserProfilePage.module.scss";
 import NavBar from "../../components/NavBar/NavBar";
+import DeleteUser from "../../components/DeleteUser/DeleteUser";
+import { deleteUser } from "../../utilities/users-api";
 
 const UserProfilePage = () => {
   const [firstName, setFirstName] = useState("");
@@ -22,9 +24,14 @@ const UserProfilePage = () => {
   const handleOrderHistory = () => {
   };
 
-  const handleDeleteAccount = () => {
-    alert("Account deleted!");
-  };
+  const handleDeleteAccount = async () => {
+    try {
+      await deleteUser();
+      alert("Account deleted!");
+  } catch (error) {
+    console.error("An error occured while deleting the user.");
+  }
+};
 
   return (
   <>
@@ -74,6 +81,7 @@ const UserProfilePage = () => {
           Delete Account
         </button>
       </div>
+      <DeleteUser user={user} setUser={setUser} />
     </div>
   </>
   );

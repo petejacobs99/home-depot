@@ -4,12 +4,11 @@ import * as itemsAPI from '../../utilities/items-api'
 import * as reviewAPI from '../../utilities/reviews-api'
 import styles from './NewOrderPage.module.scss'
 import {useParams, Link } from 'react-router-dom'
-import NavBar from '../../components/NavBar/NavBar'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import ReviewList from '../../components/ReviewList/ReviewList'
 
-export default function ItemDetailPage({ user, handleAddToOrder }) {
+export default function ItemDetailPage({ user, handleAddToOrder, handleAddToWishList }) {
     const [item, setItem] = useState({})
     const [reviews, setReviews] = useState({})
     const params = useParams()
@@ -21,11 +20,6 @@ export default function ItemDetailPage({ user, handleAddToOrder }) {
         }
         getItem()
     }, [])
-    /*-- Event Handlers --*/
-    // async function handleAddToOrder() {
-    //     const updatedCart = await ordersAPI.addToCart(itemId);
-    //     setCart(updatedCart);
-    // }
     async function getReviews() {
         const data = await reviewAPI.getReviews(itemId)
         setReviews(data)
@@ -41,16 +35,12 @@ export default function ItemDetailPage({ user, handleAddToOrder }) {
 
     return (
         <main className={styles.NewOrderPage}>
-            <nav>
-                <NavBar />
-            </nav>
             <main>
-                <Link to="/home/categories/items" className="button btn-sm">back</Link>
+                <Link to={`/home/${params.depName}/${params.catName}/items`} className="button btn-sm">back</Link>
                 <ItemDetail
                     item={item}
                     handleAddToOrder={handleAddToOrder}
-                    navigate={navigate}
-                    Link={Link} />
+                    handleAddToWishList={handleAddToWishList} />
             </main>
             <footer>
                 <ReviewForm

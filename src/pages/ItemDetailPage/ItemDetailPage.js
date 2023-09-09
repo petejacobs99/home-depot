@@ -3,24 +3,23 @@ import * as itemsAPI from '../../utilities/items-api'
 // import * as wishAPI from '../../utilities/wishlist-api'
 import * as reviewAPI from '../../utilities/reviews-api'
 import styles from './NewOrderPage.module.scss'
-import { Link } from 'react-router-dom'
+import {useParams, Link } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import ReviewList from '../../components/ReviewList/ReviewList'
 
-export default function NewOrderPage({ user, itemId, handleAddToOrder, activeCat }) {
+export default function ItemDetailPage({ user, handleAddToOrder }) {
     const [item, setItem] = useState({})
     const [reviews, setReviews] = useState({})
-
+    const params = useParams()
     useEffect(function () {
         async function getItem() {
-            const data = await itemsAPI.getById(itemId)
+            const data = await itemsAPI.getById(params.id)
             setItem(data)
-            getReviews(itemId)
+            getReviews(params.id)
         }
         getItem()
-        getReviews()
     }, [])
     /*-- Event Handlers --*/
     // async function handleAddToOrder() {

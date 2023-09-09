@@ -1,50 +1,29 @@
+import { useState } from "react"
 import styles from "./DepartmentList.module.scss"
 
-export default function DepartmentList({ departments, handleOpenCategoryListPage }) {
-    const deps = departments.map((dep) => (
+export default function DepartmentList({ departments }) {
+  const [activeDep, setActiveDep] = useState('')
+  const images = [
+    "https://i.imgur.com/cSFKjc1.jpg",
+    "https://i.imgur.com/cSFKjc1.jpg",
+    "https://i.imgur.com/cSFKjc1.jpg",
+    "https://i.imgur.com/cSFKjc1.jpg"
+  ]  
+
+  const deps = departments.map((dep, i) => (
       <div
-        key={dep}
+        key={dep.name}
         className={dep === activeDep ? styles.active : ""}
-        onClick={() => setActiveDep(dep)}
+        onClick={() => setActiveDep(dep.name)}
       >
-        {dep}
+        <img className={styles.img} src={images[i]} />
+        {dep.name}
       </div>
     ))
     
     return (
       <div className={styles.DepartmentList}>
-        {/* <div>
-				  {/* <img className={styles.img} src={departments.image} />
-          <div>{department.name}</div>
-			  </div> */} 
-        <div>
-          <img
-            src="https://i.imgur.com/cSFKjc1.jpg"
-            alt="kitchen"
-          />
-          {departments.name[0]}
-        </div>
-        <div>
-          <img
-            src="https://i.imgur.com/cSFKjc1.jpg"
-            alt="bathroom"
-          />
-          {departments.name[1]}
-        </div>
-        <div>
-          <img
-            src="https://i.imgur.com/cSFKjc1.jpg"
-            alt="appliances"
-          />
-          {departments.name[2]}
-        </div>
-        <div>
-          <img
-            src="https://i.imgur.com/cSFKjc1.jpg"
-            alt="hardware"
-          />
-          {departments.name[3]}
-        </div>
+        {deps}
       </div> 
     )
   }

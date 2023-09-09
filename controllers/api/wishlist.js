@@ -54,7 +54,6 @@ async function addItemToWishlist(req, res) {
             wishlist.items.push({ item: item })
             await wishlist.save()
         }
-
         res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -68,7 +67,7 @@ async function removeItemFromWishlist(req, res) {
         const wishlist = await Wishlist.findById(wishlistId)
         const indexToRemove = wishlist.items.findIndex((item) =>
             item.item.equals(itemId)
-        );
+        )
 
         if (indexToRemove === -1) {
             return res.status(404).json({ error: 'Item not found in the wishlist' })

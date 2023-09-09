@@ -1,24 +1,31 @@
-import DynamicStars from './DynamicStars';
 import styles from './Review.module.scss';
+import StaticStars from '../StarsStatic/StaticStars'
+import ReviewForm from '../ReviewForm/ReviewForm'
 
-const Review = ({ review, userReview }) => {
-  return (
-    <div className={styles.review}>
-      <h3>{review.reviewerName}</h3>
-      <p>{review.reviewText}</p>
-      <DynamicStars rating={review.rating} />
-
-    
-      {userReview && (
-        <div className={styles.userReview}>
-          <h4>Your Review:</h4>
-          <p>{userReview.reviewText}</p>
-          <DynamicStars rating={userReview.rating} />
-        </div>
-      )}
+export default function Reviews({ review, removeReview, user, addReview}) {
+  const [edit, setEdit] = useState(false)
+  const showForm = () => (
+    <ReviewForm 
+      item={review.item}
+      user={user}
+      addReview={addReview}/>
+  )
+  const showButtons = () => (
+    <>
+    <button onClick={() => removeReview(review.item)}>delete review</button>
+    <button onClick={() => setEdit(true)}>edit review</button>
+    </>
+  )
+  const showReview = () => (
+    <div className={styles.Review}>
+      <span className={styles.name}>{review.user.name}: </span>
+      <StaticStars rating={review.rating} />
+      <div className={styles.body}>{review.body}</div>
+      {user._id === review.user._id ? showButtons() : ''}
     </div>
-  );
-};
-
-export default Review;
+  )
+  return (
+    edit ? showForm : showReview
+  )
+}
 

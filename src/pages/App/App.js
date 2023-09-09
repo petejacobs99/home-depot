@@ -23,9 +23,9 @@ import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';
 import WishlistPage from '../Dummy';
-import ordersAPI from '../../utilities/orders-api'
-import catDepAPI from '../../utilities/catDep-api'
-import wishAPI from '../../utilities/wishlist-api'
+import * as ordersAPI from '../../utilities/orders-api'
+import * as catDepAPI from '../../utilities/catDep-api'
+import * as wishAPI from '../../utilities/wishlist-api'
 
 
 export default function App() {

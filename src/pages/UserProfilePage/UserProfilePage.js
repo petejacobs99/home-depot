@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./UserProfilePage.module.scss";
-import { getUser, updateUser } from "../../utilities/users-service";
 
 const UserProfilePage = () => {
   const [user, setUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    // Fetch user information when component mounts
     const fetchUser = async () => {
       try {
         const fetchedUser = await getUser();
@@ -19,6 +17,7 @@ const UserProfilePage = () => {
 
     fetchUser();
   }, []);
+
 
   const handleEditProfile = () => {
     setIsEditing(!isEditing);
@@ -38,11 +37,9 @@ const UserProfilePage = () => {
   };
 
   const handleWishlist = () => {
-    // Implement wishlist functionality
   };
 
   const handleOrderHistory = () => {
-    // Implement order history functionality
   };
 
   const handleDeleteAccount = async () => {
@@ -99,7 +96,6 @@ const UserProfilePage = () => {
         <div className={styles.buttons}>
           <button className={styles.wishlistBtn} onClick={handleWishlist}>
             Wishlist
-
           </button>
           <button className={styles.orderHistoryBtn} onClick={handleOrderHistory}>
             Order History

@@ -99,7 +99,7 @@ export default function App() {
           <Route path="/aboutus" element={<AboutUsPage user={user} />} />
           <Route path="/auth" element={<AuthPage user={user} />} />
           <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
-          <Route path="/home/departments/categories" element={<CategoryListPage user={user} />} />
+          <Route path="/home/:depName/categories" element={<CategoryListPage user={user} />} />
           <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
           <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 

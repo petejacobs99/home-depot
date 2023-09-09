@@ -2,12 +2,25 @@ const Wishlist = require('../../models/wishlist')
 const Item = require('../../models/item')
 
 module.exports = {
+    createWishList,
     getWishlist,
     addItemToWishlist,
     removeItemFromWishlist,
     deleteWishlist
 }
 
+async function createWishList(req, res) {
+    const userId = req.user._id
+
+    try { 
+        const wishlist = new Wishlist({ user: userId })
+        await wishlist.save()
+
+        res.status(200).json(wishlist)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
 
 async function getWishlist(req, res) {
     try {
@@ -24,10 +37,9 @@ async function getWishlist(req, res) {
     }
 }
 
-
 async function addItemToWishlist(req, res) {
     const userId = req.user._id
-    const itemId = req.body.itemId
+    const itemId = req.params.itemId
 
     try {
         const wishlist = await Wishlist.getWishlist(userId)
@@ -47,7 +59,6 @@ async function addItemToWishlist(req, res) {
         res.status(400).json({ message: error.message })
     }
 }
-
 
 async function removeItemFromWishlist(req, res) {
     try {
@@ -69,6 +80,7 @@ async function removeItemFromWishlist(req, res) {
         res.status(400).json({ message: error.message })
     }
 }
+
 
 
 async function deleteWishlist(req, res) {

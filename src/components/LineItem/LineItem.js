@@ -1,39 +1,20 @@
 import React from 'react';
-import styles from './LineItem.module.scss';
+import styles from './LineItem.module.scss'; // Import the SCSS module
 
-export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
+export default function LineItem({ item }) {
   return (
-    <div className={styles.LineItem}>
-      <div className="flex-ctr-ctr">{lineItem.item.emoji}</div>
-      <div className="flex-ctr-ctr flex-col">
-        <span className="align-ctr">{lineItem.item.name}</span>
-        <span className={styles.field}>Price: ${lineItem.item.price.toFixed(2)}</span>
-        <span className={styles.field}>Color: {lineItem.item.color}</span>
-        <span className={styles.field}>Size: {lineItem.item.size}</span>
+    <div className={styles.lineItem}>
+      <div className={styles.itemImage}>
+        <img src={item.image} alt={item.name} />
       </div>
-      <div className={styles.qty} style={{ justifyContent: isPaid && 'center' }}>
-        {!isPaid && (
-          <button
-            className="btn-xs"
-            onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
-          >
-            −
-          </button>
-        )}
-        <span>{lineItem.qty}</span>
-        {!isPaid && (
-          <button
-            className="btn-xs"
-            onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}
-          >
-            +
-          </button>
-        )}
-      </div>
-      <div className={styles.extPrice}>${lineItem.extPrice.toFixed(2)}</div>
-      <div className={styles.image}>
-        <img src={lineItem.item.image} alt={lineItem.item.name} />
+      <div className={styles.itemInfo}>
+        <h2>{item.name}</h2>
+        <p>Price: ${item.price.toFixed(2)}</p>
       </div>
     </div>
   );
 }
+
+
+
+

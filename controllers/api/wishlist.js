@@ -2,14 +2,14 @@ const Wishlist = require('../../models/wishlist')
 const Item = require('../../models/item')
 
 module.exports = {
-    createWishList,
+    createWishlist,
     getWishlist,
     addItemToWishlist,
     removeItemFromWishlist,
     deleteWishlist
 }
 
-async function createWishList(req, res) {
+async function createWishlist(req, res) {
     const userId = req.user._id
 
     try { 

@@ -3,30 +3,23 @@ import * as itemsAPI from '../../utilities/items-api'
 // import * as wishAPI from '../../utilities/wishlist-api'
 import * as reviewAPI from '../../utilities/reviews-api'
 import styles from './NewOrderPage.module.scss'
-import { Link } from 'react-router-dom'
-import NavBar from '../../components/NavBar/NavBar'
+import {useParams, Link } from 'react-router-dom'
 import ItemDetail from '../../components/ItemDetail/ItemDetail'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import ReviewList from '../../components/ReviewList/ReviewList'
 
-export default function NewOrderPage({ user, itemId, handleAddToOrder, activeCat }) {
+export default function ItemDetailPage({ user, handleAddToOrder, handleAddToWishList }) {
     const [item, setItem] = useState({})
     const [reviews, setReviews] = useState({})
-
+    const params = useParams()
     useEffect(function () {
         async function getItem() {
-            const data = await itemsAPI.getById(itemId)
+            const data = await itemsAPI.getById(params.id)
             setItem(data)
-            getReviews(itemId)
+            getReviews(params.id)
         }
         getItem()
-        getReviews()
     }, [])
-    /*-- Event Handlers --*/
-    // async function handleAddToOrder() {
-    //     const updatedCart = await ordersAPI.addToCart(itemId);
-    //     setCart(updatedCart);
-    // }
     async function getReviews() {
         const data = await reviewAPI.getReviews(itemId)
         setReviews(data)
@@ -42,16 +35,12 @@ export default function NewOrderPage({ user, itemId, handleAddToOrder, activeCat
 
     return (
         <main className={styles.NewOrderPage}>
-            <nav>
-                <NavBar />
-            </nav>
             <main>
-                <Link to="/home/categories/items" className="button btn-sm">back</Link>
+                <Link to={`/home/${params.depName}/${params.catName}/items`} className="button btn-sm">back</Link>
                 <ItemDetail
                     item={item}
                     handleAddToOrder={handleAddToOrder}
-                    navigate={navigate}
-                    Link={Link} />
+                    handleAddToWishList={handleAddToWishList} />
             </main>
             <footer>
                 <ReviewForm

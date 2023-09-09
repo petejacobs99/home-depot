@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AuthPage.module.scss';
-import NavBar from "../../components/NavBar/NavBar";
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage({ setUser, NavBar }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
     <>
-     <NavBar />
+     {NavBar}
     <main className={styles.AuthPage}>
       <div className={styles.container}>
         {/* <div> */}

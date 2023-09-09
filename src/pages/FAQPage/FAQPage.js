@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import styles from "./FAQPage.module.scss";
-import NavBar from "../../components/NavBar/NavBar"; 
+import styles from "./FAQPage.module.scss"; 
 import FAQDropdown from "./FAQDropdown";
 
 const usersFAQs = [
@@ -51,7 +50,7 @@ const FAQPage = () => {
   
   return (
     <>
-      <NavBar /> 
+      {NavBar} 
       <div className={styles.container}>
         <h1>Frequently Asked Questions</h1>
         <FAQDropdown

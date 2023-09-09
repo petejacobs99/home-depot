@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./UserProfilePage.module.scss";
+import NavBar from "../../components/NavBar/NavBar";
 
 const UserProfilePage = () => {
   const [firstName, setFirstName] = useState("");
@@ -26,6 +27,8 @@ const UserProfilePage = () => {
   };
 
   return (
+  <>
+    <NavBar />
     <div className={styles.container}>
       <h1>Personal Details</h1>
       <div className={styles.form}>
@@ -72,6 +75,7 @@ const UserProfilePage = () => {
         </button>
       </div>
     </div>
+  </>
   );
 };
 

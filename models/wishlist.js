@@ -1,11 +1,9 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const itemSchema = require('./itemSchema')
-const subItemSchema = require('./subItemSchema')
 
 const lineItemSchema = new Schema({
     item: itemSchema,
-    subItem: subItemSchema,
 })
 
 const wishlistSchema = new Schema({
@@ -19,17 +17,15 @@ wishlistSchema.statics.getWishlist = async function (userId) {
         { upsert: true, new: true }
 )}
 
-wishlistSchema.methods.addItemToWishlist = async function (itemId, subItemId) {
+wishlistSchema.methods.addItemToWishlist = async function (itemId) {
     const wishlist = this
     const lineItem = wishlist.items.find((item) =>
-        item.subItem._id.equals(subItemId)
+        item.item._id.equals(itemId)
     )
 
     if (!lineItem) {
         const item = await mongoose.model('Item').findById(itemId)
-        const subItem = await mongoose.model('SubItem').findById(subItemId)
-
-        wishlist.items.push({ item: item, subItem: subItem })
+        wishlist.items.push({ item: item })
         return wishlist.save()
     }
 }

@@ -1,0 +1,58 @@
+.OnePokemon {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-rows: 0.5fr 3fr 1fr 0.5fr;
+    grid-template-areas: 
+    "img img aside aside"
+    "footer footer footer footer"
+    " . . . buy";
+    padding: 2vmin;
+    color: var(--gray);
+    background-color: var(--beige2);
+    border: .5vmin solid var(--mocha);
+    font-size: 4vmin;
+  }
+  .OnePokemon aside {
+    grid-area: aside;
+    align-self: center;
+  }
+  .OnePokemon footer {
+    grid-area: footer;
+    font-size: 2vw;
+  }
+  .OnePokemon .img {
+    grid-area: img;
+    height: 20vw;
+    width: 20vw;
+    font-size: 4vw;
+    background-color: var(--beige1);
+    border: .5vmin solid var(--mocha);
+    border-radius: 1vmin;
+  }
+  
+  .OnePokemon .buy {
+    grid-area: buy;
+    display: flex;
+    flex-direction: column;
+  }
+  .OnePokemon .back-btn {
+    grid-area: back;
+    padding: 3px;
+  }
+  .OnePokemon .buy span {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--black);
+  }
+  
+  .OnePokemon .name {
+    font-size: 3vw;
+    text-align: center;
+    color: var(--black);
+  }
+  .OnePokemon .type {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--black)
+  }

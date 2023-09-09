@@ -1,13 +1,11 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const itemSchema = require('./itemSchema')
-const subItemSchema = require('./subItemSchema')
 
 const lineItemSchema = new Schema(
 	{
 		qty: { type: Number, default: 1 },
 		item: itemSchema,
-		subItem: subItemSchema
 	},
 	{
 		timeStamps: true,
@@ -51,18 +49,16 @@ orderSchema.static.getCart = function (userId) {
 	)
 }
 
-orderSchema.methods.addItemToCart = async function (itemId, subItemId) {
+orderSchema.methods.addItemToCart = async function (itemId) {
 	const cart = this
 	const lineItem = cart.lineItems.find((lineItem) =>
-		lineItem.subitem._id.equals(subItemId)
+		lineItem.item._id.equals(itemId)
 	)
 	if (lineItem) {
 		lineItem.qty += 1
 	} else {
 		const item = await mongoose.model('Item').findById(itemId)
-		const subItem = await mongoose.model('SubItem').findById(subItemId)
-		cart.lineItems.push({ item: item, subItem: subItem })
-
+		cart.lineItems.push({ item: item })
 	}
 	return cart.save()
 }

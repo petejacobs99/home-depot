@@ -1,0 +1,69 @@
+import { useState, useEffect, useRef } from 'react'
+import * as itemsAPI from '../../utilities/items-api'
+// import * as wishAPI from '../../utilities/wishlist-api'
+import * as reviewAPI from '../../utilities/reviews-api'
+import styles from './NewOrderPage.module.scss'
+import { Link } from 'react-router-dom'
+import NavBar from '../../components/NavBar/NavBar'
+import ItemDetail from '../../components/ItemDetail/ItemDetail'
+import ReviewForm from '../../components/ReviewForm/ReviewForm'
+import ReviewList from '../../components/ReviewList/ReviewList'
+
+export default function NewOrderPage({ user, itemId, handleAddToOrder, activeCat }) {
+    const [item, setItem] = useState({})
+    const [reviews, setReviews] = useState({})
+
+    useEffect(function () {
+        async function getItem() {
+            const data = await itemsAPI.getById(itemId)
+            setItem(data)
+            getReviews(itemId)
+        }
+        getItem()
+        getReviews()
+    }, [])
+    /*-- Event Handlers --*/
+    // async function handleAddToOrder() {
+    //     const updatedCart = await ordersAPI.addToCart(itemId);
+    //     setCart(updatedCart);
+    // }
+    async function getReviews() {
+        const data = await reviewAPI.getReviews(itemId)
+        setReviews(data)
+    }
+    async function addReview(content) {
+        await reviewAPI.addReview(itemId, content)
+        getReviews()
+    }
+    async function removeReview() {
+        await reviewAPI.deleteReview(itemId)
+        getReviews()
+    }
+
+    return (
+        <main className={styles.NewOrderPage}>
+            <nav>
+                <NavBar />
+            </nav>
+            <main>
+                <Link to="/home/categories/items" className="button btn-sm">back</Link>
+                <ItemDetail
+                    item={item}
+                    handleAddToOrder={handleAddToOrder}
+                    navigate={navigate}
+                    Link={Link} />
+            </main>
+            <footer>
+                <ReviewForm
+                    itemId={item._id}
+                    addReview={addReview}
+                    user={user} />
+                <ReviewList
+                    reviewData={reviews}
+                    removeReview={removeReview}
+                    addReview={addReview}
+                    user={user} />
+            </footer>
+        </main>
+    )
+}

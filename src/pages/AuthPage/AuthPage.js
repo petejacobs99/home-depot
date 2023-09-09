@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './AuthPage.module.scss';
+import NavBar from "../../components/NavBar/NavBar";
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
@@ -8,6 +9,8 @@ export default function AuthPage({ setUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
+    <>
+     <NavBar />
     <main className={styles.AuthPage}>
       <div className={styles.container}>
         {/* <div> */}
@@ -36,7 +39,6 @@ export default function AuthPage({ setUser }) {
       </div>
       <Link to="/home/categories" className={styles.back}>RETURN TO HOME PAGE</Link>
     </main>
+  </>
   );
 }
-
-// need to implement guest login

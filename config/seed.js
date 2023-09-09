@@ -3,7 +3,6 @@ require('./database');
 
 const Category = require('../models/category');
 const Department = require('../models/department');
-const SubItem = require('../models/subItem');
 const Item = require('../models/item');
 
 (async function () {
@@ -39,313 +38,9 @@ const Item = require('../models/item');
         { name: 'Buckets', image: 'test', department: departments[3] }
     ]);
 
-    // generate subItems:
-    await SubItem.deleteMany({})
-    const subCabinets = await SubItem.create([
-        {
-            color: 'Natural Wood',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        },
-        {
-            color: 'Dark Wood',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        },
-        {
-            color: 'White',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        }
-    ])
-    const subFaucets = await SubItem.create([
-        {
-            color: 'Nickel',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        },
-        {
-            color: 'Bronze',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        },
-        {
-            color: 'Chrome',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        }
-    ])
-    const subBacksplashes = await SubItem.create([
-        {
-            color: 'Nickel',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        },
-        {
-            color: 'Bronze',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        },
-        {
-            color: 'Chrome',
-            gallery: ['test', 'test', 'test'],
-            price: 10
-        }
-    ])
-    const lGRefridgerators = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 1000
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 1200
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 900
-        }
-    ])
-    const samsungRefridgerators = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 1000
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 1200
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 900
-        }
-    ])
-    const kARefridgerators = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 1000
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 1200
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 900
-        }
-    ])
-    const lGOvens = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 500
-        }
-    ])
-    const kAOvens = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 500
-        }
-    ])
-    const samsungOvens = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 500
-        }
-    ])
-    const samsungDryers = await SubItem.create([{
-        color: 'silver',
-        gallery: ['test', 'test', 'test'],
-        price: 800
-    },
-    {
-        color: 'black',
-        gallery: ['test', 'test', 'test'],
-        price: 600
-    },
-    {
-        color: 'white',
-        gallery: ['test', 'test', 'test'],
-        price: 400
-    }
-    ])
-    const lGDryers = await SubItem.create([{
-        color: 'silver',
-        gallery: ['test', 'test', 'test'],
-        price: 800
-    },
-    {
-        color: 'black',
-        gallery: ['test', 'test', 'test'],
-        price: 600
-    },
-    {
-        color: 'white',
-        gallery: ['test', 'test', 'test'],
-        price: 400
-    }
-    ])
-    const electroluxDryers = await SubItem.create([{
-        color: 'silver',
-        gallery: ['test', 'test', 'test'],
-        price: 800
-    },
-    {
-        color: 'black',
-        gallery: ['test', 'test', 'test'],
-        price: 600
-    },
-    {
-        color: 'white',
-        gallery: ['test', 'test', 'test'],
-        price: 400
-    }
-    ])
-    const powerTools1 = await SubItem.create([
-        {
-            color: 'yellow',
-            gallery: ['test', 'test', 'test'],
-            price: 150
-        },
-        {
-            color: 'green',
-            gallery: ['test', 'test', 'test'],
-            price: 80
-        },
-        {
-            color: 'red',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        }
-    ])
-    const powerTools2 = await SubItem.create([
-        {
-            color: 'yellow',
-            gallery: ['test', 'test', 'test'],
-            price: 150
-        },
-        {
-            color: 'green',
-            gallery: ['test', 'test', 'test'],
-            price: 80
-        },
-        {
-            color: 'red',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        }
-    ])
-    const powerTools3 = await SubItem.create([
-        {
-            color: 'yellow',
-            gallery: ['test', 'test', 'test'],
-            price: 150
-        },
-        {
-            color: 'green',
-            gallery: ['test', 'test', 'test'],
-            price: 80
-        },
-        {
-            color: 'red',
-            gallery: ['test', 'test', 'test'],
-            price: 100
-        }
-    ])
-    const washers1 = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 400
-        }
-    ])
-    const washers2 = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 400
-        }
-    ])
-    const washers3 = await SubItem.create([
-        {
-            color: 'silver',
-            gallery: ['test', 'test', 'test'],
-            price: 800
-        },
-        {
-            color: 'black',
-            gallery: ['test', 'test', 'test'],
-            price: 600
-        },
-        {
-            color: 'white',
-            gallery: ['test', 'test', 'test'],
-            price: 400
-        }
-    ])
-    //Items:
+    //Create Items:
     await Item.deleteMany({})
+    let test = 100
     const items = await Item.create([
         {
             name: 'bathroom faucet',
@@ -353,7 +48,7 @@ const Item = require('../models/item');
             category: categories[1],
             details: `It's a faucet for the bathroom sink.`,
             searchTerms: ['faucet', 'bathroom', 'nickel', 'bronze', 'chrome'],
-            subItems: [subFaucets]
+            price: test
         },
         {
             name: 'kitchen cabinets',
@@ -361,7 +56,7 @@ const Item = require('../models/item');
             category: categories[0],
             details: `It's a cabinet for your kitchen`,
             searchTerms: ['kitchen', 'cabinet', 'cabinets', 'wood', 'natural', 'dark', 'white'],
-            subItems: [subCabinets]
+            price: test
         },
         {
             name: 'backsplash',
@@ -369,7 +64,7 @@ const Item = require('../models/item');
             category: categories[2],
             details: `a backsplash for the kitchen`,
             searchTerms: [],
-            subItems: [subBacksplashes]
+            price: test
         },
         {
             name: 'LG refridgerator',
@@ -377,7 +72,7 @@ const Item = require('../models/item');
             category: categories[9],
             details: '',
             searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [lGRefridgerators]
+            price: test
         },
         {
             name: 'Samsung refridgerator',
@@ -385,7 +80,7 @@ const Item = require('../models/item');
             category: categories[9],
             details: '',
             searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [samsungRefridgerators]
+            price: test
         },
         {
             name: 'Kitchen Aid refridgerator',
@@ -393,7 +88,7 @@ const Item = require('../models/item');
             category: categories[9],
             details: '',
             searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [kARefridgerators]
+            price: test
         },
         {
             name: 'LG Oven',
@@ -401,7 +96,7 @@ const Item = require('../models/item');
             category: categories[10],
             details: '',
             searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [lGOvens]
+            price: test
         },
         {
             name: 'Samsung Oven',
@@ -409,7 +104,7 @@ const Item = require('../models/item');
             category: categories[10],
             details: '',
             searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [samsungOvens]
+            price: test
         },
         {
             name: 'Kitchen Aid Oven',
@@ -417,7 +112,7 @@ const Item = require('../models/item');
             category: categories[10],
             details: '',
             searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'white', 'black'],
-            subItems: [kAOvens]
+            price: test
         },
         {
             name: 'LG Dryer',
@@ -425,7 +120,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: '',
             searchTerms: ['dryer', 'dryers', 'appliance', 'lg', 'silver', 'white', 'black'],
-            subItems: [lGDryers]
+            price: test
         },
         {
             name: 'Samsung Dryer',
@@ -433,7 +128,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: '',
             searchTerms: ['dryer', 'dryers', 'appliance', 'samsung', 'silver', 'white', 'black'],
-            subItems: [samsungDryers]
+            price: test
         },
         {
             name: 'Electrolux Dryer',
@@ -441,7 +136,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: '',
             searchTerms: ['dryer', 'dryers', 'appliance', 'electrolux', 'silver', 'white', 'black'],
-            subItems: [electroluxDryers]
+            price: test
         },
         {
             name: 'LG Washer',
@@ -449,7 +144,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: 'test',
             searchTerms: ['washer', 'washers', 'appliance', 'lg', 'silver', 'white', 'black'],
-            subItems: [washers1]
+            price: test
         },
         {
             name: 'Samsung Washer',
@@ -457,7 +152,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: 'test',
             searchTerms: ['washer', 'washers', 'appliance', 'samsung', 'silver', 'white', 'black'],
-            subItems: [washers2]
+            price: test
         },
         {
             name: 'Electrolux Washer',
@@ -465,7 +160,7 @@ const Item = require('../models/item');
             category: categories[12],
             details: 'test',
             searchTerms: ['washer', 'washers', 'appliance', 'electrolux', 'silver', 'white', 'black'],
-            subItems: [washers3]
+            price: test
         },
         {
             name: 'DeWalt Power Drill',
@@ -473,7 +168,7 @@ const Item = require('../models/item');
             category: categories[14],
             details: '',
             searchTerms: ['drill', 'drills', 'power tools', 'Dewalt', 'yellow', 'green', 'red'],
-            subItems: [powerTools1]
+            price: test
         },
         {
             name: 'Milwaukee Power Drill',
@@ -481,7 +176,7 @@ const Item = require('../models/item');
             category: categories[14],
             details: '',
             searchTerms: ['drill', 'drills', 'Milwaukee', 'power tools', 'yellow', 'green', 'red'],
-            subItems: [powerTools2]
+            price: test
         },
         {
             name: 'RYOBI Power Drill',
@@ -489,294 +184,10 @@ const Item = require('../models/item');
             category: categories[14],
             details: '',
             searchTerms: ['drill', 'drills', 'RYOBI', 'power tools', 'yellow', 'green', 'red'],
-            subItems: [powerTools3]
-        },
-
-
+            price: test
+        }
     ])
 
-    // //<-----------------------washers--------------------->
-    // 
-    //     //<----------------Microwaves------------------>
-    //     .then((Microwave) => {
-    //         return 
-    //     })
-    //     .then((Microwaves) => {
-    //         return Item.create([
-    //             {
-    //                 name: 'LG',
-    //                 img: ['', '', ''],
-    //                 category: categories[13],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'microwaves',
-    //                     'microwave',
-    //                     'kitchen',
-    //                     'appliances',
-    //                     'silver',
-    //                     'white',
-    //                     'black'
-    //                 ],
-    //                 subItems: [Microwaves]
-    //             },
-    //             {
-    //                 name: 'Samsung',
-    //                 img: ['', '', ''],
-    //                 category: categories[13],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'microwaves',
-    //                     'microwave',
-    //                     'kitchen',
-    //                     'samsung',
-    //                     'appliances',
-    //                     'silver',
-    //                     'white',
-    //                     'black'
-    //                 ],
-    //                 subItems: [Microwaves]
-    //             },
-    //             {
-    //                 name: 'Kitchen Aid',
-    //                 img: ['', '', ''],
-    //                 category: categories[13],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'microwaves',
-    //                     'microwave',
-    //                     'kitchen',
-    //                     'kitchen aid',
-    //                     'appliances',
-    //                     'silver',
-    //                     'white',
-    //                     'black'
-    //                 ],
-    //                 subItems: [Microwaves]
-    //             }
-    //         ]);
-    //     })
-    //     //<----------------power tools--------------->
-
-    //     //<---------------------tools-------------------->
-    //     .then((Tool) => {
-    //         return SubItem.create([
-    //             {
-    //                 color: 'yellow',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 50
-    //             },
-    //             {
-    //                 color: 'silver',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 25
-    //             },
-    //             {
-    //                 color: 'red',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 30
-    //             }
-    //         ]);
-    //     })
-    //     .then((Tools) => {
-    //         return Item.create([
-    //             {
-    //                 name: 'Stanley',
-    //                 img: ['', '', ''],
-    //                 category: categories[15],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'tool set',
-    //                     'tools',
-    //                     'tool',
-    //                     'stanley',
-    //                     'yellow',
-    //                     'silver',
-    //                     'red'
-    //                 ],
-    //                 subItems: [Tool]
-    //             },
-    //             {
-    //                 name: 'Husky',
-    //                 img: ['', '', ''],
-    //                 category: categories[15],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'tool set',
-    //                     'tools',
-    //                     'tool',
-    //                     'husky',
-    //                     'yellow',
-    //                     'silver',
-    //                     'red'
-    //                 ],
-    //                 subItems: [Tool]
-    //             },
-    //             {
-    //                 name: 'Crescent',
-    //                 img: ['', '', ''],
-    //                 category: categories[15],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'tool set',
-    //                     'tools',
-    //                     'tool',
-    //                     'crescent',
-    //                     'yellow',
-    //                     'silver',
-    //                     'red'
-    //                 ],
-    //                 subItems: [Tool]
-    //             }
-    //         ]);
-    //     })
-    //     //<---------------------nails--------------------->
-    //     .then((Nail) => {
-    //         return SubItem.create([
-    //             {
-    //                 color: 'gray',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 9.99
-    //             },
-    //             {
-    //                 color: 'silver',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 12.99
-    //             },
-    //             {
-    //                 color: 'bronze',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 6.99
-    //             }
-    //         ]);
-    //     })
-    //     .then((Nails) => {
-    //         return Item.create([
-    //             {
-    //                 name: 'Grip-Rite',
-    //                 img: ['', '', ''],
-    //                 category: categories[16],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'nails',
-    //                     'nail',
-    //                     'Grip-Rite',
-    //                     'silver',
-    //                     'gray',
-    //                     'bronze'
-    //                 ],
-    //                 subItems: [Nail]
-    //             },
-    //             {
-    //                 name: 'PRO-FIT',
-    //                 img: ['', '', ''],
-    //                 category: categories[16],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'nails',
-    //                     'nail',
-    //                     'Pro-Fit',
-    //                     'silver',
-    //                     'gray',
-    //                     'bronze'
-    //                 ],
-    //                 subItems: [Nail]
-    //             },
-    //             {
-    //                 name: 'Hillman',
-    //                 img: ['', '', ''],
-    //                 category: categories[16],
-    //                 details: '',
-    //                 searchTerms: [
-    //                     'nails',
-    //                     'nail',
-    //                     'Hillman',
-    //                     'silver',
-    //                     'gray',
-    //                     'bronze'
-    //                 ],
-    //                 subItems: [Nail]
-    //             }
-    //         ]);
-    //     })
-    //     //<-------------------bolts------------------>
-    //     .then((Bolt) => {
-    //         return SubItem.create([
-    //             {
-    //                 color: 'gray',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 9.99
-    //             },
-    //             {
-    //                 color: 'silver',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 12.99
-    //             },
-    //             {
-    //                 color: 'bronze',
-    //                 gallery: ['test', 'test', 'test'],
-    //                 price: 6.99
-    //             }
-    //         ]);
-    //     })
-    //     .then((Bolts) => {
-    //         return (
-    //             Item.create([
-    //                 {
-    //                     name: 'Everbilt',
-    //                     img: ['', '', ''],
-    //                     category: categories[17],
-    //                     details: '',
-    //                     searchTerms: [
-    //                         'bolts',
-    //                         'bolt',
-    //                         'Everbilt',
-    //                         'silver',
-    //                         'gray',
-    //                         'bronze'
-    //                     ],
-    //                     subItems: [Bolt]
-    //                 },
-    //                 {
-    //                     name: 'Simpson Strong-Tie',
-    //                     img: ['', '', ''],
-    //                     category: categories[17],
-    //                     details: '',
-    //                     searchTerms: [
-    //                         'bolts',
-    //                         'bolt',
-    //                         'Simpson Strong-Tie',
-    //                         'silver',
-    //                         'gray',
-    //                         'bronze'
-    //                     ],
-    //                     subItems: [Bolt]
-    //                 },
-    //                 {
-    //                     name: 'Crown Bolt',
-    //                     img: ['', '', ''],
-    //                     category: categories[17],
-    //                     details: '',
-    //                     searchTerms: [
-    //                         'bolts',
-    //                         'bolt',
-    //                         'Crown Bolt',
-    //                         'silver',
-    //                         'gray',
-    //                         'bronze'
-    //                     ],
-    //                     subItems: [Bolt]
-    //                 }
-    //             ])
-    //                 //<------------------buckets------------------->
-    //                 .then(() => {
-    //                     return subItem.create([]);
-    //                 })
-    //                 .then(() => {
-    //                     return Item.create([]);
-    //                 })
-    //         );
-    //     })
-    // 			);
-    // 		});
     console.log(items)
+    process.exit()
 })();

@@ -32,7 +32,7 @@ it('should get a user\'s wishlist', async () => {
     const requestBody = {
       wishlistId: testWishlistId,
       itemId: testItemId,
-      subItemId: 'test-sub-item-id',
+      Id: 'test-sub-item-idsubItem',
     }
     const response = await request(app)
       .post('/api/wishlist/add')

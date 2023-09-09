@@ -1,8 +1,7 @@
-import FAQDropdown from "./FAQDropdown";
+import React, { useState } from "react";
 import styles from "./FAQPage.module.scss";
-import Hamburger from "../../components/Hamburger/Hamburger";
-import HamMenu from "../../components/HamMenu/HamMenu";
-import { useState } from "react";
+import NavBar from "../../components/NavBar/NavBar"; 
+import FAQDropdown from "./FAQDropdown";
 
 const usersFAQs = [
   {
@@ -52,58 +51,34 @@ const FAQPage = () => {
   
   return (
     <>
-    <div className={styles.navBar}>
-        <div className={styles.navBarTop}>
-          <div>LOGO</div>
-          <div>SEARCH</div>
-          <div>CART</div>
-          <div
-            className={styles.hamContainer}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
-          >
-            <div className={styles.hamburger}>
-              <Hamburger />
-            </div>
-            {drop && <HamMenu />}
-          </div>
-        </div>
-        <div className={styles.navBarBottom}>
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
-        </div>
+      <NavBar /> 
+      <div className={styles.container}>
+        <h1>Frequently Asked Questions</h1>
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Users
+            </span>
+          }
+          faqs={usersFAQs}
+        />
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Items
+            </span>
+          }
+          faqs={itemsFAQs}
+        />
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Tech Support
+            </span>
+          }
+          faqs={techSupportFAQs}
+        />
       </div>
-    <div className={styles.container}>
-      <h1>Frequently Asked Questions</h1>
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Users
-          </span>
-        }
-        faqs={usersFAQs}
-      />
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Items
-          </span>
-        }
-        faqs={itemsFAQs}
-      />
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Tech Support
-          </span>
-        }
-        faqs={techSupportFAQs}
-      />
-    </div>
     </>
   );
 };

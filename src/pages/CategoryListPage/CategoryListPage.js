@@ -87,7 +87,7 @@ export default function CategoryListPage({ departments }) {
       <NavBar />
       <div className={styles.categoryList}>
         <CategoryList
-          categories={categories.filter(cat => cat.category.name === activeDep)}
+          categories={categories.filter(cat => cat.department.name === activeDep)}
           setCategories={setCategories} 
           onClick={handleClick}
         />

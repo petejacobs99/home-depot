@@ -1,5 +1,5 @@
-import DepartmentList from '../components/DepartmentList/DepartmentList'
+import DepListNavBar from '../components/DepListNavBar/DepListNavBar'
 
-export default function () {
-    return <DepartmentList />
+export default function ({departments}) {
+    return <DepListNavBar />
 }

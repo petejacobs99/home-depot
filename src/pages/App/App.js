@@ -18,7 +18,7 @@ import UserProfilePage from '../UserProfilePage/UserProfilePage';
 // holding pages
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
-import ItemDetailPage from '../Dummy';
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';
@@ -61,7 +61,7 @@ export default function App() {
     const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
     setCart(updatedCart)
   }
-  
+
   async function handleCheckout() {
     await ordersAPI.checkout();
     navigate('/orders');

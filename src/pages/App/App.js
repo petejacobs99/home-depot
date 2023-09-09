@@ -23,6 +23,7 @@ import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';
 import WishlistPage from '../Dummy';
+import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'

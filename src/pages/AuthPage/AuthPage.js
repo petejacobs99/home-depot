@@ -9,7 +9,6 @@ export default function AuthPage({ setUser, NavBar }) {
 
   return (
     <>
-     {NavBar}
     <main className={styles.AuthPage}>
       <div className={styles.container}>
         {/* <div> */}

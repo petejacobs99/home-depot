@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel"
 import './FeaturedItemCarousel.module.scss'
 
-export default function ItemCarousel({ imageUrls }) {
+export default function FeaturedItemCarousel({ imageUrls }) {
 
     return(
         <div className="carousel">

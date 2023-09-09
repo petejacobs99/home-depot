@@ -24,6 +24,7 @@ import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';
 import WishlistPage from '../Dummy';
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
   const departments = getDepartments();

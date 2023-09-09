@@ -13,35 +13,38 @@ export default function DepartmentList({ departments, handleOpenCategoryListPage
     
     return (
       <div className={styles.DepartmentList}>
-        {deps}
         {/* <div>
+				  {/* <img className={styles.img} src={departments.image} />
+          <div>{department.name}</div>
+			  </div> */} 
+        <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
-            alt="bathroom"
+            alt="kitchen"
           />
-          <p>KITCHEN</p>
+          {department.name[0]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="bathroom"
           />
-          <p>BATHROOM</p>
+          {department.name[1]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="appliances"
           />
-          <p>APPLIANCES</p>
+          {department.name[2]}
         </div>
         <div>
           <img
             src="https://i.imgur.com/cSFKjc1.jpg"
             alt="hardware"
           />
-          <p>HARDWARE</p>
-        </div>*/}
+          {department.name[3]}
+        </div>
       </div> 
     )
   }

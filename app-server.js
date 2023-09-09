@@ -19,7 +19,7 @@ app.use(require('./config/checkToken'));
 app.use('/api/users', require('./routes/api/users'))
 // Protect the API routes below from anonymous users
 const ensureLoggedIn = require('./config/ensureLoggedIn')
-app.use('/api/items', ensureLoggedIn, require('./routes/api/items'))
+app.use('/api/items', require('./routes/api/items'))
 app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'))
 app.use('/api/reviews', ensureLoggedIn, require('./routes/api/reviews'))
 app.use('/api/wishlist', ensureLoggedIn, require('./routes/api/wishlist'))

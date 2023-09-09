@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom';
 import * as catsAPI from "../../utilities/catDep-api";
 import NavBar from "../../components/NavBar/NavBar";
-import Hamburger from "../../components/Hamburger/Hamburger";
-import HamMenu from "../../components/HamMenu/HamMenu";
+/* import Hamburger from "../../components/Hamburger/Hamburger";
+import HamMenu from "../../components/HamMenu/HamMenu"; */
 import CategoryList from "../../components/CategoryList/CategoryList";
 /* import department from "../../../models/department"; */
 
@@ -16,10 +16,10 @@ export default function CategoryListPage({ departments }) {
   const departmentsRef = useRef([]);
   const navigate = useNavigate();
 
-  /* useEffect(function () {
-    async function getCats() { */
+  useEffect(function () {
+    async function getCats() {
       /* const cats = await catsAPI.getCategories(department._id); */
-      /* const cats = await catsAPI.getAllCategories();
+      const cats = await catsAPI.getAllCategories();
       departmentsRef.current = cats.reduce((deps, cat) => {
         const dep = cat.department.name;
         return deps.includes(dep) ? deps : [...deps, dep];
@@ -28,9 +28,9 @@ export default function CategoryListPage({ departments }) {
       setActiveDep(departmentsRef.current[0]);
     }
     getCats();
-  }, []); */
+  }, []);
 
-  useEffect(function () {
+  /* useEffect(function () {
     async function getDeps() {
       const deps = await catsAPI.getDepartments();
       console.log(deps)
@@ -47,7 +47,7 @@ export default function CategoryListPage({ departments }) {
     const data = await catsAPI.getCategories(depId);
     setCategories(data);
     setActiveDep(depName)
-  }
+  } */
 
   const handleHover = () => {
     setDrop(!drop);
@@ -59,7 +59,7 @@ export default function CategoryListPage({ departments }) {
 
   return (
     <div className={styles.App}>
-      <div className={styles.navBar}>
+      {/* <div className={styles.navBar}>
         <div className={styles.navBarTop}>
           <div>LOGO</div>
           <div>SEARCH</div>
@@ -83,8 +83,8 @@ export default function CategoryListPage({ departments }) {
           <div>HARDWARE</div>
           <div>&gt;</div>
         </div>
-      </div>
-      {/* <NavBar /> */}
+      </div> */}
+      <NavBar />
       <div className={styles.categoryList}>
         <CategoryList
           categories={categories.filter(cat => cat.category.name === activeDep)}

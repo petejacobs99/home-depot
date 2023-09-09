@@ -10,7 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.DepartmentList div img {
+.DepartmentList .img {
   height: 10vw;
   width: 12vw;
 }
@@ -39,9 +39,9 @@ padding: 2vw 4vw;
 //     width: 12vw;
 //   }
   
-//   .DepartmentList div:active {
-//     transform: scale(0.85);
-//   }
+  .DepartmentList div:active {
+    transform: scale(0.7);
+  }
   
 //   .DepartmentList div {
 //     padding: 2vw 3vw;
@@ -51,10 +51,10 @@ padding: 2vw 4vw;
 //     background-color: var(--tan-2);
 // }
 
-// .DepartmentList span:hover:not(.active) {
-//     cursor: pointer;
-//     transform: scale(0.9);
-// }
+.DepartmentList div:hover:not(.active) {
+    cursor: pointer;
+    transform: scale(0.9);
+}
 
 // .DepartmentList span:active {
 //     transform: scale(0.7);

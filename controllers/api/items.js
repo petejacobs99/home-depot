@@ -44,7 +44,8 @@ async function show(req, res) {
 }
 async function search(req, res){
     try{
-        const items = await Item.find({searchTerm: req.params.term}).populate('category subItems').exec()
+        const term = toLowerCase(req.params.term)
+        const items = await Item.find({searchTerm: term}).populate('category subItems').exec()
         res.status(200).json({items: items})
     }catch(error){
         res.status(400).json({message: error.message})

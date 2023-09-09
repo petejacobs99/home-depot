@@ -34,8 +34,10 @@ export default function ItemDetailPage({ user, handleAddToOrder, handleAddToWish
 
     return (
         <main className={styles.NewOrderPage}>
-            <main>
+            <header>
                 <Link to={`/home/${params.depName}/${params.catName}/items`} className="button btn-sm">back</Link>
+            </header>
+            <main>
                 <ItemDetail
                     item={item}
                     handleAddToOrder={handleAddToOrder}

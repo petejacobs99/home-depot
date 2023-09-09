@@ -75,6 +75,9 @@ export default function App() {
     const data = await wishAPI.removeFromWishlist(itemId)
     setWishlist(data)
   }
+  async function handleSelectItem(catName, depName, itemId) {
+    navigate(`/home/${depName}/${catName}/${itemId}`)
+  }
   return (
     <main className={styles.App}>
       {/* { user ? */}
@@ -96,12 +99,12 @@ export default function App() {
           <Route path="/orders" element={<OrderHistoryPage user={user} />} />
           <Route path="/faq" element={<FAQPage user={user} />} />
           <Route path="/profile" element={<UserProfilePage user={user} />} />
-          <Route path="/wishlist" element={<WishlistPage user={user} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} />} />
+          <Route path="/wishlist" element={<WishlistPage user={user} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/aboutus" element={<AboutUsPage user={user} />} />
           <Route path="/auth" element={<AuthPage user={user} />} />
-          <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/categories" element={<CategoryListPage user={user} />} />
-          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 
           {/*<Route path="/*" element={<Navigate to="/home" />} />*/}

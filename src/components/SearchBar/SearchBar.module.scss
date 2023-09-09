@@ -1,0 +1,25 @@
+.SearchBar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  input[type="text"] {
+    border: none;
+    flex: 1;
+    padding: 5px;
+    outline: none;
+  }
+  
+  /*
+  .SearchButton {
+    background-color: var(--white);
+    border: none;
+    color: grey;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  */

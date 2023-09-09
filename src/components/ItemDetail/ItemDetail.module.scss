@@ -1,0 +1,46 @@
+.ItemDetail {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-rows: 0.5fr 3fr 1fr 0.5fr;
+    grid-template-areas: 
+    "header header header header"
+    "aside main main main"
+    "aside main main main"
+    "aside . . buy";
+    padding: 2vmin;
+    color: var(--mocha);
+    background-color: var(--beige2);
+    border: .5vmin solid var(--mocha);
+    font-size: 4vmin;
+  }
+  .ItemDetail header {
+    grid-area: header;
+    border: .5vmin solid var(--mocha);
+  }
+  .ItemDetail aside {
+    grid-area: aside;
+    width: 20vw;
+  }
+  
+  .ItemDetail footer {
+    grid-area: buy;
+    display: flex;
+    flex-direction: column;
+  }
+  .ItemDetail .buy span {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--black);
+  }
+  
+  .ItemDetail .name {
+    font-size: 3vw;
+    text-align: center;
+    color: var(--black);
+  }
+  .ItemDetail .category {
+    font-size: 2vw;
+    text-align: center;
+    color: var(--black)
+  }

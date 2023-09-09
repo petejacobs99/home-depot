@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styles from "./UserProfilePage.module.scss";
-import NavBar from "../../components/NavBar/NavBar";
 import { getUser, updateUser } from "../../utilities/users-service";
 
 const UserProfilePage = () => {
@@ -63,7 +62,6 @@ const UserProfilePage = () => {
 
   return (
     <>
-      <NavBar />
       <div className={styles.container}>
         <h1>Personal Details</h1>
         <div className={styles.form}>
@@ -101,6 +99,7 @@ const UserProfilePage = () => {
         <div className={styles.buttons}>
           <button className={styles.wishlistBtn} onClick={handleWishlist}>
             Wishlist
+
           </button>
           <button className={styles.orderHistoryBtn} onClick={handleOrderHistory}>
             Order History

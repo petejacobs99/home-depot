@@ -1,38 +1,23 @@
-const item = require('./item');
-const subItemSchema = require('./subItemSchema');
-const itemSchema = require('./itemSchema');
-const subitemSchema = require('./subItemSchema');
-
-const lineItemSchema = new Schema(
-	{
-		qty: { type: Number, default: 1 },
-		item: itemSchema,
-		subItem: subitemSchema
-	},
-	{
-		timeStamps: true,
-		toJSON: { virtuals: true }
-	}
-);
-
-lineItemSchema.virtual('extPrice').get(function () {
-	return this.qty * this.item.price;
-});
-
-const Schema = require('mongoose').Schema;
+require('./item')
+const Schema = require('mongoose').Schema
 
 const itemSchema = new Schema(
 	{
-		name: { type: String, required: true, unique: true },
+		name: { type: String, required: true },
 		img: String,
-		category: { type: Schema.Types.ObjectId, ref: 'Category' },
+		category: { type: Schema.Types.ObjectId, ref: 'Category', required: true },
 		details: String,
 		searchTerms: [String],
-		subItems: [subItemSchema]
+		color: String,
+   		size: String,
+    	weight: String,
+    	amount: String,
+    	price: {type: Number, required: true},
+		featured: { type: Boolean, default: false }
 	},
 	{
 		timestamps: true
 	}
-);
+)
 
-module.exports = itemSchema;
+module.exports = itemSchema

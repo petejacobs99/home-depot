@@ -1,12 +1,11 @@
 import React from "react";
-import NavBar from "../../components/NavBar/NavBar";
 import ItemList from "../../components/ItemList/ItemList"; 
 import styles from "./SearchResults.module.scss";
 
 const SearchResultsPage = ({ handleAddToOrder, setItemListItems, itemListItems }) => {
   return (
     <div>
-      <NavBar />
+      {NavBar}
     <div className={styles.searchResultsContainer}>
       <h1>SEARCH RESULTS</h1>
     </div>

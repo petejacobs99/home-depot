@@ -59,6 +59,7 @@ const UserProfilePage = () => {
 
   return (
     <>
+    {NavBar}
       <div className={styles.container}>
         <h1>Personal Details</h1>
         <div className={styles.form}>

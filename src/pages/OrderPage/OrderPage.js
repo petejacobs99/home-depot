@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styles from './CartPage.module.scss'; // Import the SCSS module
-import LineItem from '../../components/LineItem'; // Import your CartItem component
+import styles from './CartPage.module.scss'; 
+import LineItem from '../../components/LineItem'; 
 import { getCart } from '../../utilities/orders-api'; 
 
 export default function CartPage() {
@@ -11,7 +11,7 @@ export default function CartPage() {
     // Fetch the customer's current cart when the component mounts
     async function fetchCart() {
       try {
-        const cartData = await getCart(); // Replace with your API call
+        const cartData = await getCart(); 
         setCart(cartData);
         setIsLoading(false);
       } catch (error) {
@@ -32,7 +32,7 @@ export default function CartPage() {
         <div className={styles.cartItems}>
           {cart.map((item) => (
             <LineItem
-              key={item.id} // Assuming each item has a unique identifier
+              key={item.id}
               item={item}
             />
           ))}

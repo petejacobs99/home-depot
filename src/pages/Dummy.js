@@ -1,3 +1,5 @@
-export default function () {
-    return <h1>Dummy</h1>
+import DepListNavBar from '../components/DepListNavBar/DepListNavBar'
+
+export default function ({departments}) {
+    return <DepListNavBar />
 }

@@ -1,6 +1,9 @@
 import "../../scss/styles.scss";
+import styles from "./ItemListPage.module.scss"
 import { useState } from "react";
 import NavBar from "../../components/NavBar/NavBar";
+/* import Hamburger from "../../components/Hamburger/Hamburger";
+import HamMenu from "../../components/HamMenu/HamMenu"; */
 import ItemList from "../../components/ItemList/ItemList";
 
 export default function ItemListPage() {
@@ -11,24 +14,24 @@ export default function ItemListPage() {
   };
 
   return (
-    <div className="App">
-      {/* <div className="navBar">
-        <div className="navBarTop">
+    <div className={styles.App}>
+      {/* <div className={styles.navBar}>
+        <div className={styles.navBarTop}>
           <div>LOGO</div>
           <div>SEARCH</div>
           <div>CART</div>
           <div
-            className="hamContainer"
+            className={styles.hamContainer}
             onMouseEnter={handleHover}
             onMouseLeave={handleHover}
           >
-            <div className="hamburger">
+            <div className={styles.hamburger}>
               <Hamburger />
             </div>
             {drop && <HamMenu />}
           </div>
         </div>
-        <div className="navBarBottom">
+        <div className={styles.navBarBottom}>
           <div>&lt;</div>
           <div>KITCHEN</div>
           <div>BATHROOM</div>
@@ -38,7 +41,7 @@ export default function ItemListPage() {
         </div>
       </div> */}
       <NavBar />
-      <div className="itemList">
+      <div className={styles.itemList}>
         <ItemList />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import styles from './StarsStatic.module.scss'
+import styles from './StaticStars.module.scss'
 
 export default function Star({ rating }) {
     return (

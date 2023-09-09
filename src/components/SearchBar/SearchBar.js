@@ -1,12 +1,14 @@
 import styles from './SearchBar.module.scss';
 import { searchItems } from '../../utilities/items-api';
+import { useState } from 'react';
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar() {
+	const [inputText, setInputText] = useState('')
+
 	const handleEnterKey = async (e) => {
-        e.preventDefault()
 		if (e.key === 'Enter') {
 			const items = await searchItems(e.target.value)
-            onSearch(items)
+			console.log(items)
 		}
 	};
 
@@ -15,7 +17,9 @@ export default function SearchBar({ onSearch }) {
 			<input
 				type="text"
 				placeholder="SEARCH..."
-				onEnterKey={handleEnterKey}
+				value={inputText}
+				onChange={(e) => setInputText(e.target.value)}
+				onKeyDown={handleEnterKey}
 			/>
 		</div>
 	);

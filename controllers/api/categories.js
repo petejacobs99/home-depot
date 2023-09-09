@@ -21,14 +21,17 @@ async function getAllCategories(req, res) {
 // Get categories based on the selected department for the category list page
 async function getCategoriesByDepartment (req, res) {
     try {
-        // Find the department based on the departmentName
-        const department = await Department.findOne({ _id: req.params.depId }).populate('categories')
+        // Find the department based on the department ID
+        const department = await Department.findById(req.params.depId)
 
         if (!department) {
             return res.status(404).json({ error: 'Department not found' })
         }
 
-        res.status(200).json(department.categories)
+        // Find all categories that belong to the specified department
+        const categories = await Category.find({ department: department._id })
+
+        res.status(200).json(categories)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }

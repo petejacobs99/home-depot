@@ -33,12 +33,12 @@ export default function App() {
   const [user, setUser] = useState(getUser())
   const [cart, setCart] = useState({})
   const [wishlist, setWishlist] = useState({})
-  const depRef = useRef([])
+  const [departments, setDepartments] = useState([]);
 
   useEffect(function () {
     async function getDeps() {
-      const data = await catDepAPI.getDepartments()
-      depRef.current = [...data]
+      const deps = await getDepartments()
+      setDepartments(deps)
     }
     getDeps()
     async function getCart() {
@@ -87,11 +87,11 @@ export default function App() {
           handleRemoveFromWishList={handleRemoveFromWishList}
           handleCheckout={handleCheckout}
           wishlist={wishlist}
-          departments={depRef}
+          departments={departments}
         />
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/home" element={<HomePage user={user} />} />
+          <Route path="/home" element={<HomePage user={user} departments={departments}/>} />
           <Route path="/cart" element={<OrderPage user={user} />} />
           <Route path="/orders" element={<OrderHistoryPage user={user} />} />
           <Route path="/faq" element={<FAQPage user={user} />} />

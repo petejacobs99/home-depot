@@ -1,6 +1,5 @@
 const Item = require('../../models/item')
 const Category = require('../../models/category')
-// const SubItem = require('../../models/subItem')
 
 module.exports = {
   index,
@@ -15,12 +14,12 @@ module.exports = {
 
 // get featured items
 async function showFeaturedItems(req, res) {
-  const data = await Item.find({featured: true}).sort('name').populate('category subItems').exec()
+  const data = await Item.find({featured: true}).sort('name').populate('category').exec()
   res.status(200).json({items: data})
 }
 async function index(req, res) {
   try{
-    const data = await Item.find({}).sort('name').populate('category subItems').exec()
+    const data = await Item.find({}).sort('name').populate('category').exec()
     res.status(200).json({items: data})
   }catch(error){
     res.status(400).json({message: error.message})
@@ -28,7 +27,7 @@ async function index(req, res) {
 }
 async function showByCategory(req, res) {
   try{
-    const data = await Item.find({category: req.params.id}).populate('category subItems').exec()
+    const data = await Item.find({category: req.params.id}).populate('category').exec()
     res.status(200).json(data)
   } catch(error){
     res.status(400).json({ message: error.message})
@@ -36,7 +35,7 @@ async function showByCategory(req, res) {
 }
 async function show(req, res) {
   try{
-    const item = await Item.findById(req.params.id).populate('category subItems').exec()
+    const item = await Item.findById(req.params.id).populate('category').exec()
     res.status(200).json(item)
   }catch(error){
     res.status(400).json({message: error.message})
@@ -45,7 +44,7 @@ async function show(req, res) {
 async function search(req, res){
     try{
         const term = toLowerCase(req.params.term)
-        const items = await Item.find({searchTerm: term}).populate('category subItems').exec()
+        const items = await Item.find({searchTerm: term}).populate('category').exec()
         res.status(200).json({items: items})
     }catch(error){
         res.status(400).json({message: error.message})

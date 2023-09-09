@@ -27,17 +27,16 @@ async function getWishlist(req, res) {
 
 async function addItemToWishlist(req, res) {
     try {
-        const { wishlistId, itemId, subItemId } = req.body
+        const { wishlistId, itemId } = req.body
 
         const item = await Item.findById(itemId)
-        const subItem = await SubItem.findById(subItemId)
 
-        if (!item || !subItem) {
-            return res.status(404).json({ error: 'Item or SubItem not found' })
+        if (!item) {
+            return res.status(404).json({ error: 'Item not found' })
         }
 
         const wishlist = await Wishlist.findById(wishlistId)
-        wishlist.items.push({ item: itemId, subItem: subItemId })
+        wishlist.items.push({ item: itemId })
         await wishlist.save()
         res.status(200).json(wishlist)
     } catch (error) {
@@ -48,11 +47,11 @@ async function addItemToWishlist(req, res) {
 
 async function removeItemFromWishlist(req, res) {
     try {
-        const { wishlistId, itemId, subItemId } = req.body
+        const { wishlistId, itemId } = req.body
 
         const wishlist = await Wishlist.findById(wishlistId)
         const indexToRemove = wishlist.items.findIndex((item) =>
-            item.item.equals(itemId) && item.subItem.equals(subItemId)
+            item.item.equals(itemId)
         )
 
         if (indexToRemove === -1) {

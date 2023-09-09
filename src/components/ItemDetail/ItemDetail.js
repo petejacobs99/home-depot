@@ -1,9 +1,8 @@
 import styles from './ItemDetail.module.scss';
 
-export default function ItemDetail({ item, handleAddToOrder, setActiveItem }) {
+export default function ItemDetail({ item, handleAddToOrder }) {
     return (
     <div className={styles.ItemDetail}>
-        <button className="back-btn" onClick={() => setActiveItem({})}>← BACK</button>
       <img src={item.img} className={styles.img + ' ' + 'flex-ctr-ctr'} />
       <aside>
       <div className={styles.name}>{item.name}</div>

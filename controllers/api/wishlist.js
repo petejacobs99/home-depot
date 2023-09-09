@@ -26,18 +26,22 @@ async function getWishlist(req, res) {
 
 
 async function addItemToWishlist(req, res) {
+    const userId = req.user._id
+    const itemId = req.body.itemId
+
     try {
-        const { wishlistId, itemId } = req.body
+        const wishlist = await Wishlist.getWishlist(userId)
 
-        const item = await Item.findById(itemId)
+        const lineItem = wishlist.items.find((item) =>
+            item.item._id.equals(itemId)
+        );
 
-        if (!item) {
-            return res.status(404).json({ error: 'Item not found' })
+        if (!lineItem) {
+            const item = await mongoose.model('Item').findById(itemId)
+
+            wishlist.items.push({ item: item })
+            await wishlist.save()
         }
-
-        const wishlist = await Wishlist.findById(wishlistId)
-        wishlist.items.push({ item: itemId })
-        await wishlist.save()
         res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })

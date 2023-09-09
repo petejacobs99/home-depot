@@ -14,7 +14,7 @@ async function getAllCategories(req, res) {
         const categories = await Category.find().populate('department')
         res.status(200).json(categories)
     } catch (error) {
-        res.status(400).json({ message: error.message, line: 'line 12 categories.js' })
+        res.status(400).json({ message: error.message })
     }
 }
 
@@ -22,7 +22,7 @@ async function getAllCategories(req, res) {
 async function getCategoriesByDepartment (req, res) {
     try {
         // Find the department based on the departmentName
-        const department = await Department.findOne({ name: req.params.depId }).populate('categories')
+        const department = await Department.findOne({ _id: req.params.depId }).populate('categories')
 
         if (!department) {
             return res.status(404).json({ error: 'Department not found' })
@@ -30,6 +30,6 @@ async function getCategoriesByDepartment (req, res) {
 
         res.status(200).json(department.categories)
     } catch (error) {
-        res.status(400).json({ message: error.message, line: 'line 28 categories.js' })
+        res.status(400).json({ message: error.message })
     }
 }

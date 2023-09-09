@@ -1,5 +1,5 @@
 import styles from './Review.module.scss';
-import StaticStars from '../StarsStatic/StaticStars'
+import StaticStars from '../StaticStars/StaticStars'
 import ReviewForm from '../ReviewForm/ReviewForm'
 
 export default function Reviews({ review, removeReview, user, addReview}) {

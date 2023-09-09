@@ -49,8 +49,7 @@ const FAQPage = () => {
   };
   
   return (
-    <>
-      {NavBar} 
+    <> 
       <div className={styles.container}>
         <h1>Frequently Asked Questions</h1>
         <FAQDropdown

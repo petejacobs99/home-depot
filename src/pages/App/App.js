@@ -19,9 +19,9 @@ import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
 import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
-import OrderHistoryPage from '../Dummy';
-import OrderPage from '../Dummy';
-import SearchResultsPage from '../Dummy';
+import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
+import OrderPage from '../OrderPage/OrderPage';
+import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
 import WishlistPage from '../Dummy';
 import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'

@@ -63,9 +63,8 @@ export default function ItemListItem({
         </div>
         <div className={styles.itemInfoLine2}>
           <div className={styles.rating}>
-            {/* {filledStars}
-            {emptyStars} */}
-            {itemListItem.showByCategory}
+            {filledStars}
+            {emptyStars}
           </div>
           {inCart ? (
             <button className={styles.btnDisabled}>IN CART</button>

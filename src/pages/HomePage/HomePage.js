@@ -23,7 +23,6 @@ export default function HomePage({ departments }) {
 
 	return (
 		<div className={styles.HomePage}>
-			<DepListNavBar />
 			<div className={styles.Carousel}>
 				<FeaturedItemCarousel imageUrls={imageUrls} />
 			</div>

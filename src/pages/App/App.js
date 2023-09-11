@@ -8,7 +8,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
 import HomePage from '../HomePage/HomePage';
-/* import ItemDetailPage from '../ItemDetailPage/ItemDetailPage'; */
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import ItemListPage from '../ItemListPage/ItemListPage';
 /* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */
 /* import OrderPage from '../OrderPage/OrderPage';
@@ -18,7 +18,7 @@ import UserProfilePage from '../UserProfilePage/UserProfilePage';
 // holding pages
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
-import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
+//import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';

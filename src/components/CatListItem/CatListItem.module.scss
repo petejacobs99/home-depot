@@ -9,9 +9,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 
     .image {
         width: 15vmin;
         margin-bottom: 2vmin;
+    }
+
+    .name {
+        color: var(--black);
     }
 }

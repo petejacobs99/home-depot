@@ -1,18 +1,22 @@
+import { useState } from "react"
 import styles from "./DepListNavBar.module.scss"
 
-export default function DepListNavBar({
-  departments,
-  activeDep,
-  setActiveDep
-}) {
+export default function DepListNavBar({departments}) {
+  const [activeDepNav, setActiveDepNav] = useState('')
+
   const deps = departments.map((dep) => (
-    <div
-        key={dep.name}
-        className={dep === activeDep ? styles.active : ""}
-        onClick={() => setActiveDep(dep.name)}
-      >
-        {dep.name}
-      </div>
+    <span
+      key={dep.name}
+      className={dep === activeDepNav ? styles.active : ""}
+      onClick={() => setActiveDepNav(dep.name)}
+    >
+      {dep.name}
+    </span>
   ))
-  return <span className={styles.DepartmentList}>{deps}</span>
+  
+  return (
+    <span className={styles.DepartmentList}>
+      {deps}
+    </span> 
+  )
 }

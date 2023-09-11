@@ -4,9 +4,9 @@ import styles from "./DepartmentList.module.scss"
 export default function DepartmentList({ departments }) {
   const [activeDep, setActiveDep] = useState('')
   const images = [
-    "https://i.imgur.com/cSFKjc1.jpg",
-    "https://i.imgur.com/cSFKjc1.jpg",
-    "https://i.imgur.com/cSFKjc1.jpg",
+    "https://i.imgur.com/7Mbv1qf.png",
+    "https://i.imgur.com/4furMoT.png",
+    "https://i.imgur.com/FAWekwf.png",
     "https://i.imgur.com/cSFKjc1.jpg"
   ]  
 

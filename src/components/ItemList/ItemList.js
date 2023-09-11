@@ -2,15 +2,16 @@ import styles from "./ItemList.module.scss";
 import ItemListItem from "../ItemListItem/ItemListItem";
 
 export default function ItemList({
-  handleClick,
+  /* handleClick, */
   handleAddToOrder,
   setItemListItems,
   itemListItems
 }) {
   const items = itemListItems.map(item =>
     <ItemListItem
+      className={styles.item}
       key={item._id}
-      onClick={handleClick}
+      /* onClick={handleClick} */
       handleAddToOrder={handleAddToOrder}
       itemListItem={item}
       setItemListItems={setItemListItems}

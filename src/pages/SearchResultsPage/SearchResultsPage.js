@@ -3,7 +3,7 @@ import ItemList from "../../components/ItemList/ItemList";
 import SearchBar from "../../components/SearchBar/SearchBar"; // Import the SearchBar component
 import styles from "./SearchResults.module.scss";
 
-const SearchResultsPage = ({ handleAddToOrder, setItemListItems, itemListItems }) => {
+export default function SearchResultsPage ({ handleAddToOrder, setItemListItems, itemListItems }) {
   const [searchResults, setSearchResults] = useState([]); // State to store search results
 
   // Function to update search results
@@ -30,4 +30,4 @@ const SearchResultsPage = ({ handleAddToOrder, setItemListItems, itemListItems }
   );
 };
 
-export default SearchResultsPage;
+

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserProfilePage.module.scss";
 
-const UserProfilePage = () => {
-  const [user, setUser] = useState(null);
+
+export default function UserProfilePage({ user, setUser }) {
+
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
@@ -109,4 +110,3 @@ const UserProfilePage = () => {
   );
 };
 
-export default UserProfilePage;

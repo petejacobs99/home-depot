@@ -91,18 +91,18 @@ export default function App() {
         />
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/home" element={<HomePage user={user} departments={departments}/>} />
-          <Route path="/cart" element={<OrderPage user={user} />} />
-          <Route path="/orders" element={<OrderHistoryPage user={user} />} />
-          <Route path="/faq" element={<FAQPage user={user} />} />
-          <Route path="/profile" element={<UserProfilePage user={user} />} />
-          <Route path="/wishlist" element={<WishlistPage user={user} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/aboutus" element={<AboutUsPage user={user} />} />
-          <Route path="/auth" element={<AuthPage user={user} />} />
-          <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/home/:depName/categories" element={<CategoryListPage user={user} />} />
-          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home" element={<HomePage user={user} setUser={setUser} departments={departments}/>} />
+          <Route path="/cart" element={<OrderPage user={user} setUser={setUser}/>} />
+          <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser}/>} />
+          <Route path="/faq" element={<FAQPage user={user} setUser={setUser}/>} />
+          <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser}/>} />
+          <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser}/>} />
+          <Route path="/auth" element={<AuthPage user={user} setUser={setUser}/>} />
+          <Route path="/home/search/:term" element={<SearchResultsPage user={user} setUser={setUser}handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/home/:depName/categories" element={<CategoryListPage user={user} setUser={setUser}/>} />
+          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 
           {/*<Route path="/*" element={<Navigate to="/home" />} />*/}
         </Routes>

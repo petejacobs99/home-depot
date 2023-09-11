@@ -4,6 +4,7 @@ import { useState } from "react";
 import Hamburger from "../Hamburger/Hamburger";
 import HamMenu from "../HamMenu/HamMenu";
 import SearchBar from "../SearchBar/SearchBar";
+import DepListNavBar from "../DepListNavBar/DepListNavBar";
 
 export default function NavBar({ departments }) {
   const [drop, setDrop] = useState(false);
@@ -31,12 +32,9 @@ export default function NavBar({ departments }) {
           </div>
         </div>
         <div className={styles.navBarBottom}>
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
+          <>&lt;</>
+          <DepListNavBar departments={departments}/>
+          <>&gt;</>
         </div>
         {/* <DepListNavBar departments={departments} /> */}
       </div>

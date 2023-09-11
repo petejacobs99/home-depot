@@ -50,7 +50,12 @@ async function showByCategory(req, res) {
 }
 async function show(req, res) {
   try {
-    const item = await Item.findById(req.params.id).populate('category').exec()
+    const item = await Item.findById(req.params.id).populate({
+      path: 'category',
+      populate: {
+          path: 'department'
+      }
+  }).exec()
     res.status(200).json(item)
   } catch (error) {
     res.status(400).json({ message: error.message })

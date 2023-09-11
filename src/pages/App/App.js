@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser } from '../../utilities/users-service';
-import { getDepartments } from '../../utilities/catDep-api';
 import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
 import HomePage from '../HomePage/HomePage';
-/* import ItemDetailPage from '../ItemDetailPage/ItemDetailPage'; */
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import ItemListPage from '../ItemListPage/ItemListPage';
 /* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */
 /* import OrderPage from '../OrderPage/OrderPage';
 import SearchResultsPage from '../SearchResultsPage/SearchResultsPage'; */
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
-/* import WishlistPage from '../WishlistPage/WishlistPage'; */
+import WishlistPage from '../WishlistPage/WishlistPage';
 // holding pages
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
@@ -27,18 +26,20 @@ import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'
+import * as itemsAPI from '../../utilities/items-api'
 
 
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [cart, setCart] = useState({})
   const [wishlist, setWishlist] = useState({})
-  const depRef = useRef([])
+  const [departments, setDepartments] = useState([])
+  const navigate = useNavigate()
 
   useEffect(function () {
     async function getDeps() {
-      const data = await catDepAPI.getDepartments()
-      depRef.current = [...data]
+      const deps = await catDepAPI.getDepartments()
+      setDepartments(deps)
     }
     getDeps()
     async function getCart() {
@@ -75,6 +76,9 @@ export default function App() {
     const data = await wishAPI.removeFromWishlist(itemId)
     setWishlist(data)
   }
+  async function handleSelectItem(itemId, catName, depName) {
+    navigate(`/home/${depName}/${catName}/${itemId}`)
+  }
   return (
     <main className={styles.App}>
       {/* { user ? */}
@@ -87,21 +91,21 @@ export default function App() {
           handleRemoveFromWishList={handleRemoveFromWishList}
           handleCheckout={handleCheckout}
           wishlist={wishlist}
-          departments={depRef}
+          departments={departments}
         />
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/home" element={<HomePage user={user} />} />
+          <Route path="/home" element={<HomePage user={user} departments={departments}/>} />
           <Route path="/cart" element={<OrderPage user={user} />} />
           <Route path="/orders" element={<OrderHistoryPage user={user} />} />
           <Route path="/faq" element={<FAQPage user={user} />} />
           <Route path="/profile" element={<UserProfilePage user={user} />} />
-          <Route path="/wishlist" element={<WishlistPage user={user} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} />} />
+          <Route path="/wishlist" element={<WishlistPage user={user} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/aboutus" element={<AboutUsPage user={user} />} />
           <Route path="/auth" element={<AuthPage user={user} />} />
-          <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home/search/:term" element={<SearchResultsPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/categories" element={<CategoryListPage user={user} />} />
-          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 
           {/*<Route path="/*" element={<Navigate to="/home" />} />*/}

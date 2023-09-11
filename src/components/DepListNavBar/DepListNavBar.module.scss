@@ -1,6 +1,7 @@
 .DepartmentList span {
-/*     display: flex;
-    justify-content: space-between; */
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: row;
   }
   
   .DepartmentList span:hover:not(.active) {

@@ -1,24 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser } from '../../utilities/users-service';
-import { getDepartments } from '../../utilities/catDep-api';
 import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
 import HomePage from '../HomePage/HomePage';
-/* import ItemDetailPage from '../ItemDetailPage/ItemDetailPage'; */
+import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import ItemListPage from '../ItemListPage/ItemListPage';
 /* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */
 /* import OrderPage from '../OrderPage/OrderPage';
 import SearchResultsPage from '../SearchResultsPage/SearchResultsPage'; */
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
-/* import WishlistPage from '../WishlistPage/WishlistPage'; */
+import WishlistPage from '../WishlistPage/WishlistPage';
 // holding pages
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
-import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import OrderHistoryPage from '../Dummy';
 import OrderPage from '../Dummy';
 import SearchResultsPage from '../Dummy';
@@ -27,17 +25,19 @@ import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'
+import * as itemsAPI from '../../utilities/items-api'
 
 
 export default function App() {
   const [user, setUser] = useState(getUser())
   const [cart, setCart] = useState({})
   const [wishlist, setWishlist] = useState({})
-  const [departments, setDepartments] = useState([]);
+  const [departments, setDepartments] = useState([])
+  const navigate = useNavigate()
 
   useEffect(function () {
     async function getDeps() {
-      const deps = await getDepartments()
+      const deps = await catDepAPI.getDepartments()
       setDepartments(deps)
     }
     getDeps()
@@ -75,7 +75,7 @@ export default function App() {
     const data = await wishAPI.removeFromWishlist(itemId)
     setWishlist(data)
   }
-  async function handleSelectItem(catName, depName, itemId) {
+  async function handleSelectItem(itemId, catName, depName) {
     navigate(`/home/${depName}/${catName}/${itemId}`)
   }
   return (

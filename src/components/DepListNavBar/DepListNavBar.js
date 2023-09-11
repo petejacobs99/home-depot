@@ -1,18 +1,25 @@
+import { useState } from "react"
 import styles from "./DepListNavBar.module.scss"
 
 export default function DepListNavBar({
-  departments,
-  activeDep,
-  setActiveDep
+  departments
 }) {
-  const deps = departments.map((dep) => (
+  const [activeDepNav, setActiveDepNav] = useState('')
+
+  const deps = departments.map((dep, i) => (
     <div
-        key={dep.name}
-        className={dep === activeDep ? styles.active : ""}
-        onClick={() => setActiveDep(dep.name)}
-      >
-        {dep.name}
-      </div>
+      key={dep.name}
+      className={dep === activeDepNav ? styles.active : ""}
+      onClick={() => setActiveDepNav(dep.name)}
+    >
+      <img className={styles.img} src={images[i]} />
+      {dep.name}
+    </div>
   ))
-  return <span className={styles.DepartmentList}>{deps}</span>
+  
+  return (
+    <span className={styles.DepartmentList}>
+      {deps}
+    </span> 
+  )
 }

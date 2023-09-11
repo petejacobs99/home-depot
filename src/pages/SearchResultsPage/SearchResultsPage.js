@@ -1,15 +1,27 @@
-import React from "react";
-import ItemList from "../../components/ItemList/ItemList"; 
+import React, { useState } from "react";
+import ItemList from "../../components/ItemList/ItemList";
+import SearchBar from "../../components/SearchBar/SearchBar"; // Import the SearchBar component
 import styles from "./SearchResults.module.scss";
 
 const SearchResultsPage = ({ handleAddToOrder, setItemListItems, itemListItems }) => {
+  const [searchResults, setSearchResults] = useState([]); // State to store search results
+
+  // Function to update search results
+  const updateSearchResults = async (searchQuery) => {
+    const items = await searchItems(searchQuery);
+    setSearchResults(items);
+  };
+
   return (
     <div>
-      {NavBar}
-    <div className={styles.searchResultsContainer}>
-      <h1>SEARCH RESULTS</h1>
-    </div>
+      <div className={styles.searchResultsContainer}>
+        <h1>SEARCH RESULTS</h1>
+        {/* Render the SearchBar component and pass the updateSearchResults function */}
+        <SearchBar onSearch={updateSearchResults} />
+      </div>
       <ItemList
+        // Pass the searchResults state as the items to be displayed
+        items={searchResults}
         handleAddToOrder={handleAddToOrder}
         setItemListItems={setItemListItems}
         itemListItems={itemListItems}

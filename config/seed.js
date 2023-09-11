@@ -1,6 +1,6 @@
 require('dotenv').config();
 require('./database');
-import { images } from '../src/images';
+// import { images } from '../src/images';
 
 const Category = require('../models/category');
 const Department = require('../models/department');
@@ -18,7 +18,11 @@ const Item = require('../models/item');
 	// generate categories:
 	await Category.deleteMany({});
 	const categories = await Category.create([
-		{ name: 'Cabinets', image: images.cabinetsBG, department: departments[0] },
+		{ 
+            name: 'Cabinets', 
+            image: 'images.cabinetsBG', 
+            department: departments[0] 
+        },
 		{
 			name: 'Kitchen Faucets',
 			image: 'images.faucetBG',

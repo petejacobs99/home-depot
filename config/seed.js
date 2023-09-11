@@ -18,88 +18,89 @@ const Item = require('../models/item');
 	// generate categories:
 	await Category.deleteMany({});
 	const categories = await Category.create([
-		{ 
-            name: 'Cabinets', 
-            image: 'images.cabinetsBG', 
-            department: departments[0] 
-        },
+		{
+			name: 'Cabinets',
+			image: 'https://i.imgur.com/UZVqOUg.png',
+			department: departments[0]
+		},
 		{
 			name: 'Kitchen Faucets',
-			image: 'images.faucetBG',
+			image: 'https://i.imgur.com/T3SB2Ex.jpg',
 			department: departments[0]
 		},
 		{
 			name: 'Backsplash',
-			image: 'images.backSplashBG',
+			image: 'https://i.imgur.com/EUjcDd9.jpg',
 			department: departments[0]
 		},
 		{
 			name: 'Garbage Disposal',
-			image: 'images.showerHeadBG',
+			image: 'https://i.imgur.com/HAXzMdc.jpg',
 			department: departments[0]
 		},
 
-		{ 
-            name: 'Tubs', 
-            image: 'images.tubBG', 
-            department: departments[1] 
-        },
+		{
+			name: 'Tubs',
+			image: 'https://i.imgur.com/5fiWDyO.jpg',
+			department: departments[1]
+		},
 		{
 			name: 'Shower Heads',
-			image: 'images.showerHeadBG',
+			image: 'https://i.imgur.com/hjFNpn6.jpg',
 			department: departments[1]
 		},
 		{
 			name: 'Bathroom Faucets',
-			image: 'images.bfBG',
+			image: 'https://i.imgur.com/jbGT3n3.jpg',
 			department: departments[1]
 		},
-		{ 
-            name: 'Toilets', 
-            image: 'images.toiletBG', 
-            department: departments[1] 
-        },
+		{
+			name: 'Toilets',
+			image: 'https://i.imgur.com/L55oz3h.jpg',
+			department: departments[1]
+		},
 
 		{
 			name: 'Refridgerators',
-			image: 'images.fridgeBG',
+			image: 'https://i.imgur.com/NaV2Q95.jpg',
 			department: departments[2]
 		},
-		{ 
-            name: 'Ovens', 
-            image: 'images.ovenBG', 
-            department: departments[2] 
-        },
+		{
+			name: 'Ovens',
+			image: 'https://i.imgur.com/jv9jpAd.jpg',
+			department: departments[2]
+		},
 		{
 			name: 'Washers and Dryers',
-			image: 'images.washerdryerBG',
+			image: 'https://i.imgur.com/4actGZc.jpg',
 			department: departments[2]
 		},
 		{
 			name: 'Microwaves',
-			image: 'images.microwaveBG',
+			image: 'https://i.imgur.com/ADVIeXq.jpg',
 			department: departments[2]
 		},
 
-		{ 
-            name: 'Power Drills', 
-            image: 'images.drillBG', 
-            department: departments[3] 
-        },
-		{ 
-            name: 'Toolsets', 
-            image: 'images.toiletBG', 
-            department: departments[3] 
-        },
-		{ 
-            name: 'Nails and Bolts', 
-            image: 'images.NBBG', 
-            department: departments[3] },
-		{ 
-            name: 'Buckets', 
-            image: 'images.bucketsBG', 
-            department: departments[3] 
-        }
+		{
+			name: 'Power Drills',
+			image: 'https://i.imgur.com/nYayBmj.jpg',
+			department: departments[3]
+		},
+		{
+			name: 'Toolsets',
+			image: 'https://i.imgur.com/u5Frxvg.jpg',
+			department: departments[3]
+		},
+		{
+			name: 'Nails and Bolts',
+			image: 'https://i.imgur.com/ZKrhONv.jpg',
+			department: departments[3]
+		},
+		{
+			name: 'Buckets',
+			image: 'https://i.imgur.com/YVkwL9o.jpg',
+			department: departments[3]
+		}
 	]);
 
 	//Create Items:
@@ -108,7 +109,7 @@ const Item = require('../models/item');
 		// kitchen faucets
 		{
 			name: 'Glacier Bay Faucet',
-			img: 'images.glacierBay',
+			img: 'https://i.imgur.com/lq832rt.png',
 			category: categories[0],
 			details: `Single-Handle Pull Down Sprayer Kitchen Faucet`,
 			searchTerms: ['faucet', 'bathroom', 'silver'],
@@ -116,7 +117,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'KOHLER Faucet',
-			img: 'images.kohler',
+			img: 'https://i.imgur.com/QLZsUzj.png',
 			category: categories[0],
 			details: `Sous Pro-Style Single-Handle Pull-Down Sprayer Kitchen Faucet`,
 			searchTerms: ['faucet', 'bathroom', 'gray'],
@@ -124,7 +125,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Delta Faucet',
-			img: 'images.delta',
+			img: 'https://i.imgur.com/fc5x6uj.png',
 			category: categories[0],
 			details: `Pivotal Single-Handle Pull-Down Sprayer Kitchen Faucet with Touch2O Technology`,
 			searchTerms: ['faucet', 'bathroom', 'black'],
@@ -133,7 +134,7 @@ const Item = require('../models/item');
 		//cabinets
 		{
 			name: 'Contractor Express Cabinets',
-			img: 'images.CECcabinet',
+			img: 'https://i.imgur.com/aef6Bfq.png',
 			category: categories[1],
 			details: `36 in. x 34.5 in. x 24 in`,
 			searchTerms: [
@@ -147,7 +148,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Hampton Bay',
-			img: 'images.HBcabinet',
+			img: 'https://i.imgur.com/1sIzdHk.png',
 			category: categories[1],
 			details: `60 in. W x 24 in. D x 34.5 in`,
 			searchTerms: ['kitchen', 'cabinet', 'cabinets', 'brown', 'hampton bay'],
@@ -155,7 +156,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Home Decorators Collection',
-			img: 'images.HDCcabinet',
+			img: 'https://i.imgur.com/1g5urYy.png',
 			category: categories[1],
 			details: `30 in. x 34.5 in. x 24 in`,
 			searchTerms: [
@@ -170,7 +171,7 @@ const Item = require('../models/item');
 		//backslash
 		{
 			name: 'MSI',
-			img: 'images.MSI',
+			img: 'https://i.imgur.com/0sJ1HXo.png',
 			category: categories[2],
 			details: `Angora Herringbone 12 in. x 12 in. Polished Marble Wall Mosaic Tile`,
 			searchTerms: ['msi', 'tiles', 'backsplash'],
@@ -178,7 +179,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Daltile',
-			img: 'images.Daltile',
+			img: 'https://i.imgur.com/jcF3WH7.png',
 			category: categories[2],
 			details: `3 in. x 6 in. Ceramic Bright White Subway Tile`,
 			searchTerms: ['daltile', 'tiles', 'backsplash', 'white'],
@@ -186,7 +187,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Marazzi',
-			img: 'images.Marazzi',
+			img: 'https://i.imgur.com/65KdDMz.png',
 			category: categories[2],
 			details: `Stonehollow 14 in. x 12 in. x 6.35 mm Mist Ceramic Herringbone Mosaic Wall Tile`,
 			searchTerms: ['marazzi', 'stone', 'backsplash'],
@@ -195,7 +196,7 @@ const Item = require('../models/item');
 		//garbage desposel
 		{
 			name: 'InSinkErator',
-			img: 'images.inSinkErator',
+			img: 'https://i.imgur.com/EiDxxbE.png',
 			category: categories[3],
 			details: `Badger 500, 1/2 HP Continuous Feed Kitchen Garbage Disposal`,
 			searchTerms: ['insinkerator', 'garbage disposal', 'kitchen', 'black'],
@@ -203,7 +204,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'MOEN',
-			img: 'images.MOEN',
+			img: 'https://i.imgur.com/zfMGPXb.png',
 			category: categories[3],
 			details: `Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount`,
 			searchTerms: ['moen', 'garbage disposal', 'kitchen', 'black'],
@@ -220,7 +221,7 @@ const Item = require('../models/item');
 		//Tubs
 		{
 			name: 'KOHLER',
-			img: 'images.kohlerTub',
+			img: 'https://i.imgur.com/3YqvvkE.png',
 			category: categories[4],
 			details: `60 in. x 30.25 in`,
 			searchTerms: ['bathroom', 'tubs', 'white', 'kohler'],

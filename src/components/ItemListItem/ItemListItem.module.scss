@@ -1,3 +1,10 @@
+.App {
+    border: 0.5vmin solid var(--khaki);
+    margin: 2vmin;
+    width: 30vmax;
+    text-transform: uppercase;
+}
+
 .heart {
     margin-left: 26vmax;
     font-size: 5vmin;
@@ -6,7 +13,7 @@
 }
 
 .imageContainer {
-    margin-top: 5vmin;
+    margin-bottom: 4vmin;
 }
 
 .itemInfoLine1,
@@ -21,7 +28,7 @@
 }
 
 .itemInfoLine1 {
-    font-size: 3vmax;
+    font-size: 1.5vmax;
     margin-bottom: 1vmin;
     width: 27vmax;
 }

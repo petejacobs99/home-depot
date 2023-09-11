@@ -17,17 +17,13 @@ import WishlistPage from '../WishlistPage/WishlistPage';
 // holding pages
 import AboutUsPage from '../Dummy';
 //import HomePage from '../Dummy';
-import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import OrderPage from '../OrderPage/OrderPage';
 import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
-import WishlistPage from '../Dummy';
 import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'
-import * as itemsAPI from '../../utilities/items-api'
-
 
 export default function App() {
   const [user, setUser] = useState(getUser())

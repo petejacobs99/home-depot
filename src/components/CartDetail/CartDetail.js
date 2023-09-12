@@ -1,6 +1,22 @@
 import styles from './CartDetail.module.scss';
+import { getCart } from '../../utilities/orders-api'
 
 export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
+  
+  useEffect(() => {
+    const getCart = async () => {
+      try {
+        const cart = await getCart()
+      } catch (error) {
+        console.error('Error fetching cart:', error);
+      }
+    };
+
+    getCart();
+  }, [user]);
+
+  
+  
   return (
     <>
       {cart ?

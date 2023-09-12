@@ -6,9 +6,9 @@ export default function DepListNavBar({departments}) {
   const [activeDepNav, setActiveDepNav] = useState('')
   const navigate = useNavigate()
 
-  async function handleOnClick() {
+  async function handleOnClick(dep) {
     setActiveDepNav(dep.name)
-    navigate(`/home/${dep.name}`)
+    navigate(`/home/${dep.name}/categories`)
   }
 
   const deps = departments.map((dep) => (

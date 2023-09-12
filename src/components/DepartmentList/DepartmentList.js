@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styles from "./DepartmentList.module.scss"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function DepartmentList({ departments }) {
   const [activeDep, setActiveDep] = useState('')
@@ -11,10 +11,11 @@ export default function DepartmentList({ departments }) {
     "https://i.imgur.com/cSFKjc1.jpg"
   ]  
   const navigate = useNavigate()
+  const params = useParams()
 
-  async function handleOnClick() {
+  async function handleOnClick(dep) {
     setActiveDep(dep.name)
-    navigate(`/home/${dep.name}`)
+    navigate(`/home/${dep.name}/categories`)
   }
 
   const deps = departments.map((dep, i) => (

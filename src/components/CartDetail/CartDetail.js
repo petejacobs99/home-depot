@@ -8,7 +8,9 @@ export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
           <h1>YOUR CART</h1>
           {Object.keys(cart).map((itemId) => (
             <div key={itemId} className={styles.item}>
+              <img src={cart[itemId].img}></img>
               <span>Item: {cart[itemId].name}</span>
+              <span>Color: {cart[itemId].color}</span>
               <span>Quantity: {cart[itemId].quantity}</span>
               <button onClick={() => handleChangeQty(itemId, cart[itemId].quantity + 1)}>+</button>
               <button onClick={() => handleChangeQty(itemId, cart[itemId].quantity - 1)}>-</button>

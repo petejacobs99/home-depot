@@ -28,6 +28,21 @@ export function getUser() {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
 }
 
+export async function updateUser(updatedUserData) {
+  const token = getToken();
+
+  if (token) {
+    try {
+      await usersAPI.updateUser(updatedUserData);
+      return getUser();
+    } catch (error) {
+      throw new Error(`An error occurred while updating the user: ${error.message}`);
+    }
+  } else {
+    throw new Error('User not authenticated.');
+  }
+}
+
 export function logOut() {
   localStorage.removeItem('token');
 }
@@ -37,8 +52,8 @@ export async function deleteUser() {
 
   if (token) {
     try {
-      await usersAPI.deleteUser(); // Call the deleteUser API method
-      logOut(); // Log out the user after deletion
+      await usersAPI.deleteUser();
+      logOut(); 
     } catch (error) {
       throw new Error(`An error occurred while deleting the user: ${error.message}`);
     }

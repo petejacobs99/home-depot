@@ -28,14 +28,17 @@ async function showAll(req, res) {
 }
 async function createReview(req, res) {
   try {
-    req.body.item = req.params.id
-    req.body.user = req.user
-    let review = await Review.findOne({user: req.user, item: req.params.id})
+    let review = await Review.findOne({user: req.body.user, item: req.body.item})
     if(review){
       review.body = req.body.body
       review.rating = req.body.rating
     } else {
-      review = new Review(req.body)
+      review = new Review({
+        user: req.user._id, 
+        item: req.params.id,
+        rating: req.body.rating,
+        body: req.body.body
+      })
     }
     await review.save()
     res.status(200).json(review)
@@ -45,7 +48,7 @@ async function createReview(req, res) {
 }
 async function updateReview(req, res) {
   try{
-    const review = await Review.findOneAndUpdate({user: req.user._id, item: req.params.id}, req.body, { new: true })
+    const review = await Review.findOneAndUpdate({ user: req.user._id, item: req.params.id }, { rating: req.body.rating, body: req.body.body }, { new: true })
     res.status(200).json(review)
   } catch(error){
     res.status(400).json({ message: error.message})

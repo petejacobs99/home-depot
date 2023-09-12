@@ -1,38 +1,38 @@
-.form-container {
-    padding: 20px;
-    background-color: #e7dcc9;
-    border-radius: 8px;
-    width: 300px;
-    margin: 0 auto;
+.login-form-container {
     text-align: center;
+  
+    .login-label {
+      color: #381806;
+    }
+  
+    .login-input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #381806;
+      border-radius: 5px;
+      color: #381806;
+      background-color: white;
+    }
+  
+    .login-button {
+        background-color: #5a5f33; /* Changed default color */
+        color: #381806;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    
+        &:hover {
+          background-color: #6c7343; /* Adjusted hover color */
+        }
+      }
+    }
+  
+  .login-error-message {
+    color: red;
+    margin-top: 10px;
   }
   
-.form-container label {
-    display: block;
-    margin-top: 10px;
-    color: #381806;
-}
-  
-.form-container input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    border-bottom: 1px solid #777e49;
-}
-  
-.form-container button {
-    background-color: #777e49;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-top: 10px;
-}
-  
-.error-message {
-    color: #d9534f;
-}
   

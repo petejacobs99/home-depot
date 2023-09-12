@@ -2,23 +2,44 @@ const Wishlist = require('../../models/wishlist')
 const Item = require('../../models/item')
 
 module.exports = {
+    createWishlist,
+    getWishlist,
     addItemToWishlist,
     removeItemFromWishlist,
     deleteWishlist
 }
 
-async function addItemToWishlist(req, res) {
-    try {
-        const { wishlistId, itemId } = req.body
+async function createWishlist(req, res) {
+    const userId = req.user._id
 
-        const item = await Item.findById(itemId)
-        if (!item) {
-            return res.status(404).json({ error: 'Item not found' })
+    try { 
+        const wishlist = new Wishlist({ user: userId })
+        await wishlist.save()
+
+        res.status(200).json(wishlist)
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+async function getWishlist(req, res) {
+    try {
+        const wishlist = await Wishlist.getWishlist(req.user._id)
+
+        if (!wishlist) {
+            return res.status(404).json({ message: 'Wishlist not found' });
         }
 
-        const wishlist = await Wishlist.findById(wishlistId)
-        wishlist.items.push(itemId)
-        await wishlist.save()
+        res.status(200).json(wishlist);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+}
+
+async function addItemToWishlist(req, res) {
+    try {
+        const wishlist = await Wishlist.getWishlist(req.user._id)
+        await wishlist.addItem(req.params.itemId)
         res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -27,16 +48,15 @@ async function addItemToWishlist(req, res) {
 
 async function removeItemFromWishlist(req, res) {
     try {
-        const { wishlistId, itemId } = req.body
-
-        const wishlist = await Wishlist.findById(wishlistId)
-        wishlist.items.pull(itemId)
-        await wishlist.save()
+        const wishlist = await Wishlist.getWishlist(req.user._id)
+        await wishlist.removeItem(req.params.itemId)
         res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
 }
+
+
 
 async function deleteWishlist(req, res) {
     try {

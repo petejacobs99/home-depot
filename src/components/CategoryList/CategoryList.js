@@ -1,109 +1,20 @@
-import "./CategoryList.module.scss";
+import styles from "./CategoryList.module.scss";
+/* import * as catsAPI from '../../utilities/catDep-api'; */
+import CatListItem from '../CatListItem/CatListItem';
 
-export default function CategoryList({ categories }) {
-  /* const cats = categories.map((cat) => <li key={cat}>{cat}</li>); */
+export default function CategoryList({ setCategories, categories }) {
+    const cats = categories.map(cat =>
+        <CatListItem
+            key={cat._id}
+            category={cat}
+            setCategories={setCategories}
+            categories={categories}
+        />
+    );
+    return (
+        <main className={styles.categories}>
+            {cats}
+        </main>
+    );
 
-  return (
-    <div className="App">
-      {/* <ul>{cats}</ul> */}
-      <div className="categories">
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-        <div>
-          <img
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
-          />
-          <p>CATEGORY</p>
-        </div>
-      </div>
-    </div>
-  );
 }

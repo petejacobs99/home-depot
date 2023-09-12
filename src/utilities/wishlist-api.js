@@ -2,14 +2,14 @@ import sendRequest from './send-request'
 
 const BASE_URL = '/api/wishlist'
 
-export function showWishlist() {
-  return sendRequest(`${BASE_URL}`)
+export function showWishlist(userId) {
+  return sendRequest(`${BASE_URL}/${userId}`)
 }
 
-export function addToWishlist(subItemId, itemId) {
-  return sendRequest(`${BASE_URL}/items/${subItemId}`, 'POST', {itemId})
+export function addToWishlist(itemId) {
+  return sendRequest(`${BASE_URL}/add/${itemId}`, 'POST')
 }
 
-export function removeFromWishlist(subItemId) {
-  return sendRequest(`${BASE_URL}/items/${subItemId}`, 'PUT')
+export function removeFromWishlist(itemId) {
+  return sendRequest(`${BASE_URL}/remove/${itemId}`, 'POST')
 }

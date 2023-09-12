@@ -1,10 +1,12 @@
-import "./NavBar.module.scss";
+import styles from "./NavBar.module.scss"
 import { useState } from "react";
-import DepListNavBar from "./DepListNavBar/DepListNavBar";
-import Hamburger from "./Hamburger/Hamburger";
-import HamMenu from "./HamMenu/HamMenu";
+import { Link } from "react-router-dom";
+import DepListNavBar from "../DepListNavBar/DepListNavBar";
+import Hamburger from "../Hamburger/Hamburger";
+import HamMenu from "../HamMenu/HamMenu";
+import SearchBar from "../SearchBar/SearchBar"
 
-export default function App() {
+export default function NavBar({ departments }) {
   const [drop, setDrop] = useState(false);
 
   const handleHover = () => {
@@ -13,31 +15,31 @@ export default function App() {
 
   return (
     <>
-      <div className="navBar">
-        <div className="navBarTop">
-          <div>LOGO</div>
-          <div>SEARCH</div>
-          <div>CART</div>
+      <div className={styles.navBar}>
+        <div className={styles.navBarTop}>
+          <div>
+            <Link to="/home" className={styles.logo}>LOGO</Link>
+          </div>
+          <SearchBar />
+          <div>
+            <Link to="/cart" className={styles.logo}>CART</Link>
+          </div>
           <div
-            className="hamContainer"
+            className={styles.hamContainer}
             onMouseEnter={handleHover}
             onMouseLeave={handleHover}
           >
-            <div className="hamburger">
+            <div className={styles.hamburger}>
               <Hamburger />
             </div>
             {drop && <HamMenu />}
           </div>
         </div>
-        {/* <div className="navBarBottom">
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
-        </div> */}
-        <DepListNavBar />
+        <div className={styles.navBarBottom}>
+          {/* <>&lt;</> */}
+          <DepListNavBar departments={departments}/>
+          {/* <>&gt;</> */}
+        </div>
       </div>
     </>
   );

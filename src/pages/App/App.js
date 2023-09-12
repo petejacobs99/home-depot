@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
@@ -104,7 +104,7 @@ export default function App() {
           <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 
-          {/*<Route path="/*" element={<Navigate to="/home" />} />*/}
+          <Route path="/*" element={<Navigate to="/home" />} />
         </Routes>
       </>
       {/* :

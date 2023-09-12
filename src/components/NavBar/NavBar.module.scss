@@ -33,15 +33,13 @@
   padding-right: 1vmin;
   background-color: var(--olive-green);
   color: var(--white);
+  display: flex;
+  justify-content: center;
 }
 
 .hamContainer {
   position: absolute;
   right: 2vmin;
-}
-
-.hamburger {
-  z-index: 100;
 }
 
 @media only screen and (max-width: 480px) {

@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
 import { getUser, signUp } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
-/* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
+import AboutUsPage from '../AboutUsPage/AboutUsPage'; 
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
 import FAQPage from '../FAQPage/FAQPage';
 import HomePage from '../HomePage/HomePage';
@@ -15,8 +15,7 @@ import SearchResultsPage from '../SearchResultsPage/SearchResultsPage'; */
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import WishlistPage from '../WishlistPage/WishlistPage';
 // holding pages
-import AboutUsPage from '../Dummy';
-//import HomePage from '../Dummy';
+//import AboutUsPage from '../Dummy';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import OrderPage from '../OrderPage/OrderPage';
 import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
@@ -94,7 +93,8 @@ export default function App() {
     <main className={styles.App}>
       {/* { user ? */}
       <>
-        <NavBar
+        <NavBar 
+          className={styles.NavBar}
           user={user}
           setUser={setUser}
           cart={cart}

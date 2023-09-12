@@ -212,7 +212,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Waste King',
-			img: 'images.wasteKing',
+			img: 'https://i.imgur.com/3YqvvkE.png',
 			category: categories[3],
 			details: `Legend Series 1/2 HP Continuous Feed Garbage Disposal`,
 			searchTerms: ['waste king', 'garbage disposal', 'kitchen', 'white'],
@@ -221,7 +221,7 @@ const Item = require('../models/item');
 		//Tubs
 		{
 			name: 'KOHLER',
-			img: 'https://i.imgur.com/3YqvvkE.png',
+			img: 'https://i.imgur.com/f9GsGkg.png',
 			category: categories[4],
 			details: `60 in. x 30.25 in`,
 			searchTerms: ['bathroom', 'tubs', 'white', 'kohler'],
@@ -229,7 +229,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Vanity Art',
-			img: 'images.vanityArt',
+			img: 'https://i.imgur.com/TX9yOX9.png',
 			category: categories[4],
 			details: `55 in. x 28.3 in`,
 			searchTerms: ['bathroom', 'tubs', 'white', 'vanity art'],
@@ -237,7 +237,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Home Decorators Collection',
-			img: 'images.HDCtub',
+			img: 'https://i.imgur.com/GKR7Fgt.png',
 			category: categories[4],
 			details: `63 in. x 30.25 in`,
 			searchTerms: ['bathroom', 'tubs', 'white', 'home decorators collection'],
@@ -246,7 +246,7 @@ const Item = require('../models/item');
 		//shower heads
 		{
 			name: 'Delta',
-			img: 'images.deltaSH',
+			img: 'https://i.imgur.com/1Zo2F2w.png',
 			category: categories[5],
 			details: `5-Spray Patterns 1.75 GPM 6.63 in. Wall Mount Dual Shower Heads`,
 			searchTerms: ['bathroom', 'shower heads', 'silver', 'delta'],
@@ -254,7 +254,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'MOEN',
-			img: 'images.MOENSH',
+			img: 'https://i.imgur.com/OBohqGO.png',
 			category: categories[5],
 			details: `Attract with Magnetix 6-spray 6.75 in. Dual Shower Head and Adjustable Handheld`,
 			searchTerms: ['bathroom', 'shower heads', 'silver', 'moen'],
@@ -262,7 +262,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Glacier Bay',
-			img: 'images.glacierBaySH',
+			img: 'https://i.imgur.com/OD6Bk5M.png',
 			category: categories[5],
 			details: `3-Spray 3.5 in. Single Wall Mount Fixed Adjustable Shower Head`,
 			searchTerms: ['bathroom', 'shower heads', 'silver', 'glacier bay'],
@@ -271,7 +271,7 @@ const Item = require('../models/item');
 		//Bathroom faucets
 		{
 			name: 'Glacier Bay',
-			img: 'images.glacierBayBF',
+			img: 'https://i.imgur.com/LyfatSg.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Low-Arc Bathroom Faucet`,
 			searchTerms: ['bathroom', 'bathroom faucets', 'nickel', 'glacier bay'],
@@ -279,7 +279,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Delta',
-			img: 'images.deltaBF',
+			img: 'https://i.imgur.com/3JDO3Oh.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Bathroom Faucet `,
 			searchTerms: ['bathroom', 'bathroom faucets', 'silver', 'delta'],
@@ -287,7 +287,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Pfister',
-			img: 'images.pfisterBF',
+			img: 'https://i.imgur.com/N6UHBzJ.png',
 			category: categories[6],
 			details: `4 in. Centerset Single-Handle Waterfall Bathroom Faucet`,
 			searchTerms: ['bathroom', 'bathroom faucets', 'silver', 'pfister'],
@@ -296,7 +296,7 @@ const Item = require('../models/item');
 		//Toilets
 		{
 			name: 'Glacier Bay',
-			img: 'imahes.glacierBayToilet',
+			img: 'https://i.imgur.com/wgXKodQ.png',
 			category: categories[7],
 			details: `High Efficiency Dual Flush Complete Elongated Toilet`,
 			searchTerms: ['bathroom', 'toilets', 'white', 'glacier bay'],
@@ -304,7 +304,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'American Standard',
-			img: 'images.americanStandardToilet',
+			img: 'https://i.imgur.com/DaFVXWY.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
 			searchTerms: ['bathroom', 'toilets', 'white', 'american standard'],
@@ -312,7 +312,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'KOHLER',
-			img: 'images.KohlerToilet',
+			img: 'https://i.imgur.com/IWZM736.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
 			searchTerms: ['bathroom', 'toilets', 'white', 'kohler'],
@@ -321,7 +321,7 @@ const Item = require('../models/item');
 		//frides
 		{
 			name: 'LG',
-			img: 'images.lgFridge',
+			img: 'https://i.imgur.com/MRDCP5z.png',
 			category: categories[8],
 			details:
 				'28 cu. ft. 4-Door French Door Smart Refrigerator with Ice and Water Dispenser',
@@ -330,7 +330,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Samsung',
-			img: 'images.ssFridge',
+			img: 'https://i.imgur.com/Gj3huip.png',
 			category: categories[8],
 			details:
 				'35.75 in. W 26.5 cu. ft. 3-Door Family Hub French Door Smart Refrigerator',
@@ -339,7 +339,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Kitchen Aid ',
-			img: 'images.kaFridge',
+			img: 'https://i.imgur.com/cAHzJsF.png',
 			category: categories[8],
 			details: '25.8 cu. ft. French Door Refrigerator',
 			searchTerms: [
@@ -354,7 +354,7 @@ const Item = require('../models/item');
 		//ovens
 		{
 			name: 'LG',
-			img: 'images.lgOven',
+			img: 'https://i.imgur.com/kjyTo8I.png',
 			category: categories[9],
 			details:
 				'5.8 cu. ft. Smart Wi-Fi Enabled True Convection InstaView Gas Range Oven with Air Fry',
@@ -363,7 +363,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Samsung',
-			img: 'images.ssOven',
+			img: 'https://i.imgur.com/H8mLAR8.png',
 			category: categories[9],
 			details:
 				'6.3 cu. ft. 30 in. Smart Freestanding Double Oven Electric Range with Flex Duo',
@@ -372,7 +372,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Kitchen Aid Oven',
-			img: 'images.kaOven',
+			img: 'https://i.imgur.com/MMitAcq.png',
 			category: categories[9],
 			details: '30 in. Single Electric Wall Oven Self-Cleaning with Convection',
 			searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'kitchen aid'],
@@ -381,7 +381,7 @@ const Item = require('../models/item');
 		//washer & dryers
 		{
 			name: 'LG',
-			img: 'images.lgWasherDryer',
+			img: 'https://i.imgur.com/df6L2LC.png',
 			category: categories[9],
 			details: '4.5 Cu. Ft. "each" Stackable SMART Front Load Washer',
 			searchTerms: [
@@ -397,7 +397,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Samsung',
-			img: 'images.ssWasherDryer',
+			img: 'https://i.imgur.com/QLvI1o5.png',
 			category: categories[9],
 			details:
 				'4.5 cu. ft. "each", Smart High-Efficiency Front Load Washer with Super Speed',
@@ -414,7 +414,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Electrolux',
-			img: 'images.elWasherDryer',
+			img: 'https://i.imgur.com/TrtY4nV.png',
 			category: categories[9],
 			details:
 				'27 in. W 4.5 cu. ft. "each" Front Load Washer & dryer with SmartBoost, LuxCare Plus Wash & dry System',
@@ -432,7 +432,7 @@ const Item = require('../models/item');
 		//microwaves
 		{
 			name: 'LG',
-			img: 'images.lgMicrowave',
+			img: 'https://i.imgur.com/KlEzXHA.png',
 			category: categories[10],
 			details: '24 in. Width 2.0 cu.ft. 1200-Watt Countertop Microwave',
 			searchTerms: ['microwave', 'microwaves', 'lg', 'appliance', 'silver'],
@@ -440,7 +440,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Samsung',
-			img: 'images.ssMicrowave',
+			img: 'https://i.imgur.com/eNivv4S.png',
 			category: categories[10],
 			details: '30 in. 1.9 cu. ft. Over-the-Range Microwave',
 			searchTerms: [
@@ -454,7 +454,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Kitchen Aid ',
-			img: 'images.lgMicrowave',
+			img: 'https://i.imgur.com/9mONg6Z.png',
 			category: categories[10],
 			details: '1.5 cu. ft. Countertop Microwave',
 			searchTerms: [
@@ -469,23 +469,23 @@ const Item = require('../models/item');
 		//Power Drills
 		{
 			name: 'DEWALT',
-			img: 'images.dewaltDrill',
+			img: 'https://i.imgur.com/dAmV7xK.jpg',
 			category: categories[11],
 			details: '12V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
 			searchTerms: ['drill', 'drills', 'power tools', 'dewalt', 'yellow'],
 			price: 129.99
 		},
 		{
-			name: 'Craftsman',
-			img: 'images.craftsmanDrill',
+			name: 'Milwaukee',
+			img: 'https://i.imgur.com/UB7SCqJ.png',
 			category: categories[11],
-			details: '20V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
-			searchTerms: ['drill', 'drills', 'craftsman', 'power tools', 'red'],
-			price: 99.99
+			details: 'M18 18V Lithium-Ion Cordless 1/2 in. Drill Driver',
+			searchTerms: ['drill', 'drills', 'milwaukee', 'power tools', 'red'],
+			price: 199.99
 		},
 		{
 			name: 'Rockwell',
-			img: 'images.rockwellDrill',
+			img: 'https://i.imgur.com/CGPzixk.jpg',
 			category: categories[11],
 			details: '18V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
 			searchTerms: ['drill', 'drills', 'Rockwell', 'power tools', 'green'],
@@ -494,7 +494,7 @@ const Item = require('../models/item');
 		//Toolsets
 		{
 			name: 'Stanley',
-			img: 'images.stanleyTS',
+			img: 'https://i.imgur.com/sQMyF5p.png',
 			category: categories[12],
 			details: 'Home Tool Kit (65-Piece)',
 			searchTerms: ['toolset', 'stanley', 'yellow'],
@@ -502,7 +502,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'DEWALT',
-			img: 'images.dewaltTS',
+			img: 'https://i.imgur.com/i8EqgSp.png',
 			category: categories[12],
 			details:
 				'1/4 in., 3/8 in., and 1/2 in. Drive Polished Chrome Mechanics Tool Set (200-Piece)',
@@ -511,7 +511,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'KING',
-			img: 'images.kingTS',
+			img: 'https://i.imgur.com/2JIFcE3.png',
 			category: categories[12],
 			details: 'Complete Home Pink Tool Kit with Bag (24-Piece)',
 			searchTerms: ['toolsets', 'king', 'pink'],
@@ -520,7 +520,7 @@ const Item = require('../models/item');
 		//Nuts and bolts
 		{
 			name: 'TradesPro',
-			img: 'images.tradesProNB',
+			img: 'https://i.imgur.com/Jw5ZvJB.png',
 			category: categories[13],
 			details: '240 Piece Zinc Metric Nut and Bolt Assortment with Storage',
 			searchTerms: ['Nuts', 'bolts', 'gray', 'tradespro'],
@@ -528,7 +528,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Stark',
-			img: 'images.starkNB',
+			img: 'https://i.imgur.com/mbCaHtt.png',
 			category: categories[13],
 			details:
 				'347-Piece SAE Nut And Bolt Assortment Sheet Metal Machine Screw Hardware Kit',
@@ -537,7 +537,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Everbilt',
-			img: 'images.everBitNB',
+			img: 'https://i.imgur.com/HJ140Wx.png',
 			category: categories[13],
 			details: '405-Piece Zinc-Plated Machine Screw Kit',
 			searchTerms: ['Nuts', 'bolts', 'gray'],
@@ -546,7 +546,7 @@ const Item = require('../models/item');
 		//buckets
 		{
 			name: 'Red Buckets',
-			img: 'images.redBucket',
+			img: 'https://i.imgur.com/xQDcpeN.jpg',
 			category: categories[14],
 			details: '5 gallon bucket',
 			searchTerms: ['buckets', 'red'],
@@ -554,7 +554,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'Black Buckets',
-			img: 'images.blackBucket',
+			img: 'https://i.imgur.com/9wYClIH.jpg',
 			category: categories[14],
 			details: '16L plastic bucket with lid',
 			searchTerms: ['buckets', 'black'],
@@ -562,7 +562,7 @@ const Item = require('../models/item');
 		},
 		{
 			name: 'white Bucket Set',
-			img: 'images.whiteBucketSet',
+			img: 'https://i.imgur.com/WsuAkaZ.jpg',
 			category: categories[14],
 			details: '8 piece bucket set, 5 gallons',
 			searchTerms: ['buckets', 'white'],

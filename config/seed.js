@@ -550,7 +550,8 @@ const Item = require('../models/item');
 			category: categories[14],
 			details: '5 gallon bucket',
 			searchTerms: ['buckets', 'red'],
-			price: 12.99
+			price: 12.99,
+			featured: true
 		},
 		{
 			name: 'Black Buckets',
@@ -558,7 +559,8 @@ const Item = require('../models/item');
 			category: categories[14],
 			details: '16L plastic bucket with lid',
 			searchTerms: ['buckets', 'black'],
-			price: 14.99
+			price: 14.99,
+			featured: true
 		},
 		{
 			name: 'white Bucket Set',
@@ -566,7 +568,8 @@ const Item = require('../models/item');
 			category: categories[14],
 			details: '8 piece bucket set, 5 gallons',
 			searchTerms: ['buckets', 'white'],
-			price: 45.99
+			price: 45.99,
+			featured: true
 		}
 	]);
 

@@ -11,7 +11,6 @@ export default function DepartmentList({ departments }) {
     "https://i.imgur.com/cSFKjc1.jpg"
   ]  
   const navigate = useNavigate()
-  const params = useParams()
 
   async function handleOnClick(dep) {
     setActiveDep(dep.name)
@@ -22,7 +21,7 @@ export default function DepartmentList({ departments }) {
       <div
         key={dep.name}
         className={dep === activeDep ? styles.active : ""}
-        onClick={handleOnClick}
+        onClick={() => handleOnClick(dep)}
       >
         <img className={styles.img} src={images[i]} />
         {dep.name}

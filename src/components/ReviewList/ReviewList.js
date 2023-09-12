@@ -2,7 +2,7 @@ import Review from '../Review/Review'
 import Stars from '../StaticStars/StaticStars'
 import styles from './ReviewList.module.scss'
 
-export default function ReviewList({ reviewData, removeReview, user }) {
+export default function ReviewList({ reviewData, removeReview, user, updateReview }) {
     const showReviews = () => (
         <main className={styles.ReviewList}>
             <div>{reviewData.count === 1 ? `1 review!` : `${reviewData.count} reviews!`}</div>
@@ -10,7 +10,8 @@ export default function ReviewList({ reviewData, removeReview, user }) {
             {reviewData.reviews.map(review =>
                 <Review
                     key={review._id}
-                    handleRemoveReview={removeReview}
+                    removeReview={removeReview}
+                    updateReview={updateReview}
                     review={review}
                     user={user}
                 />)}

@@ -1,0 +1,69 @@
+.App {
+    border: 0.5vmin solid var(--khaki);
+    margin: 2vmin;
+    width: 30vmax;
+    text-transform: uppercase;
+}
+
+.heart {
+    margin-left: 26vmax;
+    font-size: 5vmin;
+    color: var(--mocha);
+    cursor: pointer;
+}
+
+.imageContainer {
+    margin-bottom: 4vmin;
+}
+
+.itemInfoLine1,
+.itemInfoLine2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3vmin;
+    margin-top: 0;
+    margin-bottom: 1vmin;
+    margin-right: 1vmin;
+    margin-left: 2vmin;
+}
+
+.itemInfoLine1 {
+    font-size: 1.5vmax;
+    margin-bottom: 1vmin;
+    width: 27vmax;
+}
+
+.rating {
+    color: var(--mocha);
+}
+
+button {
+    color: var(--white);
+    font-family: "Gill Sans", sans-serif;
+}
+
+.btnSm {
+    background-color: var(--olive-green);
+}
+
+.btnDisabled {
+    background-color: var(--khaki);
+    cursor: not-allowed;
+}
+
+@media only screen and (max-width: 480px) {
+    .heart {
+        margin-left: 79vmin;
+        font-size: 8vmin;
+        color: var(--mocha);
+        cursor: pointer;
+    }
+
+    .imageContainer {
+        margin-top: -2vmin;
+    }
+
+    .itemInfoLine1 {
+        width: 80vmin;
+    }
+}

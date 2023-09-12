@@ -1,24 +1,16 @@
-.DepartmentList {
-    margin-top: 30px;
-    display: flex;
-    padding: 3vmin;
-    justify-content: space-between;
-    height: 94%;
-    background-color: #8C7C63;
-    color: black;
-    font-size: 3vmin;
-    font-family: "Gill Sans", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.DepartmentList span {
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: row;
   }
   
-  .DepartmentList div:hover:not(.active) {
+  .DepartmentList span:hover:not(.active) {
     cursor: pointer;
     //text-decoration: underline;
     transform: scale(1.2);
   }
   
-  .DepartmentList div:active {
+  .DepartmentList span:active {
     //text-decoration: underline;
     transform: scale(0.7);
    }

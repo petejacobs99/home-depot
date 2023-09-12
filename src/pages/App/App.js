@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
-import { getUser, makeGuest } from '../../utilities/users-service';
+import { getUser, signUp } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
@@ -34,29 +34,32 @@ export default function App() {
 
   useEffect(function () {
     try {
+      console.log('hello?')
+      async function getDeps() {
+        const deps = await catDepAPI.getDepartments()
+        setDepartments(deps)
+      }
+      getDeps()
+      async function getCart() {
+        const data = await ordersAPI.getCart()
+        setCart(data)
+      }
+      getCart()
+      async function getWishlist() {
+        const data = await wishAPI.showWishlist(user._id)
+        setWishlist(data)
+      }
       async function confirmUser(user) {
-        if(!user){
-          const guest = await makeGuest()
+        console.log('hi')
+        if (!user) {
+          const guest = await signUp()
           setUser(guest)
           console.log(guest)
         }
+        getWishlist()
+        getCart()
       }
-    //  confirmUser(user)
-    async function getDeps() {
-      const deps = await catDepAPI.getDepartments()
-      setDepartments(deps)
-    }
-    // getDeps()
-    async function getCart() {
-      const data = await ordersAPI.getCart()
-      setCart(data)
-    }
-    // getCart()
-    async function getWishlist() {
-      const data = await wishAPI.showWishlist(user._id)
-      setWishlist(data)
-    }
-    // getWishlist()
+      confirmUser(user)
     } catch (error) {
       console.log(error)
     }
@@ -103,16 +106,16 @@ export default function App() {
         />
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-          <Route path="/home" element={<HomePage user={user} setUser={setUser} departments={departments}/>} />
-          <Route path="/cart" element={<OrderPage user={user} setUser={setUser}/>} />
-          <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser}/>} />
-          <Route path="/faq" element={<FAQPage user={user} setUser={setUser}/>} />
-          <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser}/>} />
+          <Route path="/home" element={<HomePage user={user} setUser={setUser} departments={departments} />} />
+          <Route path="/cart" element={<OrderPage user={user} setUser={setUser} />} />
+          <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
+          <Route path="/faq" element={<FAQPage user={user} setUser={setUser} />} />
+          <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser} />} />
           <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser}/>} />
-          <Route path="/auth" element={<AuthPage user={user} setUser={setUser}/>} />
-          <Route path="/home/search/:term" element={<SearchResultsPage user={user} setUser={setUser}handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/home/:depName/categories" element={<CategoryListPage user={user} setUser={setUser}/>} />
+          <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser} />} />
+          <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
+          <Route path="/home/search/:term" element={<SearchResultsPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/home/:depName/categories" element={<CategoryListPage user={user} setUser={setUser} />} />
           <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
           <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
 

@@ -65,7 +65,7 @@ async function show(req, res) {
 }
 async function search(req, res) {
   try {
-    const term = toLowerCase(req.params.term)
+    const term = req.params.term
     const items = await Item.find({ searchTerm: term }).populate('category').exec()
     res.status(200).json({ items: items })
   } catch (error) {

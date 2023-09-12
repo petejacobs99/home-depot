@@ -11,7 +11,8 @@ const ensureLoggedIn = require('../../config/ensureLoggedIn');
 router.post('/', dataController.signUp, apiController.auth);
 // POST /api/users/login
 router.post('/login', dataController.login, apiController.auth);
-
+// PUT /api/users/:id
+router.put('/:id', dataController.update, apiController.auth);
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken);
 // POST /api/users/guest 

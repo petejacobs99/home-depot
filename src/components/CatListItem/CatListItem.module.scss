@@ -12,11 +12,14 @@
     cursor: pointer;
 
     .image {
-        width: 15vmin;
+        width: 50vmin;
+        height: 30vmin;
         margin-bottom: 2vmin;
+        border: 0.3vmin solid var(--khaki);
     }
 
     .name {
         color: var(--black);
+        text-align: center;
     }
 }

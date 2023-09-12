@@ -6,14 +6,19 @@
 }
 
 .heart {
-    margin-left: 26vmax;
-    font-size: 5vmin;
+    margin-left: 25vmax;
+    margin-top: 2vmin;
+    font-size: 4vmin;
     color: var(--mocha);
     cursor: pointer;
 }
 
 .imageContainer {
-    margin-bottom: 4vmin;
+    margin: 2vmin;
+    border: 0.3vmin solid var(--khaki);
+    padding-top: 5vmin;
+    padding-bottom: 5vmin;
+    margin-top: -6vmin;
 }
 
 .itemInfoLine1,
@@ -28,7 +33,7 @@
 }
 
 .itemInfoLine1 {
-    font-size: 1.5vmax;
+    font-size: 1.3vmax;
     margin-bottom: 1vmin;
     width: 27vmax;
 }

@@ -24,16 +24,25 @@ async function createWishlist(req, res) {
 
 async function getWishlist(req, res) {
     try {
-        const userId = req.params.userId
-        const wishlist = await Wishlist.findOne({ user: userId }).populate('items.item')
+        const userId = req.params.userId;
+        const wishlist = await Wishlist.findOne({ user: userId })
+            .populate({
+                path: 'items',
+                populate: {
+                    path: 'category',
+                    populate: {
+                        path: 'department'
+                    }
+                }
+            });
 
         if (!wishlist) {
-            return res.status(404).json({ message: 'Wishlist not found' })
+            return res.status(404).json({ message: 'Wishlist not found' });
         }
 
-        res.status(200).json(wishlist)
+        res.status(200).json(wishlist);
     } catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 }
 

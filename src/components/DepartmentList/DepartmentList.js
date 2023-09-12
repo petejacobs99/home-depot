@@ -1,5 +1,6 @@
 import { useState } from "react"
 import styles from "./DepartmentList.module.scss"
+import { useNavigate } from "react-router-dom";
 
 export default function DepartmentList({ departments }) {
   const [activeDep, setActiveDep] = useState('')
@@ -9,12 +10,18 @@ export default function DepartmentList({ departments }) {
     "https://i.imgur.com/FAWekwf.png",
     "https://i.imgur.com/cSFKjc1.jpg"
   ]  
+  const navigate = useNavigate()
+
+  async function handleOnClick() {
+    setActiveDep(dep.name)
+    navigate(`/home/${dep.name}`)
+  }
 
   const deps = departments.map((dep, i) => (
       <div
         key={dep.name}
         className={dep === activeDep ? styles.active : ""}
-        onClick={() => setActiveDep(dep.name)}
+        onClick={handleOnClick}
       >
         <img className={styles.img} src={images[i]} />
         {dep.name}

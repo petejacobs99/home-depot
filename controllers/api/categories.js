@@ -22,7 +22,7 @@ async function getAllCategories(req, res) {
 async function getCategoriesByDepartment (req, res) {
     try {
         // Find the department based on the department ID
-        const department = await Department.findById(req.params.depId)
+        const department = await Department.findOne({ name: depName })
 
         if (!department) {
             return res.status(404).json({ error: 'Department not found' })

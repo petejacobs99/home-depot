@@ -1,5 +1,6 @@
+import React, { useState } from "react";
+import styles from "./FAQPage.module.scss"; 
 import FAQDropdown from "./FAQDropdown";
-import styles from "./FAQPage.module.scss";
 
 const usersFAQs = [
   {
@@ -41,36 +42,43 @@ const techSupportFAQs = [
 ];
 
 const FAQPage = () => {
+  const [drop, setDrop] = useState(false);
+
+  const handleHover = () => {
+    setDrop(!drop);
+  };
+  
   return (
-    <div className={styles.container}>
-      <h1>Frequently Asked Questions</h1>
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Users
-          </span>
-        }
-        faqs={usersFAQs}
-      />
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Items
-          </span>
-        }
-        faqs={itemsFAQs}
-      />
-      <FAQDropdown
-        title={
-          <span>
-            <i className="fas fa-chevron-down"></i> Tech Support
-          </span>
-        }
-        faqs={techSupportFAQs}
-      />
-    </div>
+    <> 
+      <div className={styles.container}>
+        <h1>Frequently Asked Questions</h1>
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Users
+            </span>
+          }
+          faqs={usersFAQs}
+        />
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Items
+            </span>
+          }
+          faqs={itemsFAQs}
+        />
+        <FAQDropdown
+          title={
+            <span>
+              <i className="fas fa-chevron-down"></i> Tech Support
+            </span>
+          }
+          faqs={techSupportFAQs}
+        />
+      </div>
+    </>
   );
 };
 
 export default FAQPage;
-

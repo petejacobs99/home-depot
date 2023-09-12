@@ -1,0 +1,22 @@
+.catListItem {
+    border: 0.5vmin solid var(--khaki);
+    margin: 2vmin;
+    width: 30vmax;
+    /* padding: 5vmin 13vmin 2vmin; */
+    padding: 5vmin;
+    font-size: 4vmin;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+
+    .image {
+        width: 15vmin;
+        margin-bottom: 2vmin;
+    }
+
+    .name {
+        color: var(--black);
+    }
+}

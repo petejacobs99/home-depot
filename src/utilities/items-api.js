@@ -9,7 +9,10 @@ export function getByCategory(category){
   return sendRequest(`${BASE_URL}/category/${category}`)
 }
 export function searchItems(searchTerm) {
-  return sendRequest(`${BASE_URL}/items/search/${searchTerm}`)
+  return sendRequest(`${BASE_URL}/search/${searchTerm}`)
+}
+export function getFeaturedItems() {
+  return sendRequest(`${BASE_URL}/featured`)
 }
 export function getById(id) {
   return sendRequest(`${BASE_URL}/${id}`)

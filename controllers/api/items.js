@@ -1,5 +1,6 @@
 const Item = require('../../models/item')
 const Review = require('../../models/review')
+const Category = require('../../models/category')
 
 module.exports = {
   index,
@@ -27,7 +28,8 @@ async function index(req, res) {
 }
 async function showByCategory(req, res) {
   try {
-    const data = await Item.find({ category: req.params.id }).populate('category').exec()
+    const cat = await Category.findOne({name: req.params.catName})
+    const data = await Item.find({ category: cat._id }).populate('category').exec()
     const formattedData = data.map((item) => {
       Review.find({ item: item._id }).exec().then((reviews) => {
         let sum = 0

@@ -28,36 +28,49 @@ export default function App() {
 
   useEffect(function () {
     try {
-      console.log('hello?')
       async function getDeps() {
         const deps = await catDepAPI.getDepartments()
         setDepartments(deps)
       }
       getDeps()
       async function getCart() {
-        const data = await ordersAPI.getCart()
-        setCart(data)
+        if (user) {
+          const data = await ordersAPI.getCart()
+          setCart(data)
+        }
       }
       getCart()
       async function getWishlist() {
-        const data = await wishAPI.showWishlist(user._id)
-        setWishlist(data)
-      }
-      async function confirmUser(user) {
-        console.log('hi')
-        if (!user) {
-          const guest = await signUp()
-          setUser(guest)
-          console.log(guest)
+        if (user) {
+          const data = await wishAPI.showWishlist(user._id)
+          setWishlist(data)
         }
-        getWishlist()
-        getCart()
       }
-      confirmUser(user)
+      getWishlist()
+      async function confirmUser() {
+        if (!user) {
+          const guestInfo = {
+            firstName: 'Guest',
+            email: Date.now().toString() + "@email.com",
+            password: Date.now().toString(),
+            isGuest: true
+          }
+          try {
+            const guest = await signUp(guestInfo)
+            console.log("guest: " + guest)
+            setUser(guest)
+          }
+          catch (error) {
+            console.log(error)
+          }
+          console.log(user)
+        }
+      }
+      confirmUser()
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  }, [user])
 
   async function handleAddToOrder(itemId) {
     const updatedCart = await ordersAPI.addToCart(itemId)
@@ -113,7 +126,6 @@ export default function App() {
           <Route path="/wishlist"
             element={<WishlistPage
               user={user}
-              setUser={setUser}
               handleAddToOrder={handleAddToOrder}
               handleRemoveFromWishList={handleRemoveFromWishList}
               handleSelectItem={handleSelectItem} 

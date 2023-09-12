@@ -1,8 +1,10 @@
 import styles from "./NavBar.module.scss"
 import { useState } from "react";
-/* import DepListNavBar from "../DepListNavBar/DepListNavBar"; */
+import { Link } from "react-router-dom";
+import DepListNavBar from "../DepListNavBar/DepListNavBar";
 import Hamburger from "../Hamburger/Hamburger";
 import HamMenu from "../HamMenu/HamMenu";
+import SearchBar from "../SearchBar/SearchBar"
 
 export default function NavBar({ departments }) {
   const [drop, setDrop] = useState(false);
@@ -15,9 +17,13 @@ export default function NavBar({ departments }) {
     <>
       <div className={styles.navBar}>
         <div className={styles.navBarTop}>
-          <div>LOGO</div>
-          <div>SEARCH</div>
-          <div>CART</div>
+          <div>
+            <Link to="/home" className={styles.logo}>LOGO</Link>
+          </div>
+          <SearchBar />
+          <div>
+            <Link to="/cart" className={styles.logo}>CART</Link>
+          </div>
           <div
             className={styles.hamContainer}
             onMouseEnter={handleHover}
@@ -30,14 +36,10 @@ export default function NavBar({ departments }) {
           </div>
         </div>
         <div className={styles.navBarBottom}>
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
+          {/* <>&lt;</> */}
+          <DepListNavBar departments={departments}/>
+          {/* <>&gt;</> */}
         </div>
-        {/* <DepListNavBar departments={departments} /> */}
       </div>
     </>
   );

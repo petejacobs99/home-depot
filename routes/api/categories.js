@@ -6,6 +6,6 @@ const categoryController = require('../../controllers/api/categories')
 router.get('/', categoryController.getAllCategories)
 
 // Route for getting categories by department
-router.get('/:depId', categoryController.getCategoriesByDepartment)
+router.get('/:depName', categoryController.getCategoriesByDepartment)
 
  module.exports = router

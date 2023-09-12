@@ -1,11 +1,10 @@
 import { Carousel } from "react-responsive-carousel"
-import './FeaturedItemCarousel.module.scss'
 
-export default function ItemCarousel({ imageUrls }) {
+export default function FeaturedItemCarousel({ imageUrls }) {
 
     return(
-        <div className="carousel">
-            <Carousel showThumbs={true}>
+        <div>
+            <Carousel showThumbs={true} showArrows={true}>
                 {imageUrls.map((imageUrl, index) => (
                     <div key={index}>
                         <img src={imageUrl} alt={`Slide ${index}`} />

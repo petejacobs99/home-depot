@@ -1,38 +1,28 @@
-import styles from './HomePage.module.scss';
-import { useState, useEffect, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-/* import NavBar from './components/NavBar/NavBar'; */
-// import FeaturedItemCarousel from './components/FeaturedItemCarousel/FeaturedItemCarousel';
-// import DepartmentList from './components/DepartmentList/DepartmentList';
+import "../../scss/styles.scss";
+import styles from '../HomePage/HomePage.module.scss';
+import FeaturedItemCarousel from '../../components/FeaturedItemCarousel/FeaturedItemCarousel';
+import DepartmentList from '../../components/DepartmentList/DepartmentList';
 
-export default function App({ departments, user, setUser }) {
-	const [depList, setDepList] = useState([]);
-	const departmentsRef = useRef([]);
-	const navigate = useNavigate();
+export default function HomePage({ departments }) {
 
-	useEffect(function () {
-		async function getDeps() {
-			const deps = await depAPI.getAllDepartments()
-		}
-		setDepList(deps)
-	}, []);
+	const imageUrls = [
+		"https://i.imgur.com/g6VqT8r.jpg",
+		"https://i.imgur.com/TTU1odM.jpg",
+		"https://i.imgur.com/9MpuQ2X.jpg",
+		"https://i.imgur.com/WR2b1NJ.jpg",
+		"https://i.imgur.com/4furMoT.png",
+		"https://i.imgur.com/cSFKjc1.jpg"
+	  ];
+	
 
 	return (
 		<div className={styles.HomePage}>
-			<div className={styles.NavBar}>
-				<NavBar />
+			<div className={styles.Carousel}>
+				<FeaturedItemCarousel imageUrls={imageUrls} />
 			</div>
-			<FeaturedItemCarousel />
-			<div className={styles.DepartmentList}>
-				<DepartmentList />
+			<div>
+				<DepartmentList departments={departments}/>
 			</div>
-			<FeaturedItemCarousel className={styles.Carousel} showArrows={true} imageUrls={imageUrls} />
-			<div className={styles.DepartmentList}>
-				<DepartmentList 
-					departments={departments}
-				/>
-			</div> */}
-			<h1>test</h1>
 		</div>
 	);
 }

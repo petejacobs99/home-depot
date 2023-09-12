@@ -4,7 +4,7 @@ import styles from './AuthPage.module.scss';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage({ setUser, NavBar }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (

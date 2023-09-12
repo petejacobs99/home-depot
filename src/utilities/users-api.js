@@ -7,7 +7,7 @@ export function makeGuest() {
 }
 
 export function signUp(userData) {
-  return sendRequest(`${BASE_URL}/new`, 'POST', userData)
+  return sendRequest(`${BASE_URL}/`, 'POST', userData)
 }
 
 export function login(credentials) {
@@ -17,4 +17,6 @@ export function login(credentials) {
 export function deleteUser() {
   return sendRequest(`${BASE_URL}/delete`, 'DELETE');
 }
-//
+export function updateUser(updatedUserData) {
+  return sendRequest(`${BASE_URL}/update`, 'PUT', updatedUserData);
+}

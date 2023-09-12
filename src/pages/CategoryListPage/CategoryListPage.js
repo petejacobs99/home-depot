@@ -1,11 +1,10 @@
 import "../../scss/styles.scss";
 import styles from "../ItemListPage/ItemListPage.module.scss";
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import * as catsAPI from "../../utilities/catDep-api";
-import NavBar from "../../components/NavBar/NavBar";
-import Hamburger from "../../components/Hamburger/Hamburger";
-import HamMenu from "../../components/HamMenu/HamMenu";
+/* import Hamburger from "../../components/Hamburger/Hamburger";
+import HamMenu from "../../components/HamMenu/HamMenu"; */
 import CategoryList from "../../components/CategoryList/CategoryList";
 /* import department from "../../../models/department"; */
 
@@ -14,23 +13,26 @@ export default function CategoryListPage({ departments }) {
   const [categories, setCategories] = useState([]);
   const [activeDep, setActiveDep] = useState('');
   const departmentsRef = useRef([]);
-  const navigate = useNavigate();
+  /* const navigate = useNavigate(); */
+  const params = useParams();
 
-  /* useEffect(function () {
-    async function getCats() { */
-      /* const cats = await catsAPI.getCategories(department._id); */
-      /* const cats = await catsAPI.getAllCategories();
+  useEffect(function () {
+    async function getCats() {
+      const cats = await catsAPI.getAllCategories();
       departmentsRef.current = cats.reduce((deps, cat) => {
         const dep = cat.department.name;
         return deps.includes(dep) ? deps : [...deps, dep];
       }, []);
+      /* const cats = await catsAPI.getCategories(params.depName); */
       setCategories(cats);
-      setActiveDep(departmentsRef.current[0]);
+      /* setActiveDep(departmentsRef.current[0]); */
+      const actDepName = departmentsRef.current.find((dep) => dep === params.depName);
+      setActiveDep(actDepName);
     }
     getCats();
-  }, []); */
+  }, []);
 
-  useEffect(function () {
+  /* useEffect(function () {
     async function getDeps() {
       const deps = await catsAPI.getDepartments();
       console.log(deps)
@@ -47,49 +49,24 @@ export default function CategoryListPage({ departments }) {
     const data = await catsAPI.getCategories(depId);
     setCategories(data);
     setActiveDep(depName)
-  }
+  } */
 
   const handleHover = () => {
     setDrop(!drop);
   };
 
-  async function handleClick(category) {
-    navigate(`/category/${category}`);
-  }
+  /* async function handleClick(depName, catName) {
+    navigate(`/home/${depName}/${catName}/items`);
+  } */
 
   return (
     <div className={styles.App}>
-      <div className={styles.navBar}>
-        <div className={styles.navBarTop}>
-          <div>LOGO</div>
-          <div>SEARCH</div>
-          <div>CART</div>
-          <div
-            className={styles.hamContainer}
-            onMouseEnter={handleHover}
-            onMouseLeave={handleHover}
-          >
-            <div className={styles.hamburger}>
-              <Hamburger />
-            </div>
-            {drop && <HamMenu />}
-          </div>
-        </div>
-        <div className={styles.navBarBottom}>
-          <div>&lt;</div>
-          <div>KITCHEN</div>
-          <div>BATHROOM</div>
-          <div>APPLIANCES</div>
-          <div>HARDWARE</div>
-          <div>&gt;</div>
-        </div>
-      </div>
-      {/* <NavBar /> */}
       <div className={styles.categoryList}>
         <CategoryList
-          categories={categories.filter(cat => cat.category.name === activeDep)}
+          categories={categories.filter(cat => cat.department.name === activeDep)}
+          /* categories={categories} */
           setCategories={setCategories} 
-          onClick={handleClick}
+          /* onClick={handleClick} */
         />
       </div>
     </div>

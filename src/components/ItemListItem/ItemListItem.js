@@ -1,5 +1,6 @@
 import styles from "./ItemListItem.module.scss";
 import { useState } from "react";
+import * as ordersAPI from "../../utilities/orders-api";
 
 export default function ItemListItem({
   itemListItem,
@@ -15,10 +16,15 @@ export default function ItemListItem({
     setFilledHeart(!filledHeart);
   };
 
-  const handleAddToOrder = () => {
+  /* const handleAddToCart = () => {
     alert("Added to cart!");
     setInCart(true);
-  };
+  }; */
+
+  async function handleAddToCart(itemId) {
+    await ordersAPI.addToCart(itemId);
+    setInCart(true);
+  }
 
   const handleHeartClick = () => {
     if (!wishListItem) {
@@ -58,7 +64,8 @@ export default function ItemListItem({
             {/* Item */}
           </div>
           <div className={styles.price}>
-            <span>$0.00</span>
+            {/* <span>$0.00</span> */}
+            ${itemListItem.price}
           </div>
         </div>
         <div className={styles.itemInfoLine2}>
@@ -69,7 +76,7 @@ export default function ItemListItem({
           {inCart ? (
             <button className={styles.btnDisabled}>IN CART</button>
           ) : (
-            <button className={styles.btnSm} onClick={handleAddToOrder}>
+            <button className={styles.btnSm} onClick={handleAddToCart}>
               ADD TO CART
             </button>
           )}

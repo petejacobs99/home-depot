@@ -9,16 +9,11 @@ import FAQPage from '../FAQPage/FAQPage';
 import HomePage from '../HomePage/HomePage';
 import ItemDetailPage from '../ItemDetailPage/ItemDetailPage';
 import ItemListPage from '../ItemListPage/ItemListPage';
-/* import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage'; */
-/* import OrderPage from '../OrderPage/OrderPage';
-import SearchResultsPage from '../SearchResultsPage/SearchResultsPage'; */
-import UserProfilePage from '../UserProfilePage/UserProfilePage';
-import WishlistPage from '../WishlistPage/WishlistPage';
-// holding pages
-//import AboutUsPage from '../Dummy';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import OrderPage from '../OrderPage/OrderPage';
 import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
+import UserProfilePage from '../UserProfilePage/UserProfilePage';
+import WishlistPage from '../WishlistPage/WishlistPage';
 import NavBar from '../../components/NavBar/NavBar'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
@@ -89,6 +84,10 @@ export default function App() {
   async function handleSelectItem(itemId, catName, depName) {
     navigate(`/home/${depName}/${catName}/${itemId}`)
   }
+  const updateSearchResults = async (searchQuery) => {
+    const items = await searchItems(searchQuery);
+    setSearchResults(items);
+  };
   return (
     <main className={styles.App}>
       {/* { user ? */}
@@ -111,13 +110,45 @@ export default function App() {
           <Route path="/orders" element={<OrderHistoryPage user={user} setUser={setUser} />} />
           <Route path="/faq" element={<FAQPage user={user} setUser={setUser} />} />
           <Route path="/profile" element={<UserProfilePage user={user} setUser={setUser} />} />
-          <Route path="/wishlist" element={<WishlistPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleRemoveFromWishList={handleRemoveFromWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/wishlist"
+            element={<WishlistPage
+              user={user}
+              setUser={setUser}
+              handleAddToOrder={handleAddToOrder}
+              handleRemoveFromWishList={handleRemoveFromWishList}
+              handleSelectItem={handleSelectItem} 
+            />}
+          />
           <Route path="/aboutus" element={<AboutUsPage user={user} setUser={setUser} />} />
           <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
-          <Route path="/home/search/:term" element={<SearchResultsPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
+          <Route path="/home/search/:term" 
+            element={<SearchResultsPage 
+              user={user} 
+              setUser={setUser} 
+              handleAddToOrder={handleAddToOrder} 
+              handleAddToWishList={handleAddToWishList} 
+              handleSelectItem={handleSelectItem} 
+              updateSearchResults={updateSearchResults} 
+            />} 
+          />
           <Route path="/home/:depName/categories" element={<CategoryListPage user={user} setUser={setUser} />} />
-          <Route path="/home/:depName/:catName/items" element={<ItemListPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} handleSelectItem={handleSelectItem} />} />
-          <Route path="/home/:depName/:catName/:id" element={<ItemDetailPage user={user} setUser={setUser} handleAddToOrder={handleAddToOrder} handleAddToWishList={handleAddToWishList} />} />
+          <Route path="/home/:depName/:catName/items" 
+            element={<ItemListPage 
+              user={user} 
+              setUser={setUser} 
+              handleAddToOrder={handleAddToOrder} 
+              handleAddToWishList={handleAddToWishList} 
+              handleSelectItem={handleSelectItem} 
+            />} 
+          />
+          <Route path="/home/:depName/:catName/:id" 
+            element={<ItemDetailPage 
+              user={user} 
+              setUser={setUser} 
+              handleAddToOrder={handleAddToOrder} 
+              handleAddToWishList={handleAddToWishList} 
+            />} 
+          />
 
           <Route path="/*" element={<Navigate to="/home" />} />
         </Routes>

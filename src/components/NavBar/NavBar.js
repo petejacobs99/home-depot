@@ -37,7 +37,6 @@ export default function NavBar({ departments }) {
           <DepListNavBar departments={departments}/>
           <>&gt;</>
         </div>
-        {/* <DepListNavBar departments={departments} /> */}
       </div>
     </>
   );

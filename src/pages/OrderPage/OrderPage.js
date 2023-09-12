@@ -1,5 +1,5 @@
 import styles from './OrderPage.module.scss';
-import CartDetail from './CartDetail';
+import CartDetail from '../../components/CartDetail/CartDetail';
 
 export default function OrderPage({ cart, handleChangeQty, handleCheckout }) {
   return (

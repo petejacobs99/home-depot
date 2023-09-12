@@ -9,6 +9,7 @@ const checkToken = (req, res) => {
 };
 
 const dataController = {
+	// createGuest function
 	async signUp(req, res, next) {
 		try {
 			console.log('create');

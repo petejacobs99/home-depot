@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
-import { getUser } from '../../utilities/users-service';
+import { getUser, makeGuest } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 /* import AboutUsPage from '../AboutUsPage/AboutUsPage'; */
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
@@ -33,21 +33,33 @@ export default function App() {
   const navigate = useNavigate()
 
   useEffect(function () {
+    try {
+      async function confirmUser(user) {
+        if(!user){
+          const guest = await makeGuest()
+          setUser(guest)
+          console.log(guest)
+        }
+      }
+    //  confirmUser(user)
     async function getDeps() {
       const deps = await catDepAPI.getDepartments()
       setDepartments(deps)
     }
-    getDeps()
+    // getDeps()
     async function getCart() {
       const data = await ordersAPI.getCart()
       setCart(data)
     }
-    getCart()
+    // getCart()
     async function getWishlist() {
-      const data = await wishAPI.showWishlist()
+      const data = await wishAPI.showWishlist(user._id)
       setWishlist(data)
     }
-    getWishlist()
+    // getWishlist()
+    } catch (error) {
+      console.log(error)
+    }
   }, [])
 
   async function handleAddToOrder(itemId) {

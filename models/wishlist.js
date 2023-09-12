@@ -9,9 +9,18 @@ const wishlistSchema = new Schema({
 
 wishlistSchema.statics.getWishlist = async function (userId) {
     return this.findOneAndUpdate(
+        { user: userId }, 
         { user: userId },
         { upsert: true, new: true }
-)}
+).populate({
+    path: 'items',
+    populate: {
+        path: 'category',
+        populate: {
+            path: 'department'
+        }
+    }
+}).exec()}
 
 wishlistSchema.methods.addItem = async function (itemId) {
     const wishlist = this
@@ -29,10 +38,10 @@ wishlistSchema.methods.removeItem = function (itemId) {
 	const list = this
 	const item = list.items.find((one) =>
 		one._id.equals(itemId)
+        
 	)
 	if (item) {
-		const idx = list.indexOf(item)
-        list.items.splice(idx, 1)
+        list.items.pull(item)
 	}
 	return list.save()
 }

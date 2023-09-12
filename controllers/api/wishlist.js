@@ -25,15 +25,6 @@ async function createWishlist(req, res) {
 async function getWishlist(req, res) {
     try {
         const wishlist = await Wishlist.getWishlist(req.user._id)
-            .populate({
-                path: 'items',
-                populate: {
-                    path: 'category',
-                    populate: {
-                        path: 'department'
-                    }
-                }
-            });
 
         if (!wishlist) {
             return res.status(404).json({ message: 'Wishlist not found' });
@@ -48,7 +39,7 @@ async function getWishlist(req, res) {
 async function addItemToWishlist(req, res) {
     try {
         const wishlist = await Wishlist.getWishlist(req.user._id)
-        await wishlist.addItemToWishlist(req.params.itemId)
+        await wishlist.addItem(req.params.itemId)
         res.status(200).json(wishlist)
     } catch (error) {
         res.status(400).json({ message: error.message })

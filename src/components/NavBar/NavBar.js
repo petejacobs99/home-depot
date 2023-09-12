@@ -21,7 +21,9 @@ export default function NavBar({ departments }) {
             <Link to="/home" className={styles.logo}>LOGO</Link>
           </div>
           <SearchBar />
-          <div>CART</div>
+          <div>
+            <Link to="/cart" className={styles.logo}>CART</Link>
+          </div>
           <div
             className={styles.hamContainer}
             onMouseEnter={handleHover}
@@ -30,13 +32,13 @@ export default function NavBar({ departments }) {
             <div className={styles.hamburger}>
               <Hamburger />
             </div>
-            {drop && <HamMenu className={styles.hamburger} />}
+            {drop && <HamMenu />}
           </div>
         </div>
         <div className={styles.navBarBottom}>
-          <>&lt;</>
+          {/* <>&lt;</> */}
           <DepListNavBar departments={departments}/>
-          <>&gt;</>
+          {/* <>&gt;</> */}
         </div>
       </div>
     </>

@@ -1,8 +1,7 @@
 import styles from './WishList.module.scss';
 import WishListItem from '../WishListItem/WishListItem';
 
-// Used to display the details of any order, including the cart (unpaid order)
-export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart, handleSelectItem }) {
+export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart }) {
     if (!wishlist) return null;
 
     const listItems = wishlist.lineItems.map(item =>

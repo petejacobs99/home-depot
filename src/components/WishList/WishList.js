@@ -2,7 +2,7 @@ import styles from './WishList.module.scss';
 import WishListItem from '../WishListItem/WishListItem';
 
 export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart }) {
-    if (!wishlist) return null;
+   // if (!wishlist) return null;
 
     const listItems = wishlist.lineItems.map(item =>
       <WishListItem

@@ -14,5 +14,6 @@ router.post('/login', dataController.login, apiController.auth);
 
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken);
-
+// POST /api/users/guest 
+// makeGuest
 module.exports = router;

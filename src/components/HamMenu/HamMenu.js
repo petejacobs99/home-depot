@@ -40,7 +40,7 @@ export default function HamMenu() {
       {/* <p>{result}</p> */}
       <li>
         <ul className={styles.info}>
-          <li onClick={handleClick}>
+          <li>
             <Link to="/faq" className={styles.faq}>FAQ</Link>
           </li>
           <li onClick={handleClick}>

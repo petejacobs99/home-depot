@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ItemList from "../../components/ItemList/ItemList";
 import SearchBar from "../../components/SearchBar/SearchBar"; // Import the SearchBar component
-import styles from "./SearchResults.module.scss";
+import styles from "./SearchResultsPage.module.scss";
 
 export default function SearchResultsPage ({ handleAddToOrder, setItemListItems, itemListItems }) {
   const [searchResults, setSearchResults] = useState([]); // State to store search results

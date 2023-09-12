@@ -13,6 +13,7 @@ export default function DepartmentList({ departments }) {
   const navigate = useNavigate()
 
   async function handleOnClick(dep) {
+    console.log(dep)
     setActiveDep(dep.name)
     navigate(`/home/${dep.name}/categories`)
   }

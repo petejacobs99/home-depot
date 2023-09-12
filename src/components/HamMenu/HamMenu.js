@@ -44,7 +44,7 @@ export default function HamMenu() {
             <Link to="/faq" className={styles.faq}>FAQ</Link>
           </li>
           <li onClick={handleClick}>
-            ABOUT US
+          <Link to="/aboutus" className={styles.faq}>ABOUT US</Link>
           </li>
         </ul>
       </li>

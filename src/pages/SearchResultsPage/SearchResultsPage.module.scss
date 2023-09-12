@@ -1,0 +1,23 @@
+.searchResultsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vmin;
+    font-size: 5.5vmin;
+  }
+  
+  .searchResultsContainer h1 {
+    margin: 0;
+  }
+  
+  body {
+    margin: 0;
+    font-family: "Gill Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--white);
+    padding: 2vmin;
+    height: 100vh;
+  }
+  
+  

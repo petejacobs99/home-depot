@@ -6,7 +6,7 @@ module.exports = {
   updateReview,
   deleteReview,
   showOne,
-};
+}
 
 async function showAll(req, res) {
   try{
@@ -29,8 +29,7 @@ async function showAll(req, res) {
 async function createReview(req, res) {
   try {
     req.body.item = req.params.id
-    req.body.user = req.user
-    let review = await Review.findOne({user: req.user, item: req.params.id})
+    let review = await Review.findOne({user: req.body.user, item: req.body.item})
     if(review){
       review.body = req.body.body
       review.rating = req.body.rating
@@ -54,7 +53,7 @@ async function updateReview(req, res) {
 async function deleteReview(req, res) {
   try{
     const review = await Review.findOneAndDelete({user: req.user._id, item: req.params.id})
-    res.status(200).json(review);
+    res.status(200).json(review)
   }catch(error){
     res.status(400).json({message: error.message})
   } 

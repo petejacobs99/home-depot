@@ -9,13 +9,14 @@ export default function DepListNavBar({departments}) {
   async function handleOnClick(dep) {
     setActiveDepNav(dep.name)
     navigate(`/home/${dep.name}/categories`)
+    window.location.reload()
   }
 
   const deps = departments.map((dep) => (
     <span
       key={dep.name}
       className={dep === activeDepNav ? styles.active : ""}
-      onClick={handleOnClick}
+      onClick={() => handleOnClick(dep)}
     >
       {dep.name}
     </span>

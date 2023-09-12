@@ -30,7 +30,7 @@ export default function NavBar({ departments }) {
             <div className={styles.hamburger}>
               <Hamburger />
             </div>
-            {drop && <HamMenu />}
+            {drop && <HamMenu className={styles.hamburger} />}
           </div>
         </div>
         <div className={styles.navBarBottom}>

@@ -1,12 +1,12 @@
 import sendRequest from './send-request'
 
-const BASE_URL = '/api/items'
+const BASE_URL = '/api'
 
 export function getAll() {
   return sendRequest(BASE_URL)
 }
-export function getByCategory(category){
-  return sendRequest(`${BASE_URL}/category/${category}`)
+export function getByCategory(depName, catName){
+  return sendRequest(`${BASE_URL}/${depName}/${catName}/items`)
 }
 export function searchItems(searchTerm) {
   return sendRequest(`${BASE_URL}/search/${searchTerm}`)

@@ -1,4 +1,4 @@
-.itemList {
+.searchResults {
     font-family: "Gill Sans", sans-serif;
     text-align: center;
     display: flex;
@@ -7,12 +7,12 @@
     margin-top: 4vmin;
 }
 
-/* .item {
+.item {
     border: 0.5vmin solid var(--khaki);
     margin: 2vmin;
     width: 30vmax;
 }
- */
+
 @media only screen and (max-width: 480px) {
     .item {
         width: 90vmin;

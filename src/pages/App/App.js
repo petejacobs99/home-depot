@@ -97,9 +97,8 @@ export default function App() {
   async function handleSelectItem(itemId, catName, depName) {
     navigate(`/home/${depName}/${catName}/${itemId}`)
   }
-  const updateSearchResults = async (searchQuery) => {
-    const items = await searchItems(searchQuery);
-    setSearchResults(items);
+  const onSearch = (searchTerm) => {
+    navigate(`/home/search/${searchTerm}`);
   };
   return (
     <main className={styles.App}>
@@ -115,6 +114,7 @@ export default function App() {
           handleCheckout={handleCheckout}
           wishlist={wishlist}
           departments={departments}
+          onSearch={onSearch}
         />
         <Routes>
           {/* client-side route that renders the component instance if the path matches the url in the address bar */}
@@ -141,6 +141,7 @@ export default function App() {
               handleAddToWishList={handleAddToWishList} 
               handleSelectItem={handleSelectItem} 
               updateSearchResults={updateSearchResults} 
+              onSearch={onSearch}
             />} 
           />
           <Route path="/home/:depName/categories" element={<CategoryListPage user={user} setUser={setUser} />} />

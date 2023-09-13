@@ -15,27 +15,27 @@ export default function ItemDetailPage({ user, handleAddToOrder, handleAddToWish
         async function getItem() {
             const data = await itemsAPI.getById(params.id)
             setItem(data)
-            getReviews(params.id)
+            getAllReviews(params.id)
         }
         getItem()
     }, [])
-    async function getReviews() {
+    async function getAllReviews(itemId) {
         const data = await reviewAPI.getReviews(itemId)
         setReviews(data)
     }
-    async function addReview(content) {
+    async function addAReview(itemId, content) {
         await reviewAPI.addReview(itemId, content)
-        getReviews()
+        getAllReviews()
     }
-    async function removeReview() {
+    async function removeReview(itemId) {
         await reviewAPI.deleteReview(itemId)
-        getReviews()
+        getAllReviews()
     }
 
     return (
         <main className={styles.NewOrderPage}>
             <header>
-                <Link to={`/home/${params.depName}/${params.catName}/items`} className="button btn-sm">back</Link>
+                <Link to={`/home/${params.depName}/${params.catName}/items`} className="button btn-sm" >back</Link>
             </header>
             <main>
                 <ItemDetail
@@ -46,12 +46,12 @@ export default function ItemDetailPage({ user, handleAddToOrder, handleAddToWish
             <footer>
                 <ReviewForm
                     itemId={item._id}
-                    addReview={addReview}
+                    addReview={addAReview}
                     user={user} />
                 <ReviewList
                     reviewData={reviews}
                     removeReview={removeReview}
-                    addReview={addReview}
+                    addReview={addAReview}
                     user={user} />
             </footer>
         </main>

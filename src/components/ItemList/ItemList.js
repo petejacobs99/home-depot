@@ -9,7 +9,6 @@ export default function ItemList({
 }) {
   const items = itemListItems.map(item =>
     <ItemListItem
-      className={styles.item}
       key={item._id}
       /* onClick={handleClick} */
       handleAddToOrder={handleAddToOrder}

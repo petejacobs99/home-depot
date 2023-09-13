@@ -15,10 +15,19 @@
 
 .imageContainer {
     margin: 2vmin;
-    border: 0.3vmin solid var(--khaki);
+    /* border: 0.3vmin solid var(--khaki); */
     padding-top: 5vmin;
     padding-bottom: 5vmin;
     margin-top: -6vmin;
+}
+
+.image {
+    width: 45vmin;
+    height: 36vmin;
+    margin-top: -5vmin;
+    margin-bottom: -5vmin;
+    border: none;
+    cursor: pointer;
 }
 
 .itemInfoLine1,

@@ -1,6 +1,7 @@
 import styles from "./ItemListItem.module.scss";
 import { useState } from "react";
 import * as ordersAPI from "../../utilities/orders-api";
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function ItemListItem({
   itemListItem,
@@ -11,6 +12,8 @@ export default function ItemListItem({
   const [filledHeart, setFilledHeart] = useState(false);
   const [wishListItem, setWishListItem] = useState(false);
   const [inCart, setInCart] = useState(false);
+  const navigate = useNavigate();
+  const params = useParams();
 
   const handleHeartHover = () => {
     setFilledHeart(!filledHeart);
@@ -36,6 +39,10 @@ export default function ItemListItem({
     }
   };
 
+  const handleImageClick = () => {
+    navigate(`/home/${params.depName}/${params.depName}/${itemListItem._id}`);
+  }
+
   let filledStars = [...Array(4)].map((_, i) => <span key={i}>★</span>);
   let emptyStars = [...Array(1)].map((_, i) => <span key={i}>☆</span>);
 
@@ -53,9 +60,10 @@ export default function ItemListItem({
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
-            src="https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
-            alt="bucket"
-            height="100vmin"
+            src={itemListItem.img.includes('imgur') ? itemListItem.img
+              : "https://images.thdstatic.com/productImages/1d64ea68-9f7f-45d3-ac5e-20b7c8522141/svn/orange-the-home-depot-paint-buckets-05glhd2-64_1000.jpg"
+            }
+            onClick={handleImageClick}
           />
         </div>
         <div className={styles.itemInfoLine1}>

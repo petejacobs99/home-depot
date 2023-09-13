@@ -29,7 +29,12 @@ async function index(req, res) {
 async function showByCategory(req, res) {
   try {
     const cat = await Category.findOne({name: req.params.catName})
-    const data = await Item.find({ category: cat._id }).populate('category').exec()
+    const data = await Item.find({ category: cat._id }).populate({
+      path: 'category',
+      populate: {
+          path: 'department'
+      }
+  }).exec()
     const formattedData = data.map((item) => {
       Review.find({ item: item._id }).exec().then((reviews) => {
         let sum = 0
@@ -79,22 +84,6 @@ async function search(req, res) {
 async function createOne(req, res) {
   try {
     const item = new Item(req.body)
-    res.status(200).json(item)
-  } catch (error) {
-    res.status(400).json({ message: error.message })
-  }
-}
-async function deleteOne(req, res) {
-  try {
-    const item = Item.findByIdAndDelete(req.params.id)
-    res.status(200).json(item)
-  } catch (error) {
-    res.status(400).json({ message: error.message })
-  }
-}
-async function updateOne(req, res) {
-  try {
-    const item = Item.findByIdAndUpdate(req.params.id, req.body, { new: true })
     res.status(200).json(item)
   } catch (error) {
     res.status(400).json({ message: error.message })

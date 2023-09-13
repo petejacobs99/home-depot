@@ -5,14 +5,14 @@ const BASE_URL = '/api/items';
 export function getAll() {
 	return sendRequest(BASE_URL);
 }
-export function getByCategory(depName, catName) {
-	return sendRequest(`${BASE_URL}/${depName}/${catName}/items`);
-}
-export function searchItems(searchTerm) {
-	return sendRequest(`${BASE_URL}/search/${searchTerm}`);
-}
 export function getFeaturedItems() {
 	return sendRequest(`${BASE_URL}/featured`);
+}
+export function getByCategory(catName) {
+	return sendRequest(`${BASE_URL}/category/${catName}`);
+}
+export function searchItems(term) {
+	return sendRequest(`${BASE_URL}/search/${term}`);
 }
 export function getById(id) {
 	return sendRequest(`${BASE_URL}/${id}`);

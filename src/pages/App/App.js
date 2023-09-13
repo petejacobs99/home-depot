@@ -139,8 +139,7 @@ export default function App() {
               setUser={setUser} 
               handleAddToOrder={handleAddToOrder} 
               handleAddToWishList={handleAddToWishList} 
-              handleSelectItem={handleSelectItem} 
-              updateSearchResults={updateSearchResults} 
+              handleSelectItem={handleSelectItem}
               onSearch={onSearch}
             />} 
           />

@@ -6,8 +6,7 @@ const SALT_ROUNDS = 6;
 
 const userSchema = new Schema(
 	{
-		firstName: { type: String, required: true },
-		lastName: { type: String },
+		name: { type: String, required: true },
 		email: {
 			type: String,
 			unique: true,

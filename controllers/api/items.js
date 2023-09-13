@@ -65,8 +65,12 @@ async function show(req, res) {
 }
 async function search(req, res) {
   try {
-    const term = req.params.term
-    const items = await Item.find({ searchTerm: term }).populate('category').exec()
+    const items = await Item.find({ searchTerms: req.params.term }).populate({
+      path: 'category',
+      populate: {
+          path: 'department'
+      }
+  }).exec()
     res.status(200).json({ items: items })
   } catch (error) {
     res.status(400).json({ message: error.message })

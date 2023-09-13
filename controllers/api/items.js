@@ -15,12 +15,22 @@ module.exports = {
 
 // get featured items
 async function showFeaturedItems(req, res) {
-  const data = await Item.find({ featured: true }).sort('name').populate('category').exec()
+  const data = await Item.find({ featured: true }).sort('name').populate({
+    path: 'category',
+    populate: {
+        path: 'department'
+    }
+}).exec()
   res.status(200).json({ items: data })
 }
 async function index(req, res) {
   try {
-    const data = await Item.find({}).sort('name').populate('category').exec()
+    const data = await Item.find({}).sort('name').populate({
+      path: 'category',
+      populate: {
+          path: 'department'
+      }
+  }).exec()
     res.status(200).json({ items: data })
   } catch (error) {
     res.status(400).json({ message: error.message })
@@ -77,14 +87,6 @@ async function search(req, res) {
       }
   }).exec()
     res.status(200).json({ items: items })
-  } catch (error) {
-    res.status(400).json({ message: error.message })
-  }
-}
-async function createOne(req, res) {
-  try {
-    const item = new Item(req.body)
-    res.status(200).json(item)
   } catch (error) {
     res.status(400).json({ message: error.message })
   }

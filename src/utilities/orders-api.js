@@ -6,12 +6,12 @@ export function getCart() {
   return sendRequest(`${BASE_URL}/cart`)
 }
 
-export function addToCart(subItemId, itemId) {
-  return sendRequest(`${BASE_URL}/cart/items/${subItemId}`, 'POST', { itemId })
+export function addToCart(itemId) {
+  return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST')
 }
 
-export function setItemQtyInCart(subItemId, newQty) {
-  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { subItemId, newQty })
+export function setItemQtyInCart(itemId, newQty) {
+  return sendRequest(`${BASE_URL}/cart/qty`, 'PUT', { itemId, newQty })
 }
 
 export function checkout() {

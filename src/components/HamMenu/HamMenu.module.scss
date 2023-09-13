@@ -6,13 +6,15 @@
 }
 
 .menuContainer {
-  margin-left: 20vmin;
-  margin-right: 25vmin;
+  /* margin-left: 20vmin;
+  margin-right: 25vmin; */
+  margin-top: 6.8vmin;
   padding: 5vmin;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 94%;
+  /* height: 94%; */
+  height: 89vmin;
   background-color: var(--olive-green);
   color: var(--white);
   font-size: 5vmin;
@@ -20,6 +22,7 @@
 
 .auth {
   margin-top: 0;
+  color: var(--white);
 }
 
 .userOptions,
@@ -27,9 +30,22 @@
   line-height: 1.4;
 }
 
+.faq {
+  color: var(--white);
+}
+
 .auth:hover,
 .userOptions li:hover,
 .info li:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: var(--white);
+}
+
+a {
+  color: var(--white);
+}
+
+a:hover {
+  color: var(--white);
 }

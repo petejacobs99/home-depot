@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import ItemListItem from '../../components/ItemListItem/ItemListItem';
 import SearchResults from "../../components/SearchResults/SearchResults";
 
-export default function SearchResultsPage({ handleAddToOrder, updateSearchResults }) {
+export default function SearchResultsPage({ handleAddToOrder, onSearch }) {
   const [searchResultsItems, setSearchResultsItems] = useState([]); // State to store search results
   const params = useParams();
 
@@ -40,6 +40,7 @@ export default function SearchResultsPage({ handleAddToOrder, updateSearchResult
           searchResultsItems={searchResultsItems}
           setSearchResultsItems={setSearchResultsItems} 
           onClick={handleAddToOrder}
+          onSearch={onSearch}
         />
       </div>
     </div>

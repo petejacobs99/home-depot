@@ -7,10 +7,7 @@ module.exports = {
   showByCategory,
   showFeaturedItems,
   show,
-  search,
-  createOne,
-  deleteOne,
-  updateOne
+  search
 }
 
 // get featured items

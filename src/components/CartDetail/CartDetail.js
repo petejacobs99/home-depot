@@ -15,7 +15,6 @@ export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
         console.error('Error fetching cart:', error);
       }
     };
-
     fetchCart();
   }, []);
 

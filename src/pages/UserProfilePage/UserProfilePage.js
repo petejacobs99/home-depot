@@ -38,9 +38,11 @@ export default function UserProfilePage({ user, setUser }) {
   };
 
   const handleWishlist = () => {
+    navigate("/wishlist");
   };
 
   const handleOrderHistory = () => {
+    navigate("/orders");
   };
 
   const handleDeleteAccount = async () => {
@@ -51,10 +53,6 @@ export default function UserProfilePage({ user, setUser }) {
       console.error("Error deleting user:", error);
     }
   };
-
-  if (!user) {
-    return <div>Loading...</div>; // Handle loading state if user data is not yet available
-  }
 
   const { firstName, lastName, email } = user;
 
@@ -109,4 +107,3 @@ export default function UserProfilePage({ user, setUser }) {
     </>
   );
 };
-

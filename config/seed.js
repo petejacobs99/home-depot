@@ -106,36 +106,11 @@ const Item = require('../models/item');
 	//Create Items:
 	await Item.deleteMany({});
 	const items = await Item.create([
-		// kitchen faucets
-		{
-			name: 'Glacier Bay Faucet',
-			img: 'https://i.imgur.com/lq832rt.png',
-			category: categories[0],
-			details: `Single-Handle Pull Down Sprayer Kitchen Faucet`,
-			searchTerms: ['faucet', 'bathroom', 'silver'],
-			price: 69.99
-		},
-		{
-			name: 'KOHLER Faucet',
-			img: 'https://i.imgur.com/QLZsUzj.png',
-			category: categories[0],
-			details: `Sous Pro-Style Single-Handle Pull-Down Sprayer Kitchen Faucet`,
-			searchTerms: ['faucet', 'bathroom', 'gray'],
-			price: 129.99
-		},
-		{
-			name: 'Delta Faucet',
-			img: 'https://i.imgur.com/fc5x6uj.png',
-			category: categories[0],
-			details: `Pivotal Single-Handle Pull-Down Sprayer Kitchen Faucet with Touch2O Technology`,
-			searchTerms: ['faucet', 'bathroom', 'black'],
-			price: 349.99
-		},
 		//cabinets
 		{
 			name: 'Contractor Express Cabinets',
 			img: 'https://i.imgur.com/aef6Bfq.png',
-			category: categories[1],
+			category: categories[0],
 			details: `36 in. x 34.5 in. x 24 in`,
 			searchTerms: [
 				'kitchen',
@@ -149,7 +124,7 @@ const Item = require('../models/item');
 		{
 			name: 'Hampton Bay',
 			img: 'https://i.imgur.com/1sIzdHk.png',
-			category: categories[1],
+			category: categories[0],
 			details: `60 in. W x 24 in. D x 34.5 in`,
 			searchTerms: ['kitchen', 'cabinet', 'cabinets', 'brown', 'hampton bay'],
 			price: 399.99
@@ -157,7 +132,7 @@ const Item = require('../models/item');
 		{
 			name: 'Home Decorators Collection',
 			img: 'https://i.imgur.com/1g5urYy.png',
-			category: categories[1],
+			category: categories[0],
 			details: `30 in. x 34.5 in. x 24 in`,
 			searchTerms: [
 				'kitchen',
@@ -167,6 +142,31 @@ const Item = require('../models/item');
 				'home decorators collection'
 			],
 			price: 299.99
+		},
+		// kitchen faucets
+		{
+			name: 'Glacier Bay Faucet',
+			img: 'https://i.imgur.com/lq832rt.png',
+			category: categories[1],
+			details: `Single-Handle Pull Down Sprayer Kitchen Faucet`,
+			searchTerms: ['faucet', 'bathroom', 'silver'],
+			price: 69.99
+		},
+		{
+			name: 'KOHLER Faucet',
+			img: 'https://i.imgur.com/QLZsUzj.png',
+			category: categories[1],
+			details: `Sous Pro-Style Single-Handle Pull-Down Sprayer Kitchen Faucet`,
+			searchTerms: ['faucet', 'bathroom', 'gray'],
+			price: 129.99
+		},
+		{
+			name: 'Delta Faucet',
+			img: 'https://i.imgur.com/fc5x6uj.png',
+			category: categories[1],
+			details: `Pivotal Single-Handle Pull-Down Sprayer Kitchen Faucet with Touch2O Technology`,
+			searchTerms: ['faucet', 'bathroom', 'black'],
+			price: 349.99
 		},
 		//backslash
 		{
@@ -382,7 +382,7 @@ const Item = require('../models/item');
 		{
 			name: 'LG',
 			img: 'https://i.imgur.com/df6L2LC.png',
-			category: categories[9],
+			category: categories[10],
 			details: '4.5 Cu. Ft. "each" Stackable SMART Front Load Washer',
 			searchTerms: [
 				'dryer',
@@ -398,7 +398,7 @@ const Item = require('../models/item');
 		{
 			name: 'Samsung',
 			img: 'https://i.imgur.com/QLvI1o5.png',
-			category: categories[9],
+			category: categories[10],
 			details:
 				'4.5 cu. ft. "each", Smart High-Efficiency Front Load Washer with Super Speed',
 			searchTerms: [
@@ -415,7 +415,7 @@ const Item = require('../models/item');
 		{
 			name: 'Electrolux',
 			img: 'https://i.imgur.com/TrtY4nV.png',
-			category: categories[9],
+			category: categories[10],
 			details:
 				'27 in. W 4.5 cu. ft. "each" Front Load Washer & dryer with SmartBoost, LuxCare Plus Wash & dry System',
 			searchTerms: [
@@ -433,7 +433,7 @@ const Item = require('../models/item');
 		{
 			name: 'LG',
 			img: 'https://i.imgur.com/KlEzXHA.png',
-			category: categories[10],
+			category: categories[11],
 			details: '24 in. Width 2.0 cu.ft. 1200-Watt Countertop Microwave',
 			searchTerms: ['microwave', 'microwaves', 'lg', 'appliance', 'silver'],
 			price: 209.99
@@ -441,7 +441,7 @@ const Item = require('../models/item');
 		{
 			name: 'Samsung',
 			img: 'https://i.imgur.com/eNivv4S.png',
-			category: categories[10],
+			category: categories[11],
 			details: '30 in. 1.9 cu. ft. Over-the-Range Microwave',
 			searchTerms: [
 				'microwave',
@@ -455,7 +455,7 @@ const Item = require('../models/item');
 		{
 			name: 'Kitchen Aid ',
 			img: 'https://i.imgur.com/9mONg6Z.png',
-			category: categories[10],
+			category: categories[11],
 			details: '1.5 cu. ft. Countertop Microwave',
 			searchTerms: [
 				'microwave',
@@ -470,7 +470,7 @@ const Item = require('../models/item');
 		{
 			name: 'DEWALT',
 			img: 'https://i.imgur.com/dAmV7xK.jpg',
-			category: categories[11],
+			category: categories[12],
 			details: '12V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
 			searchTerms: ['drill', 'drills', 'power tools', 'dewalt', 'yellow'],
 			price: 129.99
@@ -478,7 +478,7 @@ const Item = require('../models/item');
 		{
 			name: 'Milwaukee',
 			img: 'https://i.imgur.com/UB7SCqJ.png',
-			category: categories[11],
+			category: categories[12],
 			details: 'M18 18V Lithium-Ion Cordless 1/2 in. Drill Driver',
 			searchTerms: ['drill', 'drills', 'milwaukee', 'power tools', 'red'],
 			price: 199.99
@@ -486,7 +486,7 @@ const Item = require('../models/item');
 		{
 			name: 'Rockwell',
 			img: 'https://i.imgur.com/CGPzixk.jpg',
-			category: categories[11],
+			category: categories[12],
 			details: '18V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
 			searchTerms: ['drill', 'drills', 'Rockwell', 'power tools', 'green'],
 			price: 59.99
@@ -495,7 +495,7 @@ const Item = require('../models/item');
 		{
 			name: 'Stanley',
 			img: 'https://i.imgur.com/sQMyF5p.png',
-			category: categories[12],
+			category: categories[13],
 			details: 'Home Tool Kit (65-Piece)',
 			searchTerms: ['toolset', 'stanley', 'yellow'],
 			price: 59.99
@@ -503,7 +503,7 @@ const Item = require('../models/item');
 		{
 			name: 'DEWALT',
 			img: 'https://i.imgur.com/i8EqgSp.png',
-			category: categories[12],
+			category: categories[13],
 			details:
 				'1/4 in., 3/8 in., and 1/2 in. Drive Polished Chrome Mechanics Tool Set (200-Piece)',
 			searchTerms: ['toolsets', 'dewalt', 'yellow', 'gray'],
@@ -512,7 +512,7 @@ const Item = require('../models/item');
 		{
 			name: 'KING',
 			img: 'https://i.imgur.com/2JIFcE3.png',
-			category: categories[12],
+			category: categories[13],
 			details: 'Complete Home Pink Tool Kit with Bag (24-Piece)',
 			searchTerms: ['toolsets', 'king', 'pink'],
 			price: 29.99
@@ -521,7 +521,7 @@ const Item = require('../models/item');
 		{
 			name: 'TradesPro',
 			img: 'https://i.imgur.com/Jw5ZvJB.png',
-			category: categories[13],
+			category: categories[14],
 			details: '240 Piece Zinc Metric Nut and Bolt Assortment with Storage',
 			searchTerms: ['Nuts', 'bolts', 'gray', 'tradespro'],
 			price: 7.99
@@ -529,7 +529,7 @@ const Item = require('../models/item');
 		{
 			name: 'Stark',
 			img: 'https://i.imgur.com/mbCaHtt.png',
-			category: categories[13],
+			category: categories[14],
 			details:
 				'347-Piece SAE Nut And Bolt Assortment Sheet Metal Machine Screw Hardware Kit',
 			searchTerms: ['Nuts', 'bolts', 'gray', 'stark'],
@@ -538,7 +538,7 @@ const Item = require('../models/item');
 		{
 			name: 'Everbilt',
 			img: 'https://i.imgur.com/HJ140Wx.png',
-			category: categories[13],
+			category: categories[14],
 			details: '405-Piece Zinc-Plated Machine Screw Kit',
 			searchTerms: ['Nuts', 'bolts', 'gray'],
 			price: 9.99
@@ -547,7 +547,7 @@ const Item = require('../models/item');
 		{
 			name: 'Red Buckets',
 			img: 'https://i.imgur.com/xQDcpeN.jpg',
-			category: categories[14],
+			category: categories[15],
 			details: '5 gallon bucket',
 			searchTerms: ['buckets', 'red'],
 			price: 12.99,
@@ -556,7 +556,7 @@ const Item = require('../models/item');
 		{
 			name: 'Black Buckets',
 			img: 'https://i.imgur.com/9wYClIH.jpg',
-			category: categories[14],
+			category: categories[15],
 			details: '16L plastic bucket with lid',
 			searchTerms: ['buckets', 'black'],
 			price: 14.99,
@@ -565,7 +565,7 @@ const Item = require('../models/item');
 		{
 			name: 'white Bucket Set',
 			img: 'https://i.imgur.com/WsuAkaZ.jpg',
-			category: categories[14],
+			category: categories[15],
 			details: '8 piece bucket set, 5 gallons',
 			searchTerms: ['buckets', 'white'],
 			price: 45.99,

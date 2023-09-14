@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
-import { getUser } from '../../utilities/users-service';
+import { getUser, makeGuest } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import AboutUsPage from '../AboutUsPage/AboutUsPage'; 
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
@@ -15,7 +15,7 @@ import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import WishlistPage from '../WishlistPage/WishlistPage';
 import NavBar from '../../components/NavBar/NavBar'
-import * as usersAPI from '../../utilities/users-api'
+// import * as usersAPI from '../../utilities/users-api'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'
@@ -51,9 +51,10 @@ export default function App() {
       async function confirmUser() {
         if (!user) {
           try {
-            const guest = await usersAPI.makeGuest()
+            const guest = await makeGuest()
             console.log("guest: " + guest)
             setUser(guest)
+            console.log(user)
           }
           catch (error) {
             console.log(error)
@@ -66,7 +67,9 @@ export default function App() {
       console.log(error)
     }
   }, [user])
-
+console.log(user)
+console.log(cart)
+console.log(wishlist)
   async function handleAddToOrder(itemId) {
     const updatedCart = await ordersAPI.addToCart(itemId)
     setCart(updatedCart)
@@ -76,7 +79,6 @@ export default function App() {
     const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
     setCart(updatedCart)
   }
-
   async function handleCheckout() {
     await ordersAPI.checkout();
     navigate('/orders');
@@ -94,7 +96,7 @@ export default function App() {
   }
   const onSearch = (searchTerm) => {
     navigate(`/home/search/${searchTerm}`);
-  };
+  }
   return (
     <main className={styles.App}>
       {/* { user ? */}

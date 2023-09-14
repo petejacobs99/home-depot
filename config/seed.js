@@ -1,6 +1,5 @@
 require('dotenv').config();
 require('./database');
-// import { images } from '../src/images';
 
 const Category = require('../models/category');
 const Department = require('../models/department');
@@ -114,8 +113,10 @@ const Item = require('../models/item');
 			details: `36 in. x 34.5 in. x 24 in`,
 			searchTerms: [
 				'kitchen',
+				'kitchen cabinet',
 				'cabinet',
 				'cabinets',
+				'wood',
 				'beige',
 				'contractor express cabinets'
 			],
@@ -126,7 +127,15 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/1sIzdHk.png',
 			category: categories[0],
 			details: `60 in. W x 24 in. D x 34.5 in`,
-			searchTerms: ['kitchen', 'cabinet', 'cabinets', 'brown', 'hampton bay'],
+			searchTerms: [
+				'kitchen',
+				'kitchen cabinet',
+				'cabinet',
+				'cabinets',
+				'brown',
+				'wood',
+				'hampton bay'
+			],
 			price: 399.99
 		},
 		{
@@ -136,9 +145,11 @@ const Item = require('../models/item');
 			details: `30 in. x 34.5 in. x 24 in`,
 			searchTerms: [
 				'kitchen',
+				'kitchen cabinet',
 				'cabinet',
 				'cabinets',
 				'white',
+				'wood',
 				'home decorators collection'
 			],
 			price: 299.99
@@ -149,7 +160,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/lq832rt.png',
 			category: categories[1],
 			details: `Single-Handle Pull Down Sprayer Kitchen Faucet`,
-			searchTerms: ['faucet', 'bathroom', 'silver'],
+			searchTerms: ['faucet', 'faucets', 'kitchen', 'kitchen faucet', 'silver'],
 			price: 69.99
 		},
 		{
@@ -157,7 +168,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/QLZsUzj.png',
 			category: categories[1],
 			details: `Sous Pro-Style Single-Handle Pull-Down Sprayer Kitchen Faucet`,
-			searchTerms: ['faucet', 'bathroom', 'gray'],
+			searchTerms: ['faucet', 'faucets', 'kitchen', 'kitchen faucet', 'gray'],
 			price: 129.99
 		},
 		{
@@ -165,7 +176,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/fc5x6uj.png',
 			category: categories[1],
 			details: `Pivotal Single-Handle Pull-Down Sprayer Kitchen Faucet with Touch2O Technology`,
-			searchTerms: ['faucet', 'bathroom', 'black'],
+			searchTerms: ['faucet', 'faucets', 'kitchen', 'kitchen faucet', 'black'],
 			price: 349.99
 		},
 		//backslash
@@ -174,7 +185,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/0sJ1HXo.png',
 			category: categories[2],
 			details: `Angora Herringbone 12 in. x 12 in. Polished Marble Wall Mosaic Tile`,
-			searchTerms: ['msi', 'tiles', 'backsplash'],
+			searchTerms: ['msi', 'kitchen', 'tiles', 'backsplash'],
 			price: 8.99
 		},
 		{
@@ -182,7 +193,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/jcF3WH7.png',
 			category: categories[2],
 			details: `3 in. x 6 in. Ceramic Bright White Subway Tile`,
-			searchTerms: ['daltile', 'tiles', 'backsplash', 'white'],
+			searchTerms: ['daltile', 'kitchen', 'tiles', 'backsplash', 'white'],
 			price: 4.99
 		},
 		{
@@ -190,7 +201,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/65KdDMz.png',
 			category: categories[2],
 			details: `Stonehollow 14 in. x 12 in. x 6.35 mm Mist Ceramic Herringbone Mosaic Wall Tile`,
-			searchTerms: ['marazzi', 'stone', 'backsplash'],
+			searchTerms: ['marazzi', 'kitchen', 'stone', 'backsplash'],
 			price: 12.99
 		},
 		//garbage desposel
@@ -199,7 +210,15 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/EiDxxbE.png',
 			category: categories[3],
 			details: `Badger 500, 1/2 HP Continuous Feed Kitchen Garbage Disposal`,
-			searchTerms: ['insinkerator', 'garbage disposal', 'kitchen', 'black'],
+			searchTerms: [
+				'insinkerator',
+				'garbage disposal',
+				'plumbing',
+				'appliance',
+				'appliances',
+				'kitchen',
+				'black'
+			],
 			price: 79.99
 		},
 		{
@@ -207,7 +226,15 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/zfMGPXb.png',
 			category: categories[3],
 			details: `Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount`,
-			searchTerms: ['moen', 'garbage disposal', 'kitchen', 'black'],
+			searchTerms: [
+				'moen',
+				'garbage disposal',
+				'plumbing',
+				'appliance',
+				'appliances',
+				'kitchen',
+				'black'
+			],
 			price: 89.99
 		},
 		{
@@ -215,7 +242,15 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/3YqvvkE.png',
 			category: categories[3],
 			details: `Legend Series 1/2 HP Continuous Feed Garbage Disposal`,
-			searchTerms: ['waste king', 'garbage disposal', 'kitchen', 'white'],
+			searchTerms: [
+				'waste king',
+				'garbage disposal',
+				'plumbing',
+				'appliance',
+				'appliances',
+				'kitchen',
+				'white'
+			],
 			price: 99.99
 		},
 		//Tubs
@@ -224,7 +259,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/f9GsGkg.png',
 			category: categories[4],
 			details: `60 in. x 30.25 in`,
-			searchTerms: ['bathroom', 'tubs', 'white', 'kohler'],
+			searchTerms: ['bathroom', 'tub', 'tubs', 'white', 'kohler'],
 			price: 379.99
 		},
 		{
@@ -232,7 +267,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/TX9yOX9.png',
 			category: categories[4],
 			details: `55 in. x 28.3 in`,
-			searchTerms: ['bathroom', 'tubs', 'white', 'vanity art'],
+			searchTerms: ['bathroom', 'tub', 'tubs', 'white', 'vanity art'],
 			price: 799.99
 		},
 		{
@@ -240,7 +275,13 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/GKR7Fgt.png',
 			category: categories[4],
 			details: `63 in. x 30.25 in`,
-			searchTerms: ['bathroom', 'tubs', 'white', 'home decorators collection'],
+			searchTerms: [
+				'bathroom',
+				'tub',
+				'tubs',
+				'white',
+				'home decorators collection'
+			],
 			price: 599.99
 		},
 		//shower heads
@@ -249,7 +290,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/1Zo2F2w.png',
 			category: categories[5],
 			details: `5-Spray Patterns 1.75 GPM 6.63 in. Wall Mount Dual Shower Heads`,
-			searchTerms: ['bathroom', 'shower heads', 'silver', 'delta'],
+			searchTerms: ['bathroom', 'shower heads', 'shower', 'silver', 'delta'],
 			price: 79.99
 		},
 		{
@@ -257,7 +298,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/OBohqGO.png',
 			category: categories[5],
 			details: `Attract with Magnetix 6-spray 6.75 in. Dual Shower Head and Adjustable Handheld`,
-			searchTerms: ['bathroom', 'shower heads', 'silver', 'moen'],
+			searchTerms: ['bathroom', 'shower heads', 'shower', 'silver', 'moen'],
 			price: 109.99
 		},
 		{
@@ -265,7 +306,13 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/OD6Bk5M.png',
 			category: categories[5],
 			details: `3-Spray 3.5 in. Single Wall Mount Fixed Adjustable Shower Head`,
-			searchTerms: ['bathroom', 'shower heads', 'silver', 'glacier bay'],
+			searchTerms: [
+				'bathroom',
+				'shower heads',
+				'shower',
+				'silver',
+				'glacier bay'
+			],
 			price: 9.99
 		},
 		//Bathroom faucets
@@ -274,7 +321,14 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/LyfatSg.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Low-Arc Bathroom Faucet`,
-			searchTerms: ['bathroom', 'bathroom faucets', 'nickel', 'glacier bay'],
+			searchTerms: [
+				'bathroom',
+				'bathroom faucets',
+				'faucet',
+				'faucet',
+				'nickel',
+				'glacier bay'
+			],
 			price: 39.99
 		},
 		{
@@ -282,7 +336,14 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/3JDO3Oh.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Bathroom Faucet `,
-			searchTerms: ['bathroom', 'bathroom faucets', 'silver', 'delta'],
+			searchTerms: [
+				'bathroom',
+				'bathroom faucets',
+				'faucet',
+				'faucet',
+				'silver',
+				'delta'
+			],
 			price: 99.99
 		},
 		{
@@ -290,7 +351,14 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/N6UHBzJ.png',
 			category: categories[6],
 			details: `4 in. Centerset Single-Handle Waterfall Bathroom Faucet`,
-			searchTerms: ['bathroom', 'bathroom faucets', 'silver', 'pfister'],
+			searchTerms: [
+				'bathroom',
+				'bathroom faucets',
+				'faucet',
+				'faucet',
+				'silver',
+				'pfister'
+			],
 			price: 112.99
 		},
 		//Toilets
@@ -299,7 +367,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/wgXKodQ.png',
 			category: categories[7],
 			details: `High Efficiency Dual Flush Complete Elongated Toilet`,
-			searchTerms: ['bathroom', 'toilets', 'white', 'glacier bay'],
+			searchTerms: ['bathroom', 'toilet', 'toilets', 'white', 'glacier bay'],
 			price: 99.99
 		},
 		{
@@ -307,7 +375,13 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/DaFVXWY.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
-			searchTerms: ['bathroom', 'toilets', 'white', 'american standard'],
+			searchTerms: [
+				'bathroom',
+				'toilet',
+				'toilets',
+				'white',
+				'american standard'
+			],
 			price: 179.99
 		},
 		{
@@ -315,7 +389,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/IWZM736.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
-			searchTerms: ['bathroom', 'toilets', 'white', 'kohler'],
+			searchTerms: ['bathroom', 'toilet', 'toilets', 'white', 'kohler'],
 			price: 299.99
 		},
 		//frides
@@ -325,7 +399,15 @@ const Item = require('../models/item');
 			category: categories[8],
 			details:
 				'28 cu. ft. 4-Door French Door Smart Refrigerator with Ice and Water Dispenser',
-			searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'lg'],
+			searchTerms: [
+				'refridgerators',
+				'fridge',
+				'kitchen',
+				'appliance',
+				'appliances',
+				'silver',
+				'lg'
+			],
 			price: 1899.99
 		},
 		{
@@ -334,7 +416,15 @@ const Item = require('../models/item');
 			category: categories[8],
 			details:
 				'35.75 in. W 26.5 cu. ft. 3-Door Family Hub French Door Smart Refrigerator',
-			searchTerms: ['refridgerators', 'fridge', 'kitchen', 'silver', 'samsung'],
+			searchTerms: [
+				'refridgerators',
+				'fridge',
+				'kitchen',
+				'appliance',
+				'appliances',
+				'silver',
+				'samsung'
+			],
 			price: 3399.99
 		},
 		{
@@ -346,6 +436,8 @@ const Item = require('../models/item');
 				'refridgerators',
 				'fridge',
 				'kitchen',
+				'appliance',
+				'appliances',
 				'silver',
 				'kitchen aid'
 			],
@@ -358,7 +450,15 @@ const Item = require('../models/item');
 			category: categories[9],
 			details:
 				'5.8 cu. ft. Smart Wi-Fi Enabled True Convection InstaView Gas Range Oven with Air Fry',
-			searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'lg'],
+			searchTerms: [
+				'oven',
+				'ovens',
+				'kitchen',
+				'appliance',
+				'appliances',
+				'silver',
+				'lg'
+			],
 			price: 1049.99
 		},
 		{
@@ -367,7 +467,15 @@ const Item = require('../models/item');
 			category: categories[9],
 			details:
 				'6.3 cu. ft. 30 in. Smart Freestanding Double Oven Electric Range with Flex Duo',
-			searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'samsung'],
+			searchTerms: [
+				'oven',
+				'ovens',
+				'kitchen',
+				'appliance',
+				'appliances',
+				'silver',
+				'samsung'
+			],
 			price: 1099.99
 		},
 		{
@@ -375,7 +483,15 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/MMitAcq.png',
 			category: categories[9],
 			details: '30 in. Single Electric Wall Oven Self-Cleaning with Convection',
-			searchTerms: ['oven', 'ovens', 'kitchen', 'silver', 'kitchen aid'],
+			searchTerms: [
+				'oven',
+				'ovens',
+				'kitchen',
+				'appliance',
+				'appliances',
+				'silver',
+				'kitchen aid'
+			],
 			price: 2199.99
 		},
 		//washer & dryers
@@ -390,6 +506,7 @@ const Item = require('../models/item');
 				'washer',
 				'washers',
 				'appliance',
+				'appliances',
 				'lg',
 				'gun metal gray'
 			],
@@ -407,6 +524,7 @@ const Item = require('../models/item');
 				'washer',
 				'washers',
 				'appliance',
+				'appliances',
 				'samsung',
 				'dark gray'
 			],
@@ -424,6 +542,7 @@ const Item = require('../models/item');
 				'washer',
 				'washers',
 				'appliance',
+				'appliances',
 				'electrolux',
 				'white'
 			],
@@ -435,7 +554,14 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/KlEzXHA.png',
 			category: categories[11],
 			details: '24 in. Width 2.0 cu.ft. 1200-Watt Countertop Microwave',
-			searchTerms: ['microwave', 'microwaves', 'lg', 'appliance', 'silver'],
+			searchTerms: [
+				'microwave',
+				'microwaves',
+				'lg',
+				'appliance',
+				'appliances',
+				'silver'
+			],
 			price: 209.99
 		},
 		{
@@ -448,6 +574,7 @@ const Item = require('../models/item');
 				'microwaves',
 				'samsung',
 				'appliance',
+				'appliances',
 				'silver'
 			],
 			price: 278.99
@@ -462,6 +589,7 @@ const Item = require('../models/item');
 				'microwaves',
 				'kitchen aid',
 				'appliance',
+				'appliances',
 				'silver'
 			],
 			price: 689.99
@@ -497,7 +625,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/sQMyF5p.png',
 			category: categories[13],
 			details: 'Home Tool Kit (65-Piece)',
-			searchTerms: ['toolset', 'stanley', 'yellow'],
+			searchTerms: ['toolset', 'tools', 'stanley', 'yellow'],
 			price: 59.99
 		},
 		{
@@ -506,7 +634,7 @@ const Item = require('../models/item');
 			category: categories[13],
 			details:
 				'1/4 in., 3/8 in., and 1/2 in. Drive Polished Chrome Mechanics Tool Set (200-Piece)',
-			searchTerms: ['toolsets', 'dewalt', 'yellow', 'gray'],
+			searchTerms: ['toolsets', 'tools', 'dewalt', 'yellow', 'gray'],
 			price: 155.99
 		},
 		{
@@ -514,7 +642,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/2JIFcE3.png',
 			category: categories[13],
 			details: 'Complete Home Pink Tool Kit with Bag (24-Piece)',
-			searchTerms: ['toolsets', 'king', 'pink'],
+			searchTerms: ['toolsets', 'tools', 'king', 'pink'],
 			price: 29.99
 		},
 		//Nuts and bolts
@@ -523,7 +651,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/Jw5ZvJB.png',
 			category: categories[14],
 			details: '240 Piece Zinc Metric Nut and Bolt Assortment with Storage',
-			searchTerms: ['Nuts', 'bolts', 'gray', 'tradespro'],
+			searchTerms: ['nuts', 'bolts', 'gray', 'tradespro'],
 			price: 7.99
 		},
 		{
@@ -532,7 +660,7 @@ const Item = require('../models/item');
 			category: categories[14],
 			details:
 				'347-Piece SAE Nut And Bolt Assortment Sheet Metal Machine Screw Hardware Kit',
-			searchTerms: ['Nuts', 'bolts', 'gray', 'stark'],
+			searchTerms: ['nuts', 'bolts', 'gray', 'stark'],
 			price: 12.99
 		},
 		{
@@ -540,7 +668,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/HJ140Wx.png',
 			category: categories[14],
 			details: '405-Piece Zinc-Plated Machine Screw Kit',
-			searchTerms: ['Nuts', 'bolts', 'gray'],
+			searchTerms: ['nuts', 'bolts', 'gray', 'everbilt'],
 			price: 9.99
 		},
 		//buckets
@@ -549,7 +677,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/xQDcpeN.jpg',
 			category: categories[15],
 			details: '5 gallon bucket',
-			searchTerms: ['bucket', 'buckets', 'red'],
+			searchTerms: ['bucket', 'buckets', 'red', 'lid', 'lids'],
 			price: 12.99,
 			featured: true
 		},
@@ -558,7 +686,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/9wYClIH.jpg',
 			category: categories[15],
 			details: '16L plastic bucket with lid',
-			searchTerms: ['bucket', 'buckets', 'black'],
+			searchTerms: ['bucket', 'buckets', 'black', 'lid', 'lids'],
 			price: 14.99,
 			featured: true
 		},
@@ -567,7 +695,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/WsuAkaZ.jpg',
 			category: categories[15],
 			details: '8 piece bucket set, 5 gallons',
-			searchTerms: ['bucket', 'buckets', 'white'],
+			searchTerms: ['bucket', 'buckets', 'white', 'lid', 'lids'],
 			price: 45.99,
 			featured: true
 		}

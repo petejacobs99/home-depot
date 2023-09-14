@@ -8,12 +8,15 @@ export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
 
   useEffect(() => {
     const fetchCart = async () => {
-      try {
+      /* try {
         const fetchedCart = await getCart();
         setFetchedCart(fetchedCart);
       } catch (error) {
         console.error('Error fetching cart:', error);
-      }
+      } */
+      const fetchedCart = await getCart();
+      setFetchedCart(fetchedCart);
+      console.log(fetchedCart)
     };
     fetchCart();
   }, []);
@@ -22,11 +25,11 @@ export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
     <>
       {cart || fetchedCart ? (
         <div className={styles.container}>
-          <h1>YOUR CART</h1>
-          {Object.keys(cart || fetchedCart).map((itemId) => (
+          {/* <h1>YOUR CART</h1> */}
+          {(cart || fetchedCart).lineItems.map((item) => (
             <LineItem
-              key={itemId}
-              item={cart ? cart[itemId] : fetchedCart[itemId]}
+              key={item._id}
+              item={cart ? cart.lineItems[item] : fetchedCart.lineItems[item]}
               handleChangeQty={handleChangeQty}
             />
           ))}

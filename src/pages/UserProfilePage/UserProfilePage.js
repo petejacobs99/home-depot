@@ -30,8 +30,7 @@ export default function UserProfilePage({ user, setUser }) {
   const handleSaveProfile = async () => {
     try {
       await updateUser({
-        firstName,
-        lastName,
+        name,
         email,
       });
       setIsEditing(false);
@@ -57,7 +56,7 @@ export default function UserProfilePage({ user, setUser }) {
     }
   };
 
-  const { firstName, lastName, email } = user;
+  const { name, email } = user;
 
   return (
     <>
@@ -67,16 +66,8 @@ export default function UserProfilePage({ user, setUser }) {
           <input
             type="text"
             placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
-            disabled={!isEditing}
-            className={styles.input}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+            value={name}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
             disabled={!isEditing}
             className={styles.input}
           />

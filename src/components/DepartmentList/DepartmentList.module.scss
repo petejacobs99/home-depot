@@ -1,20 +1,20 @@
 .DepartmentList {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: center;
   align-items: center;
   color: var(--black);
-  font-size: 3vmin;
-  font-family: "Gill Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 2.5vmin;
+  text-transform: uppercase;
 }
+
 .DepartmentList .img {
   height: 10vw;
   width: 12vw;
+  margin: 0.5vmin;
 }
 .DepartmentList div {
-padding: 2vw 4vw;
+  padding: 2vw 4vw;
   margin: 1vw;
   background-color: var(--beige-1);
   border: 0.3vmin solid var(--beige-2);

@@ -6,20 +6,13 @@
     margin-bottom: 3vmin;
     padding: 2vmin;
     color: var(--mocha);
-    background-color: var(--beige1);
-    border: .5vmin solid var(--mocha);
-    border-radius: 1vmin;
     font-size: 4vmin;
   }
   
   .WishListItem .img {
-    height: 8vw;
-    width: 8vw;
-    border: .5vmin solid var(--mocha);
-    border-radius: 1vmin;
+    height: 10vw;
   }
   .WishListItem .img:hover {
-    border-color: var(--olive);
     cursor: pointer;
   }
   

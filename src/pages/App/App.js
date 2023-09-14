@@ -65,9 +65,6 @@ export default function App() {
       console.log(error)
     }
   }, [user])
-console.log(user)
-console.log(cart)
-console.log(wishlist)
   async function handleAddToOrder(itemId) {
     const updatedCart = await ordersAPI.addToCart(itemId)
     setCart(updatedCart)

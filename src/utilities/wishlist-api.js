@@ -11,5 +11,5 @@ export function addToWishlist(itemId) {
 }
 
 export function removeFromWishlist(itemId) {
-  return sendRequest(`${BASE_URL}/remove/${itemId}`, 'POST')
+  return sendRequest(`${BASE_URL}/remove/${itemId}`, 'PUT')
 }

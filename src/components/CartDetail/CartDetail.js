@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import styles from './CartDetail.module.scss';
 import { getCart } from '../../utilities/orders-api';
-import LineItem from '../LineItem/LineItem'; // Import the LineItem component
+import { useState, useEffect } from "react";
+import LineItem from '../../components/LineItem/LineItem'; // Import the LineItem component
 
 export default function CartDetail({ cart, handleChangeQty, handleCheckout }) {
   const [fetchedCart, setFetchedCart] = useState(null);

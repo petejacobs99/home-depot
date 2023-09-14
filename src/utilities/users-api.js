@@ -7,7 +7,7 @@ export function makeGuest() {
 }
 
 export function signUp(userData) {
-  return sendRequest(`${BASE_URL}/`, 'POST', userData)
+  return sendRequest(`${BASE_URL}/`, 'PUT', userData)
 }
 
 export function login(credentials) {

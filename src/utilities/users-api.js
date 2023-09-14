@@ -17,6 +17,6 @@ export function login(credentials) {
 export function deleteUser() {
   return sendRequest(`${BASE_URL}/delete`, 'DELETE');
 }
-export function updateUser(id, updatedUserData) {
-  return sendRequest(`${BASE_URL}/${id}`, 'PUT', updatedUserData);
+export function updateUser(updatedUserData) {
+  return sendRequest(`${BASE_URL}/update`, 'PUT', updatedUserData);
 }

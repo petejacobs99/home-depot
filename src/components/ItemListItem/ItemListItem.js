@@ -24,8 +24,8 @@ export default function ItemListItem({
     setInCart(true);
   }; */
 
-  async function handleAddToCart(itemId) {
-    await ordersAPI.addToCart(itemId);
+  async function handleAddToOrder() {
+    await ordersAPI.addToCart(itemListItem._id);
     setInCart(true);
   }
 
@@ -84,7 +84,7 @@ export default function ItemListItem({
           {inCart ? (
             <button className={styles.btnDisabled}>IN CART</button>
           ) : (
-            <button className={styles.btnSm} onClick={handleAddToCart}>
+            <button className={styles.btnSm} onClick={handleAddToOrder}>
               ADD TO CART
             </button>
           )}

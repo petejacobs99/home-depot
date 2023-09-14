@@ -37,8 +37,8 @@ const dataController = {
 
 	async signUp(req, res, next) {
 		try {
-			console.log('create');
-			const user = await User.create(req.body);
+			req.body.isGuest = false
+			const user = await User.findByIdAndUpdate(req.user._id, req.body, { new: true })
 
 			// token will be a string
 			const token = createJWT(user);

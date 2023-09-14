@@ -60,7 +60,7 @@ const Item = require('../models/item');
 		},
 
 		{
-			name: 'Refridgerators',
+			name: 'Refrigerators',
 			image: 'https://i.imgur.com/NaV2Q95.jpg',
 			department: departments[2]
 		},
@@ -107,7 +107,7 @@ const Item = require('../models/item');
 	const items = await Item.create([
 		//cabinets
 		{
-			name: 'Contractor Express Cabinets',
+			name: 'Contractor Express Cabinet',
 			img: 'https://i.imgur.com/aef6Bfq.png',
 			category: categories[0],
 			details: `36 in. x 34.5 in. x 24 in`,
@@ -123,7 +123,7 @@ const Item = require('../models/item');
 			price: 329.99
 		},
 		{
-			name: 'Hampton Bay',
+			name: 'Hampton Bay Cabinet',
 			img: 'https://i.imgur.com/1sIzdHk.png',
 			category: categories[0],
 			details: `60 in. W x 24 in. D x 34.5 in`,
@@ -139,7 +139,7 @@ const Item = require('../models/item');
 			price: 399.99
 		},
 		{
-			name: 'Home Decorators Collection',
+			name: 'Home Decorators Cabinet',
 			img: 'https://i.imgur.com/1g5urYy.png',
 			category: categories[0],
 			details: `30 in. x 34.5 in. x 24 in`,
@@ -150,13 +150,13 @@ const Item = require('../models/item');
 				'cabinets',
 				'white',
 				'wood',
-				'home decorators collection'
+				'home decorators cabinet'
 			],
 			price: 299.99
 		},
-		// kitchen faucets
+		// Kitchen Faucets
 		{
-			name: 'Glacier Bay Faucet',
+			name: 'Glacier Bay Kitchen Faucet',
 			img: 'https://i.imgur.com/lq832rt.png',
 			category: categories[1],
 			details: `Single-Handle Pull Down Sprayer Kitchen Faucet`,
@@ -164,7 +164,7 @@ const Item = require('../models/item');
 			price: 69.99
 		},
 		{
-			name: 'KOHLER Faucet',
+			name: 'KOHLER Kitchen Faucet',
 			img: 'https://i.imgur.com/QLZsUzj.png',
 			category: categories[1],
 			details: `Sous Pro-Style Single-Handle Pull-Down Sprayer Kitchen Faucet`,
@@ -172,7 +172,7 @@ const Item = require('../models/item');
 			price: 129.99
 		},
 		{
-			name: 'Delta Faucet',
+			name: 'Delta Kitchen Faucet',
 			img: 'https://i.imgur.com/fc5x6uj.png',
 			category: categories[1],
 			details: `Pivotal Single-Handle Pull-Down Sprayer Kitchen Faucet with Touch2O Technology`,
@@ -181,7 +181,7 @@ const Item = require('../models/item');
 		},
 		//backslash
 		{
-			name: 'MSI',
+			name: 'MSI Backsplash',
 			img: 'https://i.imgur.com/0sJ1HXo.png',
 			category: categories[2],
 			details: `Angora Herringbone 12 in. x 12 in. Polished Marble Wall Mosaic Tile`,
@@ -189,7 +189,7 @@ const Item = require('../models/item');
 			price: 8.99
 		},
 		{
-			name: 'Daltile',
+			name: 'Daltile Backsplash',
 			img: 'https://i.imgur.com/jcF3WH7.png',
 			category: categories[2],
 			details: `3 in. x 6 in. Ceramic Bright White Subway Tile`,
@@ -197,16 +197,16 @@ const Item = require('../models/item');
 			price: 4.99
 		},
 		{
-			name: 'Marazzi',
+			name: 'Marazzi Backsplash',
 			img: 'https://i.imgur.com/65KdDMz.png',
 			category: categories[2],
 			details: `Stonehollow 14 in. x 12 in. x 6.35 mm Mist Ceramic Herringbone Mosaic Wall Tile`,
 			searchTerms: ['marazzi', 'kitchen', 'stone', 'backsplash'],
 			price: 12.99
 		},
-		//garbage desposel
+		// Garbage disposal
 		{
-			name: 'InSinkErator',
+			name: 'InSinkErator Garbage Disposal',
 			img: 'https://i.imgur.com/EiDxxbE.png',
 			category: categories[3],
 			details: `Badger 500, 1/2 HP Continuous Feed Kitchen Garbage Disposal`,
@@ -222,7 +222,7 @@ const Item = require('../models/item');
 			price: 79.99
 		},
 		{
-			name: 'MOEN',
+			name: 'MOEN Garbage Disposal',
 			img: 'https://i.imgur.com/zfMGPXb.png',
 			category: categories[3],
 			details: `Prep Series 1/2 HP Continuous Feed Garbage Disposal with Power Cord and Universal Mount`,
@@ -238,7 +238,7 @@ const Item = require('../models/item');
 			price: 89.99
 		},
 		{
-			name: 'Waste King',
+			name: 'Waste King Garbage Disposal',
 			img: 'https://i.imgur.com/3YqvvkE.png',
 			category: categories[3],
 			details: `Legend Series 1/2 HP Continuous Feed Garbage Disposal`,
@@ -255,7 +255,7 @@ const Item = require('../models/item');
 		},
 		//Tubs
 		{
-			name: 'KOHLER',
+			name: 'KOHLER Tub',
 			img: 'https://i.imgur.com/f9GsGkg.png',
 			category: categories[4],
 			details: `60 in. x 30.25 in`,
@@ -263,7 +263,7 @@ const Item = require('../models/item');
 			price: 379.99
 		},
 		{
-			name: 'Vanity Art',
+			name: 'Vanity Art Tub',
 			img: 'https://i.imgur.com/TX9yOX9.png',
 			category: categories[4],
 			details: `55 in. x 28.3 in`,
@@ -271,22 +271,16 @@ const Item = require('../models/item');
 			price: 799.99
 		},
 		{
-			name: 'Home Decorators Collection',
+			name: 'Home Decorators Tub',
 			img: 'https://i.imgur.com/GKR7Fgt.png',
 			category: categories[4],
 			details: `63 in. x 30.25 in`,
-			searchTerms: [
-				'bathroom',
-				'tub',
-				'tubs',
-				'white',
-				'home decorators collection'
-			],
+			searchTerms: ['bathroom', 'tub', 'tubs', 'white', 'home decorators Tub'],
 			price: 599.99
 		},
 		//shower heads
 		{
-			name: 'Delta',
+			name: 'Delta Shower Head',
 			img: 'https://i.imgur.com/1Zo2F2w.png',
 			category: categories[5],
 			details: `5-Spray Patterns 1.75 GPM 6.63 in. Wall Mount Dual Shower Heads`,
@@ -294,7 +288,7 @@ const Item = require('../models/item');
 			price: 79.99
 		},
 		{
-			name: 'MOEN',
+			name: 'MOEN Shower Head',
 			img: 'https://i.imgur.com/OBohqGO.png',
 			category: categories[5],
 			details: `Attract with Magnetix 6-spray 6.75 in. Dual Shower Head and Adjustable Handheld`,
@@ -302,7 +296,7 @@ const Item = require('../models/item');
 			price: 109.99
 		},
 		{
-			name: 'Glacier Bay',
+			name: 'Glacier Bay Shower Head',
 			img: 'https://i.imgur.com/OD6Bk5M.png',
 			category: categories[5],
 			details: `3-Spray 3.5 in. Single Wall Mount Fixed Adjustable Shower Head`,
@@ -317,7 +311,7 @@ const Item = require('../models/item');
 		},
 		//Bathroom faucets
 		{
-			name: 'Glacier Bay',
+			name: 'Glacier Bay Bathroom Faucet',
 			img: 'https://i.imgur.com/LyfatSg.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Low-Arc Bathroom Faucet`,
@@ -332,7 +326,7 @@ const Item = require('../models/item');
 			price: 39.99
 		},
 		{
-			name: 'Delta',
+			name: 'Delta Bathroom Faucet',
 			img: 'https://i.imgur.com/3JDO3Oh.png',
 			category: categories[6],
 			details: `4 in. Centerset 2-Handle Bathroom Faucet `,
@@ -347,7 +341,7 @@ const Item = require('../models/item');
 			price: 99.99
 		},
 		{
-			name: 'Pfister',
+			name: 'Pfister Bathroom Faucet',
 			img: 'https://i.imgur.com/N6UHBzJ.png',
 			category: categories[6],
 			details: `4 in. Centerset Single-Handle Waterfall Bathroom Faucet`,
@@ -363,7 +357,7 @@ const Item = require('../models/item');
 		},
 		//Toilets
 		{
-			name: 'Glacier Bay',
+			name: 'Glacier Bay Toilet',
 			img: 'https://i.imgur.com/wgXKodQ.png',
 			category: categories[7],
 			details: `High Efficiency Dual Flush Complete Elongated Toilet`,
@@ -371,7 +365,7 @@ const Item = require('../models/item');
 			price: 99.99
 		},
 		{
-			name: 'American Standard',
+			name: 'American Standard Toilet',
 			img: 'https://i.imgur.com/DaFVXWY.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
@@ -385,7 +379,7 @@ const Item = require('../models/item');
 			price: 179.99
 		},
 		{
-			name: 'KOHLER',
+			name: 'KOHLER Toilet',
 			img: 'https://i.imgur.com/IWZM736.png',
 			category: categories[7],
 			details: `Single Flush Elongated Toilet`,
@@ -394,13 +388,14 @@ const Item = require('../models/item');
 		},
 		//frides
 		{
-			name: 'LG',
+			name: 'LG Refrigerator',
 			img: 'https://i.imgur.com/MRDCP5z.png',
 			category: categories[8],
 			details:
 				'28 cu. ft. 4-Door French Door Smart Refrigerator with Ice and Water Dispenser',
 			searchTerms: [
-				'refridgerators',
+				'refrigerator',
+				'refrigerators',
 				'fridge',
 				'kitchen',
 				'appliance',
@@ -411,13 +406,14 @@ const Item = require('../models/item');
 			price: 1899.99
 		},
 		{
-			name: 'Samsung',
+			name: 'Samsung Refrigerator',
 			img: 'https://i.imgur.com/Gj3huip.png',
 			category: categories[8],
 			details:
 				'35.75 in. W 26.5 cu. ft. 3-Door Family Hub French Door Smart Refrigerator',
 			searchTerms: [
-				'refridgerators',
+				'refrigerator',
+				'refrigerators',
 				'fridge',
 				'kitchen',
 				'appliance',
@@ -428,12 +424,13 @@ const Item = require('../models/item');
 			price: 3399.99
 		},
 		{
-			name: 'Kitchen Aid ',
+			name: 'Kitchen Aid Refrigerator',
 			img: 'https://i.imgur.com/cAHzJsF.png',
 			category: categories[8],
 			details: '25.8 cu. ft. French Door Refrigerator',
 			searchTerms: [
-				'refridgerators',
+				'refrigerator',
+				'refrigerators',
 				'fridge',
 				'kitchen',
 				'appliance',
@@ -443,9 +440,9 @@ const Item = require('../models/item');
 			],
 			price: 3398.99
 		},
-		//ovens
+		//Ovens
 		{
-			name: 'LG',
+			name: 'LG Oven',
 			img: 'https://i.imgur.com/kjyTo8I.png',
 			category: categories[9],
 			details:
@@ -462,7 +459,7 @@ const Item = require('../models/item');
 			price: 1049.99
 		},
 		{
-			name: 'Samsung',
+			name: 'Samsung Oven',
 			img: 'https://i.imgur.com/H8mLAR8.png',
 			category: categories[9],
 			details:
@@ -494,9 +491,9 @@ const Item = require('../models/item');
 			],
 			price: 2199.99
 		},
-		//washer & dryers
+		//washer and dryers
 		{
-			name: 'LG',
+			name: 'LG Washer & Dryer',
 			img: 'https://i.imgur.com/df6L2LC.png',
 			category: categories[10],
 			details: '4.5 Cu. Ft. "each" Stackable SMART Front Load Washer',
@@ -505,6 +502,7 @@ const Item = require('../models/item');
 				'dryers',
 				'washer',
 				'washers',
+				'washer and dryers',
 				'appliance',
 				'appliances',
 				'lg',
@@ -513,7 +511,7 @@ const Item = require('../models/item');
 			price: 1599.99
 		},
 		{
-			name: 'Samsung',
+			name: 'Samsung Washer & Dryer',
 			img: 'https://i.imgur.com/QLvI1o5.png',
 			category: categories[10],
 			details:
@@ -523,6 +521,7 @@ const Item = require('../models/item');
 				'dryers',
 				'washer',
 				'washers',
+				'washer and dryers',
 				'appliance',
 				'appliances',
 				'samsung',
@@ -531,7 +530,7 @@ const Item = require('../models/item');
 			price: 1199.99
 		},
 		{
-			name: 'Electrolux',
+			name: 'Electrolux Washer & Dryer',
 			img: 'https://i.imgur.com/TrtY4nV.png',
 			category: categories[10],
 			details:
@@ -541,6 +540,7 @@ const Item = require('../models/item');
 				'dryers',
 				'washer',
 				'washers',
+				'washer and dryers',
 				'appliance',
 				'appliances',
 				'electrolux',
@@ -548,9 +548,9 @@ const Item = require('../models/item');
 			],
 			price: 1999.99
 		},
-		//microwaves
+		//Microwaves
 		{
-			name: 'LG',
+			name: 'LG Microwave',
 			img: 'https://i.imgur.com/KlEzXHA.png',
 			category: categories[11],
 			details: '24 in. Width 2.0 cu.ft. 1200-Watt Countertop Microwave',
@@ -565,7 +565,7 @@ const Item = require('../models/item');
 			price: 209.99
 		},
 		{
-			name: 'Samsung',
+			name: 'Samsung Microwave',
 			img: 'https://i.imgur.com/eNivv4S.png',
 			category: categories[11],
 			details: '30 in. 1.9 cu. ft. Over-the-Range Microwave',
@@ -580,7 +580,7 @@ const Item = require('../models/item');
 			price: 278.99
 		},
 		{
-			name: 'Kitchen Aid ',
+			name: 'Kitchen Aid Microwave',
 			img: 'https://i.imgur.com/9mONg6Z.png',
 			category: categories[11],
 			details: '1.5 cu. ft. Countertop Microwave',
@@ -596,7 +596,7 @@ const Item = require('../models/item');
 		},
 		//Power Drills
 		{
-			name: 'DEWALT',
+			name: 'DEWALT Power Drill',
 			img: 'https://i.imgur.com/dAmV7xK.jpg',
 			category: categories[12],
 			details: '12V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
@@ -604,7 +604,7 @@ const Item = require('../models/item');
 			price: 129.99
 		},
 		{
-			name: 'Milwaukee',
+			name: 'Milwaukee Power Drill',
 			img: 'https://i.imgur.com/UB7SCqJ.png',
 			category: categories[12],
 			details: 'M18 18V Lithium-Ion Cordless 1/2 in. Drill Driver',
@@ -612,7 +612,7 @@ const Item = require('../models/item');
 			price: 199.99
 		},
 		{
-			name: 'Rockwell',
+			name: 'Rockwell Power Drill',
 			img: 'https://i.imgur.com/CGPzixk.jpg',
 			category: categories[12],
 			details: '18V MAX XR Cordless Brushless 3-Speed 1/2 in Drill',
@@ -621,7 +621,7 @@ const Item = require('../models/item');
 		},
 		//Toolsets
 		{
-			name: 'Stanley',
+			name: 'Stanley Toolset',
 			img: 'https://i.imgur.com/sQMyF5p.png',
 			category: categories[13],
 			details: 'Home Tool Kit (65-Piece)',
@@ -629,7 +629,7 @@ const Item = require('../models/item');
 			price: 59.99
 		},
 		{
-			name: 'DEWALT',
+			name: 'DEWALT Toolset',
 			img: 'https://i.imgur.com/i8EqgSp.png',
 			category: categories[13],
 			details:
@@ -638,37 +638,37 @@ const Item = require('../models/item');
 			price: 155.99
 		},
 		{
-			name: 'KING',
+			name: 'KING Toolset',
 			img: 'https://i.imgur.com/2JIFcE3.png',
 			category: categories[13],
 			details: 'Complete Home Pink Tool Kit with Bag (24-Piece)',
 			searchTerms: ['toolsets', 'tools', 'king', 'pink'],
 			price: 29.99
 		},
-		//Nuts and bolts
+		//nuts and bolts
 		{
-			name: 'TradesPro',
+			name: 'TradesPro Nuts & Bolts',
 			img: 'https://i.imgur.com/Jw5ZvJB.png',
 			category: categories[14],
 			details: '240 Piece Zinc Metric Nut and Bolt Assortment with Storage',
-			searchTerms: ['nuts', 'bolts', 'gray', 'tradespro'],
+			searchTerms: ['nuts', 'bolts', 'nuts and bolts', 'gray', 'tradespro'],
 			price: 7.99
 		},
 		{
-			name: 'Stark',
+			name: 'Stark Nuts & Bolts',
 			img: 'https://i.imgur.com/mbCaHtt.png',
 			category: categories[14],
 			details:
 				'347-Piece SAE Nut And Bolt Assortment Sheet Metal Machine Screw Hardware Kit',
-			searchTerms: ['nuts', 'bolts', 'gray', 'stark'],
+			searchTerms: ['nuts', 'bolts', 'nuts and bolts', 'gray', 'stark'],
 			price: 12.99
 		},
 		{
-			name: 'Everbilt',
+			name: 'Everbilt Nuts & Bolts',
 			img: 'https://i.imgur.com/HJ140Wx.png',
 			category: categories[14],
 			details: '405-Piece Zinc-Plated Machine Screw Kit',
-			searchTerms: ['nuts', 'bolts', 'gray', 'everbilt'],
+			searchTerms: ['nuts', 'bolts', 'nuts and bolts', 'gray', 'everbilt'],
 			price: 9.99
 		},
 		//buckets

@@ -10,6 +10,31 @@ const checkToken = (req, res) => {
 
 const dataController = {
 	// createGuest function
+	async createGuest(req, res, next) {
+		try {
+		  const guestInfo = {
+			name: 'Guest',
+			email: `${Date.now()}@guest.com`,
+			password: `${Date.now()}`, // You can generate a random password for guests
+			isGuest: true
+		  };
+	  
+		  const user = await User.create(guestInfo);
+	  
+		  // Generate JWT token for the guest
+		  const token = createJWT(user);
+	  
+		  // Send back the token as a string
+		  res.locals.data.user = user;
+		  res.locals.data.token = token;
+	  
+		  next();
+		} catch (e) {
+		  console.log('Error creating guest:', e);
+		  res.status(500).json({ message: 'Internal Server Error' });
+		}
+	  },
+
 	async signUp(req, res, next) {
 		try {
 			console.log('create');
@@ -42,6 +67,8 @@ const dataController = {
 			res.status(400).json('Bad Credentials');
 		}
 	},
+
+	
 	//update put request findbyIdUpdate
 	async update(req, res, next) {
 		try {

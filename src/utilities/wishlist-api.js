@@ -2,8 +2,8 @@ import sendRequest from './send-request'
 
 const BASE_URL = '/api/wishlist'
 
-export function showWishlist(userId) {
-  return sendRequest(`${BASE_URL}/${userId}`)
+export function showWishlist() {
+  return sendRequest(`${BASE_URL}/`)
 }
 
 export function addToWishlist(itemId) {

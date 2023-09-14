@@ -3,10 +3,10 @@ import WishListItem from '../WishListItem/WishListItem';
 
 export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart }) {
   console.log(wishlist)
-    const listItems = wishlist.items.map(item =>
+    const listItems = wishlist.items.map(listItem =>
       <WishListItem
-        item={item}
-        key={item._id}
+        item={listItem}
+        key={listItem._id}
         handleAddToCart={handleAddToCart}
         handleRemoveFromWishList={handleRemoveFromWishList}
         handleSelectItem={handleSelectItem}

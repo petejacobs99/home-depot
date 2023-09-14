@@ -9,7 +9,7 @@ export default function LineItem({ item }) {
       </div>
       <div className={styles.itemInfo}>
         <h2>{item.name}</h2>
-        <p>Price: ${item.price.toFixed(2)}</p>
+        <p>Price: ${item.price}</p>
       </div>
     </div>
   );

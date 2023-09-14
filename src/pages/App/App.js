@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import styles from './App.module.scss';
-import { getUser, signUp } from '../../utilities/users-service';
+import { getUser } from '../../utilities/users-service';
 import AuthPage from '../AuthPage/AuthPage';
 import AboutUsPage from '../AboutUsPage/AboutUsPage'; 
 import CategoryListPage from '../CategoryListPage/CategoryListPage';
@@ -15,6 +15,7 @@ import SearchResultsPage from '../SearchResultsPage/SearchResultsPage';
 import UserProfilePage from '../UserProfilePage/UserProfilePage';
 import WishlistPage from '../WishlistPage/WishlistPage';
 import NavBar from '../../components/NavBar/NavBar'
+import * as usersAPI from '../../utilities/users-api'
 import * as ordersAPI from '../../utilities/orders-api'
 import * as catDepAPI from '../../utilities/catDep-api'
 import * as wishAPI from '../../utilities/wishlist-api'
@@ -49,14 +50,8 @@ export default function App() {
       getWishlist()
       async function confirmUser() {
         if (!user) {
-          const guestInfo = {
-            firstName: 'Guest',
-            email: Date.now().toString() + "@email.com",
-            password: Date.now().toString(),
-            isGuest: true
-          }
           try {
-            const guest = await signUp(guestInfo)
+            const guest = await usersAPI.makeGuest()
             console.log("guest: " + guest)
             setUser(guest)
           }
@@ -139,8 +134,7 @@ export default function App() {
               setUser={setUser} 
               handleAddToOrder={handleAddToOrder} 
               handleAddToWishList={handleAddToWishList} 
-              handleSelectItem={handleSelectItem} 
-              updateSearchResults={updateSearchResults} 
+              handleSelectItem={handleSelectItem}
               onSearch={onSearch}
             />} 
           />

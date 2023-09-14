@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./SearchResultsPage.module.scss";
 import { searchItems } from "../../utilities/items-api";
 import * as itemsAPI from "../../utilities/items-api";
@@ -6,16 +6,20 @@ import { useParams } from 'react-router-dom';
 import ItemListItem from '../../components/ItemListItem/ItemListItem';
 import SearchResults from "../../components/SearchResults/SearchResults";
 
-export default function SearchResultsPage({ handleAddToOrder, updateSearchResults }) {
+export default function SearchResultsPage({ handleAddToOrder, onSearch }) {
   const [searchResultsItems, setSearchResultsItems] = useState([]); // State to store search results
   const params = useParams();
 
   // Function to update search results
+  
   async function getSearchResults(searchQuery) {
     const items = await itemsAPI.searchItems(searchQuery);
     setSearchResultsItems(items.items);
   }
-  getSearchResults(params.term);
+
+  useEffect(() => {
+    getSearchResults(params.term);
+  },[params.term])
 
   /* const items = searchResults.map(item => {
     <ItemListItem key={item._id} />
@@ -40,6 +44,7 @@ export default function SearchResultsPage({ handleAddToOrder, updateSearchResult
           searchResultsItems={searchResultsItems}
           setSearchResultsItems={setSearchResultsItems} 
           onClick={handleAddToOrder}
+          onSearch={onSearch}
         />
       </div>
     </div>

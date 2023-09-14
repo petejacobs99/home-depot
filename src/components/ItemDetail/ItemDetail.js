@@ -5,7 +5,7 @@ export default function ItemDetail({ item, handleAddToOrder, handleAddToWishList
         <div className={styles.ItemDetail}>
             <header>
                 <div className={styles.name}>{item.name}</div>
-                <div className={styles.heart} onClick={handleAddToWishList(item._id)}>&#x2764;</div>
+                <div className={styles.heart} onClick={() => handleAddToWishList(item._id)}>&#x2764;</div>
             </header>
             <aside>
                 <img src={item.img} className={styles.img + ' ' + 'flex-ctr-ctr'} />
@@ -14,7 +14,7 @@ export default function ItemDetail({ item, handleAddToOrder, handleAddToWishList
                 <div className={styles.category}>{item.category}</div>
                 <div className={styles.description}>{item.description}</div>
                 <div className={styles.buy}>
-                    <span>${item.price.toFixed(2)}</span>
+                    <span>${item.price}</span>
                     <button className="btn-sm" onClick={() => handleAddToOrder(item._id)}>
                         add to cart
                     </button>

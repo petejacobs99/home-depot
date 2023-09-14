@@ -17,6 +17,7 @@ router.post('/login', dataController.login, apiController.auth);
 router.put('/update', dataController.update, apiController.auth);
 // GET /api/users/check-token
 router.get('/check-token', ensureLoggedIn, checkToken);
-// POST /api/users/guest 
-// makeGuest
+// DELETE /api/users/:id
+router.delete('/:id', dataController.deleteUser, apiController.auth);
+
 module.exports = router;

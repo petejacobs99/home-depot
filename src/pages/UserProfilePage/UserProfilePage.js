@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserProfilePage.module.scss";
+import { useNavigate } from "react-router-dom"; 
+import { getUser, updateUser, deleteUser } from '../../utilities/users-service';
 
 
 export default function UserProfilePage({ user, setUser }) {
+  const navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -66,6 +69,7 @@ export default function UserProfilePage({ user, setUser }) {
             value={name}
             onChange={(e) => setUser({ ...user, name: e.target.value })}
             disabled={!isEditing}
+            className={styles.input}
           />
           <input
             type="email"
@@ -73,6 +77,7 @@ export default function UserProfilePage({ user, setUser }) {
             value={email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             disabled={!isEditing}
+            className={styles.input}
           />
           {isEditing ? (
             <button className={styles.editBtn} onClick={handleSaveProfile}>

@@ -31,7 +31,12 @@ export function getToken() {
 
 export function getUser() {
   const token = getToken();
+  try {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+} catch (error) {
+  console.log('Error decoding token:', error);
+  return null;
+  }
 }
 
 export async function updateUser(updatedUserData) {

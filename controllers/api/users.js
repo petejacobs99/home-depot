@@ -68,8 +68,6 @@ const dataController = {
 		}
 	},
 
-	
-	//update put request findbyIdUpdate
 	async update(req, res, next) {
 		try {
 			const user = await User.findByIdAndUpdate(req.user._id, req.body, {
@@ -81,8 +79,19 @@ const dataController = {
 		} catch (e) {
 			res.status(400).json({ message: e.message });
 		}
-	}
-};
+	},
+
+	async deleteUser(req, res, next) {
+		try {
+		  await User.findByIdAndDelete(req.user._id); 
+		  res.locals.data.user = null; 
+		  res.locals.data.token = null; 
+		  next();
+		} catch (e) {
+		  res.status(400).json({ message: e.message });
+		}
+	  }
+	};
 
 const apiController = {
 	auth(req, res) {

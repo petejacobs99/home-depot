@@ -6,6 +6,22 @@
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #381806;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.total, .checkoutBtn {
+  text-align: right;
+  margin-right: 1.5vmin;
+}
+
+.total {
+  margin-top: 2vmin;
+  font-size: 4vmin;
+}
+
+.checkoutBtn {
+  margin-left: 176vmin;
+  margin-top: -3vmin;
 }
   

@@ -43,7 +43,7 @@ export default function App() {
       getCart()
       async function getWishlist() {
         if (user) {
-          const data = await wishAPI.showWishlist(user._id)
+          const data = await wishAPI.showWishlist()
           setWishlist(data)
         }
       }
@@ -52,9 +52,7 @@ export default function App() {
         if (!user) {
           try {
             const guest = await makeGuest()
-            console.log("guest: " + guest)
             setUser(guest)
-            console.log(user)
           }
           catch (error) {
             console.log(error)
@@ -123,6 +121,7 @@ console.log(wishlist)
           <Route path="/wishlist"
             element={<WishlistPage
               user={user}
+              wishlist={wishlist}
               handleAddToOrder={handleAddToOrder}
               handleRemoveFromWishList={handleRemoveFromWishList}
               handleSelectItem={handleSelectItem} 

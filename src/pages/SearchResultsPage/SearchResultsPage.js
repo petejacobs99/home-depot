@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./SearchResultsPage.module.scss";
 import { searchItems } from "../../utilities/items-api";
 import * as itemsAPI from "../../utilities/items-api";
@@ -11,11 +11,15 @@ export default function SearchResultsPage({ handleAddToOrder, onSearch }) {
   const params = useParams();
 
   // Function to update search results
+  
   async function getSearchResults(searchQuery) {
     const items = await itemsAPI.searchItems(searchQuery);
     setSearchResultsItems(items.items);
   }
-  getSearchResults(params.term);
+
+  useEffect(() => {
+    getSearchResults(params.term);
+  },[params.term])
 
   /* const items = searchResults.map(item => {
     <ItemListItem key={item._id} />

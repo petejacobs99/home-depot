@@ -549,7 +549,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/xQDcpeN.jpg',
 			category: categories[15],
 			details: '5 gallon bucket',
-			searchTerms: ['buckets', 'red'],
+			searchTerms: ['bucket', 'buckets', 'red'],
 			price: 12.99,
 			featured: true
 		},
@@ -558,7 +558,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/9wYClIH.jpg',
 			category: categories[15],
 			details: '16L plastic bucket with lid',
-			searchTerms: ['buckets', 'black'],
+			searchTerms: ['bucket', 'buckets', 'black'],
 			price: 14.99,
 			featured: true
 		},
@@ -567,7 +567,7 @@ const Item = require('../models/item');
 			img: 'https://i.imgur.com/WsuAkaZ.jpg',
 			category: categories[15],
 			details: '8 piece bucket set, 5 gallons',
-			searchTerms: ['buckets', 'white'],
+			searchTerms: ['bucket', 'buckets', 'white'],
 			price: 45.99,
 			featured: true
 		}

@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as itemsAPI from "../../utilities/items-api";
 import ItemList from "../../components/ItemList/ItemList";
 
-export default function ItemListPage({ handleAddToOrder }) {
+export default function ItemListPage({ handleAddToOrder, setWishlist }) {
   const [itemListItems, setItemListItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const categoriesRef = useRef([]);
@@ -39,6 +39,7 @@ export default function ItemListPage({ handleAddToOrder }) {
           itemListItems={itemListItems.filter(item => item.category.name === activeCat)}
           setItemListItems={setItemListItems} 
           onClick={handleAddToOrder}
+          setWishlist={setWishlist}
         />
       </div>
     </div>

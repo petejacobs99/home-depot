@@ -1,9 +1,15 @@
-.LineItem {
+.lineItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--khaki);
+}
+
+.leftSide, .rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .image {
@@ -11,4 +17,50 @@
   max-height: 100px;
   width: 45vmin;
   height: 36vmin;
+  border: none;
+}
+
+.name {
+  text-align: left;
+  margin-left: 5vmin;
+  text-transform: uppercase;
+}
+
+.quantity {
+  margin-right: 5vmin;
+  margin-bottom: 5vmin;
+}
+
+.quantitySpan, .quantityBtn {
+  border: .1vmin solid var(--khaki);
+  width: 3vmin;
+  height: 3vmin;
+  font-size: 3vmin;
+  padding: 1vmin;
+}
+
+.quantitySpan {
+  padding: 1vmin 2vmin;
+}
+
+.quantityBtn:hover {
+  cursor: pointer;
+  background-color: var(--khaki);
+}
+
+.farRight {
+  text-align: right;
+}
+
+.price {
+  font-size: 4vmin;
+}
+
+.wishlist {
+  color: var(--olive-green);
+  cursor: pointer;
+}
+
+.wishlist:hover {
+  text-decoration: underline;
 }

@@ -7,8 +7,8 @@ const {
 } = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
-// POST /api/users
-router.post('/', dataController.signUp, apiController.auth);
+// PUT /api/users
+router.put('/', dataController.signUp, apiController.auth);
 // POST /api/users/guest 
 router.post('/guest', dataController.createGuest, apiController.auth);
 // POST /api/users/login

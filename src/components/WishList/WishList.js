@@ -2,11 +2,10 @@ import styles from './WishList.module.scss';
 import WishListItem from '../WishListItem/WishListItem';
 
 export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart }) {
-   // if (!wishlist) return null;
-
-    const listItems = wishlist.lineItems.map(item =>
+  console.log(wishlist)
+    const listItems = wishlist.items.map(item =>
       <WishListItem
-        listItem={item}
+        item={item}
         key={item._id}
         handleAddToCart={handleAddToCart}
         handleRemoveFromWishList={handleRemoveFromWishList}

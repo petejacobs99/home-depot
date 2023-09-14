@@ -8,7 +8,7 @@ router.get('/cart', orderContoller.cart)
 // GET /api/orders/history
 router.get('/history', orderContoller.history)
 
-// POST /api/orders/items/:id
+// POST /api/orders/cart/items/:id
 router.post('/cart/items/:id', orderContoller.addToCart)
 
 // POST /api/orders/cart/checkout

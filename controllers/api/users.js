@@ -72,10 +72,11 @@ const dataController = {
 	//update put request findbyIdUpdate
 	async update(req, res, next) {
 		try {
-			const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+			const user = await User.findByIdAndUpdate(req.user._id, req.body, {
 				new: true
 			});
 			res.locals.data.user = user;
+			res.locals.data.token = createJWT(user);
 			next();
 		} catch (e) {
 			res.status(400).json({ message: e.message });

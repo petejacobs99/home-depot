@@ -1,6 +1,7 @@
 import styles from './Review.module.scss';
 import StaticStars from '../StaticStars/StaticStars'
 import ReviewForm from '../ReviewForm/ReviewForm'
+import { useState } from 'react'
 
 export default function Reviews({ review, removeReview, user, addReview}) {
   const [edit, setEdit] = useState(false)
@@ -12,8 +13,8 @@ export default function Reviews({ review, removeReview, user, addReview}) {
   )
   const showButtons = () => (
     <>
-    <button onClick={() => removeReview(review.item)}>delete review</button>
-    <button onClick={() => setEdit(true)}>edit review</button>
+    <button onClick={() => removeReview(review.item)}>DELETE</button>
+    <button onClick={() => setEdit(true)}>EDITw</button>
     </>
   )
   const showReview = () => (

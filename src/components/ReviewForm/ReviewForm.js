@@ -58,7 +58,7 @@ export default function ReviewForm({ itemId, addReview, user }) {
                 onChange={(e) => handleChange(e)}
                 className={styles.input}
             />
-            <input className={styles.submit} type="submit" value="Submit" />
+            <input className={styles.submit} type="submit" value="SUBMIT" />
             <p className="error-message">&nbsp;{error}</p>
         </form>
     )

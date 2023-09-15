@@ -24,7 +24,9 @@
     grid-area: submit;
     background-color: var(--khaki);
     color: var(--mocha);
-    
+    margin-left: 10vmax;
+    margin-right: 10vmax;
+    margin-top: 2vmin;
 }
 .ReviewForm .submit:hover {
     cursor: pointer;

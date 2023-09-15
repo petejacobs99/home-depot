@@ -5,16 +5,22 @@ export default function ItemList({
   handleAddToOrder,
   setItemListItems,
   itemListItems,
-  setWishlist
+  handleAddToWishList,
+  handleRemoveFromWishList,
+  cart, 
+  wishlist
 }) {
   const items = itemListItems.map(item =>
     <ItemListItem
       key={item._id}
-      onClick={handleAddToOrder}
+      handleAddToOrder={handleAddToOrder}
       itemListItem={item}
       setItemListItems={setItemListItems}
       itemListItems={itemListItems}
-      setWishlist={setWishlist}
+      handleAddToWishList={handleAddToWishList} 
+      handleRemoveFromWishList={handleRemoveFromWishList} 
+      cart={cart} 
+      wishlist={wishlist}
     />
   );
 

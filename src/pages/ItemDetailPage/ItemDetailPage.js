@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import ReviewList from '../../components/ReviewList/ReviewList';
-import Modal from '../../components/Modal/Modal';
 /* import Modal from '../../components/Modal/Modal';  */
 
 export default function ItemDetailPage({
@@ -27,21 +26,19 @@ export default function ItemDetailPage({
 				getAllReviews(params.id);
 			}
 			getItem();
-		},
-		[params.id]
-	);
+		}, [params.id]);
 
 	async function getAllReviews(itemId) {
 		const data = await reviewAPI.getReviews(itemId);
 		setReviews(data);
 	}
-	async function addAReview(itemId, content) {
+	async function addReview(itemId, content) {
 		await reviewAPI.addReview(itemId, content);
-		getAllReviews();
+		getAllReviews(itemId);
 	}
 	async function removeReview(itemId) {
 		await reviewAPI.deleteReview(itemId);
-		getAllReviews();
+		getAllReviews(itemId);
 	}
 	/* const openModal = () => {
 		setIsModalOpen(true);
@@ -73,11 +70,10 @@ export default function ItemDetailPage({
 				/> */}
 			</main>
 			<footer className={styles.footer}>
-				<ReviewForm itemId={item._id} addReview={addAReview} user={user} />
+				{user.isGuest ? '' : <ReviewForm itemId={item._id} addReview={addReview} user={user} />}
 				<ReviewList
 					reviewData={reviews}
 					removeReview={removeReview}
-					addReview={addAReview}
 					user={user}
 				/>
 			</footer>

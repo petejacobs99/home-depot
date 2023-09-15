@@ -1,32 +1,16 @@
 import styles from './Review.module.scss';
 import StaticStars from '../StaticStars/StaticStars'
-import ReviewForm from '../ReviewForm/ReviewForm'
-import { useState } from 'react'
 
-export default function Reviews({ review, removeReview, user, addReview}) {
-  const [edit, setEdit] = useState(false)
-  const showForm = () => (
-    <ReviewForm 
-      item={review.item}
-      user={user}
-      addReview={addReview}/>
-  )
-  const showButtons = () => (
-    <>
-    <button onClick={() => removeReview(review.item)}>DELETE</button>
-    <button onClick={() => setEdit(true)}>EDITw</button>
-    </>
-  )
-  const showReview = () => (
+export default function Reviews({ review, removeReview, user }) {
+
+  return (
     <div className={styles.Review}>
       <span className={styles.name}>{review.user.name}: </span>
       <StaticStars rating={review.rating} />
       <div className={styles.body}>{review.body}</div>
-      {user._id === review.user._id ? showButtons() : ''}
+      {user._id === review.user._id ?
+        (<button onClick={() => removeReview(review.item)}>DELETE</button>)
+        : ''}
     </div>
   )
-  return (
-    edit ? showForm : showReview
-  )
 }
-

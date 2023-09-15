@@ -23,8 +23,10 @@ export default function LineItem({ user, item, handleAddToWishlist, handleChange
       <div className={styles.rightSide}>
         <form className={styles.quantity} onSubmit={(e) => handleSubmit(e)}>
             <input className={styles.quantity} type='number' value={qty} onChange={(e) => handleChange(e)} />
-            <input className={styles.quantityBtn} type='submit' value="CHANGE QUANTITY" />
-            <button className={styles.quantityBtn} onClick={() => handleChangeQty(item.item._id, 0)}>REMOVE FROM CART</button>
+            <div>
+              <input className={styles.quantityBtn} type='submit' value="CHANGE QUANTITY" />
+              <button className={styles.quantityBtn} onClick={() => handleChangeQty(item.item._id, 0)}>REMOVE FROM CART</button>
+            </div>
         </form>
         <div className={styles.farRight}>
           <p className={styles.price}>${item.extPrice.toFixed(2)}</p>

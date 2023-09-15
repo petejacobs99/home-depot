@@ -24,7 +24,7 @@ export default function LoginForm({ setUser }) {
       setUser(user);
 
       // Navigate to the home page after successful login
-      navigate('/');
+      navigate('/home');
     } catch {
       setError(
         'We\'re sorry, the password you entered is incorrect. Please try again or reset your password.'

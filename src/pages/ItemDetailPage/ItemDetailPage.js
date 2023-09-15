@@ -6,12 +6,16 @@ import { useParams } from 'react-router-dom';
 import ItemDetail from '../../components/ItemDetail/ItemDetail';
 import ReviewForm from '../../components/ReviewForm/ReviewForm';
 import ReviewList from '../../components/ReviewList/ReviewList';
+import Modal from '../../components/Modal/Modal';
 /* import Modal from '../../components/Modal/Modal';  */
 
 export default function ItemDetailPage({
 	user,
 	handleAddToOrder,
-	handleAddToWishList
+	handleAddToWishList,
+	handleRemoveFromWishList, 
+  	cart, 
+  	wishlist
 }) {
 	const [item, setItem] = useState({});
 	const [reviews, setReviews] = useState({});
@@ -26,19 +30,21 @@ export default function ItemDetailPage({
 				getAllReviews(params.id);
 			}
 			getItem();
-		}, [params.id]);
+		},
+		[params.id]
+	);
 
 	async function getAllReviews(itemId) {
 		const data = await reviewAPI.getReviews(itemId);
 		setReviews(data);
 	}
-	async function addReview(itemId, content) {
+	async function addAReview(itemId, content) {
 		await reviewAPI.addReview(itemId, content);
-		getAllReviews(itemId);
+		getAllReviews();
 	}
 	async function removeReview(itemId) {
 		await reviewAPI.deleteReview(itemId);
-		getAllReviews(itemId);
+		getAllReviews();
 	}
 	/* const openModal = () => {
 		setIsModalOpen(true);
@@ -61,6 +67,9 @@ export default function ItemDetailPage({
 					item={item}
 					handleAddToOrder={handleAddToOrder}
 					handleAddToWishList={handleAddToWishList}
+					handleRemoveFromWishList={handleRemoveFromWishList}
+         			cart={cart}
+          			wishlist={wishlist}
 				/>
 				{/* <Modal
 				isOpen={isModalOpen}
@@ -70,10 +79,11 @@ export default function ItemDetailPage({
 				/> */}
 			</main>
 			<footer className={styles.footer}>
-				{user.isGuest ? '' : <ReviewForm itemId={item._id} addReview={addReview} user={user} />}
+				<ReviewForm itemId={item._id} addReview={addAReview} user={user} />
 				<ReviewList
 					reviewData={reviews}
 					removeReview={removeReview}
+					addReview={addAReview}
 					user={user}
 				/>
 			</footer>

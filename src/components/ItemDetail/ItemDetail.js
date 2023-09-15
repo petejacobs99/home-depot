@@ -1,17 +1,45 @@
 import styles from './ItemDetail.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ItemDetail({
 	params,
 	item,
 	handleAddToOrder,
-	handleAddToWishList
+	handleAddToWishList,
+	handleRemoveFromWishList,
+	cart,
+	wishlist
 }) {
+	const [inCart, setInCart] = useState(false);
+	const [wishListItem, setWishListItem] = useState(false);
 	const [filledHeart, setFilledHeart] = useState(false);
+
+	useEffect(function () {
+		cart.lineItems.forEach((lineItem) => {
+			if (lineItem.item._id === item._id) {
+				setInCart(true)
+			}
+		})
+		wishlist.items.forEach((wishItem) => {
+			if (wishItem._id === item._id) {
+				setWishListItem(true)
+			}
+		})
+	}, []);
 
 	const handleHeartHover = () => {
 		setFilledHeart(!filledHeart);
+	};
+
+	const handleHeartClick = () => {
+		if (!wishListItem) {
+			handleAddToWishList(item._id);
+			setWishListItem(true);
+		} else {
+			handleRemoveFromWishList(item._id);
+			setWishListItem(false);
+		}
 	};
 
 	return (
@@ -23,9 +51,9 @@ export default function ItemDetail({
 						className={styles.heart}
 						onMouseEnter={handleHeartHover}
 						onMouseLeave={handleHeartHover}
-						onClick={() => handleAddToWishList(item._id)}
+						onClick={handleHeartClick}
 					>
-						{!filledHeart ? '♡' : '♥' }
+						{filledHeart || wishListItem ? "♥" : "♡"}
 					</span>
 				</div>
 			</header>
@@ -42,11 +70,18 @@ export default function ItemDetail({
 			<main>
 				<div className={styles.category}>{params.catName}</div>
 				<div className={styles.details}>{item.details}</div>
+				<div className={styles.price}>${item.price}</div>
 				<div className={styles.buy}>
-					<span>${item.price}</span>
-					<button className="btn-sm" onClick={() => handleAddToOrder(item._id)}>
-						ADD TO CART
-					</button>
+					{inCart ? (
+						<button className={styles.btnDisabled}>IN CART</button>
+					) : (
+						<button className={styles.btnBuy} onClick={() => {
+							handleAddToOrder(item._id)
+							setInCart(true)
+						}}>
+							ADD TO CART
+						</button>
+					)}
 				</div>
 			</main>
 		</div>

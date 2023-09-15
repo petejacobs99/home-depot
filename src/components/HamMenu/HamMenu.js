@@ -1,22 +1,22 @@
 import styles from "./HamMenu.module.scss";
-import { logOut } from '../../utilities/users-service';
+import * as usersServiceApi from '../../utilities/users-service';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 export default function HamMenu({ user, setUser }) {
   const navigate = useNavigate();
-
-  const handleLogOut = () => {
-    logOut();
-    // I DONT WANT TO DO THIS. I WANT TO INSTEAD SET USER TO GUEST.
-    setUser(null)
+  
+  const handleLogOut = async () => {
+    usersServiceApi.logOut();
     navigate('/home');
+    window.location.reload();
   }
 
   return (
     <ul className={styles.menuContainer}>
       <li>
-        {/* {user.isGuest === false ? ( */}
-        {user ? (
+        {user.isGuest === false ? (
+        /* {user ? ( */
           <ul className={styles.userOptions}>
             <li>
               <Link to="/profile" className={styles.auth}>

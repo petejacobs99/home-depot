@@ -75,6 +75,8 @@ export default function App() {
   }
   async function handleCheckout() {
     await ordersAPI.checkout();
+    const newCart = await ordersAPI.getCart()
+    setCart(newCart)
     navigate('/orders');
   }
   async function handleAddToWishList(itemId) {

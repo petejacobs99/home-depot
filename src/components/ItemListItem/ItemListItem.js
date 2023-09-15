@@ -1,21 +1,18 @@
 import styles from "./ItemListItem.module.scss";
 import { useState, useEffect } from "react";
-import * as ordersAPI from "../../utilities/orders-api";
 import * as reviewsAPI from "../../utilities/reviews-api";
-import * as wishAPI from "../../utilities/wishlist-api";
 import { useNavigate, useParams } from 'react-router-dom';
 import Heart from "../Heart/Heart";
 import StaticStars from "../StaticStars/StaticStars";
 
 export default function ItemListItem({
   itemListItem,
-  /* handleAddToOrder, */
-  setItemListItems,
-  itemListItems,
-  setWishlist
+  handleAddToOrder,
+  handleAddToWishList,
+  handleRemoveFromWishList,
+  cart, 
+  wishlist
 }) {
-  /* const [filledHeart, setFilledHeart] = useState(false); */
-  /* const [wishListItem, setWishListItem] = useState(false); */
   const [inCart, setInCart] = useState(false);
   const [rating, setRating] = useState(null);
   const navigate = useNavigate();
@@ -27,64 +24,26 @@ export default function ItemListItem({
       setRating(reviews.mean);
     }
     getRating();
+    cart.lineItems.forEach((lineItem) => {
+      if (lineItem.item._id === itemListItem._id) {
+        setInCart(true)
+      }
+    })
   }, []);
-
-  /* const handleHeartHover = () => {
-    setFilledHeart(!filledHeart);
-  }; */
-
-  /* const handleAddToCart = () => {
-    alert("Added to cart!");
-    setInCart(true);
-  }; */
-
-  async function handleAddToOrder() {
-    await ordersAPI.addToCart(itemListItem._id);
-    setInCart(true);
-  }
-
-  /* const handleHeartClick = () => {
-    if (!wishListItem) {
-      alert("Added to Wish List!");
-      setWishListItem(true);
-    } else {
-      alert("Removed from Wish List!");
-      setWishListItem(false);
-    }
-  }; */
-
-  async function handleAddToWishList() {
-    const data = await wishAPI.addToWishlist(itemListItem._id)
-    setWishlist(data)
-  }
-
-  async function handleRemoveFromWishList() {
-    const data = await wishAPI.removeFromWishlist(itemListItem._id)
-    setWishlist(data)
-  }
 
   const handleImageClick = () => {
     navigate(`/home/${params.depName}/${params.catName}/${itemListItem._id}`);
   }
 
-  let filledStars = [...Array(4)].map((_, i) => <span key={i}>★</span>);
-  let emptyStars = [...Array(1)].map((_, i) => <span key={i}>☆</span>);
-
   return (
     <div className={styles.App}>
       <div className={styles.itemListItem}>
-        {/* <div
-          className={styles.heart}
-          onMouseEnter={handleHeartHover}
-          onMouseLeave={handleHeartHover}
-          onClick={handleHeartClick}
-        >
-          {filledHeart || wishListItem ? "♥" : "♡"}
-        </div> */}
         <div className={styles.heart}>
-          <Heart 
+          <Heart
             handleAddToWishList={handleAddToWishList}
             handleRemoveFromWishList={handleRemoveFromWishList}
+            itemListItem={itemListItem} 
+            wishlist={wishlist}
           />
         </div>
         <div className={styles.imageContainer}>
@@ -99,23 +58,23 @@ export default function ItemListItem({
         <div className={styles.itemInfoLine1}>
           <div className={styles.name}>
             {itemListItem.name}
-            {/* Item */}
           </div>
           <div className={styles.price}>
-            {/* <span>$0.00</span> */}
             ${itemListItem.price}
           </div>
         </div>
         <div className={styles.itemInfoLine2}>
           <div className={styles.rating}>
-            {/* {filledStars}
-            {emptyStars} */}
-            <StaticStars rating={rating}/>
+            <StaticStars rating={rating} />
           </div>
           {inCart ? (
             <button className={styles.btnDisabled}>IN CART</button>
           ) : (
-            <button className={styles.btnSm} onClick={handleAddToOrder}>
+            <button className={styles.btnSm} onClick={() => {
+                handleAddToOrder(itemListItem._id);
+                setInCart(true);
+              }
+            }>
               ADD TO CART
             </button>
           )}

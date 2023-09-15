@@ -1,3 +1,4 @@
+<div style="text-align: center;">
   # Buckets and Beyond
 
   Buckets and Beyond is a full-stack web application inspired by the Home Depot website. It offers a wide range of products, categories, and features to enhance your shopping experience.
@@ -16,7 +17,8 @@
   ## Github Project Board
   https://github.com/users/jillianguerra/projects/2/views/2
 
-
+</div>
+</br>
 
 <div style="text-align: center;">
 
@@ -25,7 +27,6 @@
 # Pages and Components
 
 ### Home Page
-
 The home page features category content blocks, a featured items carousel, and links to important pages including About Us, FAQ, and My Account.
 
 ### Category List Page
@@ -34,7 +35,7 @@ This page displays categories within a department, aiding users in finding their
 
 ### Item Listing Page
 
-Displays a list of items with search, filter, and sorting mechanisms.
+Displays an array of items from the selected category.
 
 ### Item Detail Page
 
@@ -70,29 +71,57 @@ Update: Modifying cart contents, updating user profile, editing reviews.
 
 Delete: Removing items from the cart, canceling orders, deleting reviews, deleting account.
 
-### Features
+## Features
 
-Add to Cart: Users can add items to their cart.
-
-Add to Wishlist: Users can add items to their wishlist for future purchase.
-
-Checkout: Users can review and proceed to payment for items in their cart.
-
-Review and Rate: Users can leave reviews and ratings on items.
+#### As a guest
 
 Search for Items: Users can search for specific items using keywords.
 
+Add to Cart: Users can add items to their cart.
 
-### Contributors
+Checkout: Users can review and proceed to payment for items in their cart.
 
-Elysea Crawford
-Mel Blanco
-Mimi Zhou
-San Lae Lae Cho
-Jillian Guerra
-Joey Zazzi
-Laura Cohen
-Peter Jacobs
+
+#### As a Member
+
+Add to Wishlist: Users can add items to their wishlist for future purchase.
+
+Review and Rate: Users can leave reviews and ratings on items.
+
+View order history
+
+### Technologies Used
+
+Client side was created using React
+
+Server side was created using Express
+
+Database is linked to Mongo Atlis 
+
+Application is hosted on Digital Ocean
+
+
+
+### Future Enhancements
+
+Add a 3rd party API
+
+Add subitem categories
+
+Add a chatbot feature
+
+Adding a buy again feature
+
+# Contributors
+
+Elysea Crawford</br> 
+Mel Blanco</br> 
+Mimi Zhou</br> 
+San Lae Lae Cho</br> 
+Jillian Guerra</br> 
+Joey Zazzi</br> 
+Laura Cohen</br> 
+Peter Jacobs</br> 
 
 </div>
 

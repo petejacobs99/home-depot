@@ -133,10 +133,9 @@ export default function App() {
         <Route path="/auth" element={<AuthPage user={user} setUser={setUser} />} />
         <Route path="/home/search/:term"
           element={<SearchResultsPage
-            user={user}
-            setUser={setUser}
             handleAddToOrder={handleAddToOrder}
             handleAddToWishList={handleAddToWishList}
+            handleRemoveFromWishList={handleRemoveFromWishList}
             handleSelectItem={handleSelectItem}
             onSearch={onSearch}
           />}
@@ -146,16 +145,15 @@ export default function App() {
           element={<ItemListPage
             handleAddToOrder={handleAddToOrder}
             handleAddToWishList={handleAddToWishList}
+            handleRemoveFromWishList={handleRemoveFromWishList}
             handleSelectItem={handleSelectItem}
-            setWishlist={setWishlist}
           />}
         />
         <Route path="/home/:depName/:catName/:id"
           element={<ItemDetailPage
-            user={user}
             handleAddToOrder={handleAddToOrder}
             handleAddToWishList={handleAddToWishList}
-            setWishlist={setWishlist}
+            handleRemoveFromWishList={handleRemoveFromWishList}
           />}
         />
 

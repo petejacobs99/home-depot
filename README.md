@@ -1,44 +1,63 @@
 <div style="text-align: center;">
+  # Buckets and Beyond
 
-### Buckets and Beyond
+  Buckets and Beyond is a full-stack web application inspired by the Home Depot website. It offers a wide range of products, categories, and features to enhance your shopping experience.
+ 
+ 
+  ## WireFrame
+  ![Wireframe](https://github.com/JoeyZ56/home-depot/assets/127636815/0e979c22-aa03-4273-9dd3-8ec47330581f)
 
-Buckets and Beyond is a full-stack web application inspired by the Home Depot website. It offers a wide range of products, categories, and features to enhance your shopping experience.
+  ## ERD
+  ![Alt text](image.png)
+	
 
-### Pages and Components
+  ## Pitch Deck
+  https://docs.google.com/presentation/d/e/2PACX-1vRu4nY2Ng_lB_z3Y6ontEqRsfiF_0jy6UNmcAeVn2FlV37yhGRorUDseTdSj81RVPUOuP5JuaS2zvtz/pub?start=false&loop=false&delayms=3000
 
-## Home Page
+  ## Github Project Board
+  https://github.com/users/jillianguerra/projects/2/views/2
 
+</div>
+</br>
+
+<div style="text-align: center;">
+
+
+
+# Pages and Components
+
+### Home Page
 The home page features category content blocks, a featured items carousel, and links to important pages including About Us, FAQ, and My Account.
 
-## Category List Page
+### Category List Page
 
 This page displays categories within a department, aiding users in finding their desired products.
 
-## Item Listing Page
+### Item Listing Page
 
-Displays a list of items with search, filter, and sorting mechanisms.
+Displays an array of items from the selected category.
 
-## Item Detail Page
+### Item Detail Page
 
 Provides detailed information about an item, including variations/types, reviews, photos, and links to suggested items.
 
-## Order Page
+### Order Page
 
 Shows items added to the user's cart, with the ability to edit quantities, delete items, or save items for later.
 
-## Checkout Page
+### Checkout Page
 
 Displays a summary of items for purchase, allowing users to proceed to payment. Also provides sign-in/sign-up options for guests.
 
-## User Profile Page
+### User Profile Page
 
 Displays user account information, settings, order history, reviews, and saved items.
 
-## Authentication Page
+### Authentication Page
 
 Provides options for users to log in or create an account.
 
-## Search Results Page
+### Search Results Page
 
 Similar to the Item Listing Page, this page shows filtered views of search results.
 
@@ -52,96 +71,57 @@ Update: Modifying cart contents, updating user profile, editing reviews.
 
 Delete: Removing items from the cart, canceling orders, deleting reviews, deleting account.
 
-### Features
+## Features
 
-Add to Cart: Users can add items to their cart.
-
-Add to Wishlist: Users can add items to their wishlist for future purchase.
-
-Checkout: Users can review and proceed to payment for items in their cart.
-
-Review and Rate: Users can leave reviews and ratings on items.
+#### As a guest
 
 Search for Items: Users can search for specific items using keywords.
 
-### API Routes and Requests
+Add to Cart: Users can add items to their cart.
 
-Here are some example API routes, requests, and responses for reference:
+Checkout: Users can review and proceed to payment for items in their cart.
 
-# User Authentication - Login:
 
-POST /api/auth/login
+#### As a Member
 
-Request Payload:
+Add to Wishlist: Users can add items to their wishlist for future purchase.
 
-```
-{
-  "email": "you@email.com",
-  "password": "1234567abc123!"
-}
-```
+Review and Rate: Users can leave reviews and ratings on items.
 
-Example Response:
+View order history
 
-```
-{
-  "token": "cbqgoibhcoqbhqouibgcuiqabgcuio",
-  "user": {
-    "email": "you@email.com",
-    "name": "Your Name"
-  }
-}
-```
+### Technologies Used
 
-# User Registration:
+Client side was created using React
 
-POST /api/auth/register
+Server side was created using Express
 
-Request Payload:
+Database is linked to Mongo Atlis 
 
-```
-{
-  "name": "Your Name",
-  "email": "you@email.com",
-  "password": "1234567abc123!"
-}
-```
+Application is hosted on Digital Ocean
 
-Example Response: (Same as login response)
 
-# Get item Listing:
 
-GET /api/items
+### Future Enhancements
 
-Example Response:
+Add a 3rd party API
 
-```
-[
-  {
-    "itemId": "12345",
-    "name": "item 1",
-    "price": 29.99,
-    "imageUrl": "https://something.com/img/item1.jpg"
-  },
-  {
-    "itemId": "67890",
-    "name": "item 2",
-    "price": 49.99,
-    "imageUrl": "https://something.com/img/item2.jpg"
-  }
-]
-```
+Add subitem categories
 
-### Contributors
+Add a chatbot feature
 
-Elysea Crawford
-Mel Blanco
-Mimi Zhou
-San Lae Lae Cho
-Jillian Guerra
-Joey Zazzi
-Laura Cohen
-Peter Jacobs
+Adding a buy again feature
+
+# Contributors
+
+Elysea Crawford</br> 
+Mel Blanco</br> 
+Mimi Zhou</br> 
+San Lae Lae Cho</br> 
+Jillian Guerra</br> 
+Joey Zazzi</br> 
+Laura Cohen</br> 
+Peter Jacobs</br> 
 
 </div>
 

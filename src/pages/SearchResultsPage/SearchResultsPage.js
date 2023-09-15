@@ -14,6 +14,7 @@ export default function SearchResultsPage({
   cart, 
   wishlist 
 }) {
+
   const [searchResultsItems, setSearchResultsItems] = useState([]); // State to store search results
   const params = useParams();
 

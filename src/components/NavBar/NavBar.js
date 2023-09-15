@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import DepListNavBar from "../DepListNavBar/DepListNavBar";
 import Hamburger from "../Hamburger/Hamburger";
 import HamMenu from "../HamMenu/HamMenu";
+import SearchBar from "../SearchBar/SearchBar"
 
-export default function NavBar({ departments }) {
+export default function NavBar({ departments, user, setUser, onSearch }) {
   const [drop, setDrop] = useState(false);
 
   const handleHover = () => {
@@ -19,8 +20,10 @@ export default function NavBar({ departments }) {
           <div>
             <Link to="/home" className={styles.logo}>LOGO</Link>
           </div>
-          <SearchBar />
-          <div>CART</div>
+          <SearchBar onSearch={onSearch} />
+          <div>
+            <Link to="/cart" className={styles.logo}>CART</Link>
+          </div>
           <div
             className={styles.hamContainer}
             onMouseEnter={handleHover}
@@ -29,15 +32,14 @@ export default function NavBar({ departments }) {
             <div className={styles.hamburger}>
               <Hamburger />
             </div>
-            {drop && <HamMenu />}
+            {drop && <HamMenu user={user} setUser={setUser} />}
           </div>
         </div>
         <div className={styles.navBarBottom}>
-          <>&lt;</>
+          {/* <>&lt;</> */}
           <DepListNavBar departments={departments}/>
-          <>&gt;</>
+          {/* <>&gt;</> */}
         </div>
-        {/* <DepListNavBar departments={departments} /> */}
       </div>
     </>
   );

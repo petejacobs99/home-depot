@@ -1,29 +1,28 @@
 import styles from './WishList.module.scss';
 import WishListItem from '../WishListItem/WishListItem';
 
-// Used to display the details of any order, including the cart (unpaid order)
-export default function WishList({ wishlist, handleSelectItem, handleRemoveFromWishList, handleAddToCart, handleSelectItem }) {
-    if (!wishlist) return null;
-
-    const listItems = wishlist.lineItems.map(item =>
+export default function WishList({ wishlist, handleAddToOrder, handleRemoveFromWishList, handleSelectItem }) {
+  const showListItems = () => {
+    return wishlist.items.map(listItem =>
       <WishListItem
-        listItem={item}
-        key={item._id}
-        handleAddToCart={handleAddToCart}
+        item={listItem}
+        key={listItem._id}
+        handleAddToOrder={handleAddToOrder}
         handleRemoveFromWishList={handleRemoveFromWishList}
         handleSelectItem={handleSelectItem}
       />
     )
-
-    return (
-      <div className={styles.WishList}>
-        {listItems.length ?
-            <>
-              {listItems}
-            </>
-            :
-            <div className={styles.message}>Add some items to your wishlist!</div>
-          }
-      </div>
-    );
   }
+  const emptyList = () => (
+    <div className={styles.message}>Add some items to your wishlist!</div>
+  )
+
+  return (
+    <div className={styles.WishList}>
+      { 
+        wishlist.items && wishlist.items.length ?
+        showListItems() : emptyList()
+      }
+    </div>
+  );
+}

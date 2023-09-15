@@ -1,5 +1,11 @@
 import * as usersAPI  from './users-api';
 
+export async function makeGuest(userData) {
+  const token = await usersAPI.makeGuest(userData);
+  localStorage.setItem('token', token);
+  return getUser();
+}
+
 export async function signUp(userData) {
   const token = await usersAPI.signUp(userData);
   localStorage.setItem('token', token);
@@ -25,7 +31,12 @@ export function getToken() {
 
 export function getUser() {
   const token = getToken();
+  try {
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+} catch (error) {
+  console.log('Error decoding token:', error);
+  return null;
+  }
 }
 
 export async function updateUser(updatedUserData) {

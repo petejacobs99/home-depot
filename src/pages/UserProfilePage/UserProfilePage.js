@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styles from "./UserProfilePage.module.scss";
+import { useNavigate } from "react-router-dom"; 
+import { getUser, updateUser, deleteUser } from '../../utilities/users-service';
 
 
 export default function UserProfilePage({ user, setUser }) {
+  const navigate = useNavigate();
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -27,8 +30,7 @@ export default function UserProfilePage({ user, setUser }) {
   const handleSaveProfile = async () => {
     try {
       await updateUser({
-        firstName,
-        lastName,
+        name,
         email,
       });
       setIsEditing(false);
@@ -38,9 +40,11 @@ export default function UserProfilePage({ user, setUser }) {
   };
 
   const handleWishlist = () => {
+    navigate("/wishlist");
   };
 
   const handleOrderHistory = () => {
+    navigate("/orders");
   };
 
   const handleDeleteAccount = async () => {
@@ -52,11 +56,7 @@ export default function UserProfilePage({ user, setUser }) {
     }
   };
 
-  if (!user) {
-    return <div>Loading...</div>; // Handle loading state if user data is not yet available
-  }
-
-  const { firstName, lastName, email } = user;
+  const { name, email } = user;
 
   return (
     <>
@@ -66,16 +66,10 @@ export default function UserProfilePage({ user, setUser }) {
           <input
             type="text"
             placeholder="First Name"
-            value={firstName}
-            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+            value={name}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
             disabled={!isEditing}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={lastName}
-            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
-            disabled={!isEditing}
+            className={styles.input}
           />
           <input
             type="email"
@@ -83,6 +77,7 @@ export default function UserProfilePage({ user, setUser }) {
             value={email}
             onChange={(e) => setUser({ ...user, email: e.target.value })}
             disabled={!isEditing}
+            className={styles.input}
           />
           {isEditing ? (
             <button className={styles.editBtn} onClick={handleSaveProfile}>
@@ -109,4 +104,3 @@ export default function UserProfilePage({ user, setUser }) {
     </>
   );
 };
-

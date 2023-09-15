@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Stars from '../DynamicStars/DynamicStars'
 import styles from './ReviewForm.module.scss'
 
-export default function ReviewForm({ itemId, addReview, user }) {
+export default function ReviewForm({ user, itemId, addReview }) {
     const [formData, setFormData] = useState({
         user: user._id,
         body: '',
@@ -58,7 +58,7 @@ export default function ReviewForm({ itemId, addReview, user }) {
                 onChange={(e) => handleChange(e)}
                 className={styles.input}
             />
-            <input className={styles.submit} type="submit" value="Submit" />
+            <input className={styles.submit} type="submit" value="SUBMIT" />
             <p className="error-message">&nbsp;{error}</p>
         </form>
     )

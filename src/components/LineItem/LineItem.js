@@ -1,39 +1,38 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './LineItem.module.scss';
 
-export default function LineItem({ lineItem, isPaid, handleChangeQty }) {
+export default function LineItem({ user, item, handleAddToWishlist, handleChangeQty }) {
+  const [qty, setQty] = useState(item.qty)
+  const handleChange = (e) => {
+    setQty(e.target.value)
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleChangeQty(item.item._id, qty)
+  }
   return (
-    <div className={styles.LineItem}>
-      <div className="flex-ctr-ctr">{lineItem.item.emoji}</div>
-      <div className="flex-ctr-ctr flex-col">
-        <span className="align-ctr">{lineItem.item.name}</span>
-        <span className={styles.field}>Price: ${lineItem.item.price.toFixed(2)}</span>
-        <span className={styles.field}>Color: {lineItem.item.color}</span>
-        <span className={styles.field}>Size: {lineItem.item.size}</span>
+    <div className={styles.lineItem}>
+      <div className={styles.leftSide}>
+        <div className={styles.itemImage}>
+          <img className={styles.image} src={item.item.img} alt={item.item.name} />
+        </div>
+        <div className={styles.name}>
+          <h2>{item.item.name}</h2>
+        </div>
       </div>
-      <div className={styles.qty} style={{ justifyContent: isPaid && 'center' }}>
-        {!isPaid && (
-          <button
-            className="btn-xs"
-            onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}
-          >
-            −
-          </button>
-        )}
-        <span>{lineItem.qty}</span>
-        {!isPaid && (
-          <button
-            className="btn-xs"
-            onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}
-          >
-            +
-          </button>
-        )}
-      </div>
-      <div className={styles.extPrice}>${lineItem.extPrice.toFixed(2)}</div>
-      <div className={styles.image}>
-        <img src={lineItem.item.image} alt={lineItem.item.name} />
+      <div className={styles.rightSide}>
+        <form className={styles.quantity} onSubmit={(e) => handleSubmit(e)}>
+            <input className={styles.quantity} type='number' value={qty} onChange={(e) => handleChange(e)} />
+            <div>
+              <input className={styles.quantityBtn} type='submit' value="CHANGE QUANTITY" />
+              <button className={styles.quantityBtn} onClick={() => handleChangeQty(item.item._id, 0)}>REMOVE FROM CART</button>
+            </div>
+        </form>
+        <div className={styles.farRight}>
+          <p className={styles.price}>${item.extPrice.toFixed(2)}</p>
+          {user.isGuest ? '' : (<button className={styles.wishlist} onClick={() => handleAddToWishlist()}>ADD TO WISH LIST</button>)}
+        </div>
       </div>
     </div>
-  );
+  )
 }

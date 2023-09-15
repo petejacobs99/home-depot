@@ -9,10 +9,36 @@ const checkToken = (req, res) => {
 };
 
 const dataController = {
+	// createGuest function
+	async createGuest(req, res, next) {
+		try {
+		  const guestInfo = {
+			name: 'Guest',
+			email: `${Date.now()}@guest.com`,
+			password: `${Date.now()}`, // You can generate a random password for guests
+			isGuest: true
+		  };
+	  
+		  const user = await User.create(guestInfo);
+	  
+		  // Generate JWT token for the guest
+		  const token = createJWT(user);
+	  
+		  // Send back the token as a string
+		  res.locals.data.user = user;
+		  res.locals.data.token = token;
+	  
+		  next();
+		} catch (e) {
+		  console.log('Error creating guest:', e);
+		  res.status(500).json({ message: 'Internal Server Error' });
+		}
+	  },
+
 	async signUp(req, res, next) {
 		try {
-			console.log('create');
-			const user = await User.create(req.body);
+			req.body.isGuest = false
+			const user = await User.findByIdAndUpdate(req.user._id, req.body, { new: true })
 
 			// token will be a string
 			const token = createJWT(user);
@@ -41,19 +67,31 @@ const dataController = {
 			res.status(400).json('Bad Credentials');
 		}
 	},
-	//update put request findbyIdUpdate
+
 	async update(req, res, next) {
 		try {
-			const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+			const user = await User.findByIdAndUpdate(req.user._id, req.body, {
 				new: true
 			});
 			res.locals.data.user = user;
+			res.locals.data.token = createJWT(user);
 			next();
 		} catch (e) {
 			res.status(400).json({ message: e.message });
 		}
-	}
-};
+	},
+
+	async deleteUser(req, res, next) {
+		try {
+		  await User.findByIdAndDelete(req.user._id); 
+		  res.locals.data.user = null; 
+		  res.locals.data.token = null; 
+		  next();
+		} catch (e) {
+		  res.status(400).json({ message: e.message });
+		}
+	  }
+	};
 
 const apiController = {
 	auth(req, res) {

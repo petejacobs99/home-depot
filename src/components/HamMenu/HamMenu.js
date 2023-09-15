@@ -1,35 +1,39 @@
 import styles from "./HamMenu.module.scss";
-import { getUser } from '../../utilities/users-service';
-import { Link } from 'react-router-dom';
+import { logOut } from '../../utilities/users-service';
+import { Link, useNavigate } from 'react-router-dom';
 
-export default function HamMenu() {
-  const user = getUser();
-  const handleClick = () => {
-    console.log('Clicked!')
+export default function HamMenu({ user, setUser }) {
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut();
+    // I DONT WANT TO DO THIS. I WANT TO INSTEAD SET USER TO GUEST.
+    setUser(null)
+    navigate('/home');
   }
 
   return (
     <ul className={styles.menuContainer}>
       <li>
+        {/* {user.isGuest === false ? ( */}
         {user ? (
           <ul className={styles.userOptions}>
-            <li
-              onClick={handleClick}
-            >
-              MY ACCOUNT
+            <li>
+              <Link to="/profile" className={styles.auth}>
+                MY ACCOUNT
+              </Link>
             </li>
-            {/* <Link to="/users" >MY ACCOUNT</Link> */}
-            <li onClick={handleClick}>
-              WISHLIST
+            <li>
+              <Link to="/wishlist" className={styles.auth}>
+                WISHLIST
+              </Link>
             </li>
-            {/* <Link to="/wishlist" >WISHLIST</Link> */}
-            <li
-              onClick={handleClick}
-            >
-              ORDER HISTORY
+            <li>
+              <Link to="/orders" className={styles.auth}>
+                ORDER HISTORY
+              </Link>
             </li>
-            {/* <Link to="/orders" >ORDER HISTORY</Link> */}
-            <li onClick={handleClick}>LOGOUT</li>
+            <li onClick={handleLogOut}>LOGOUT</li>
           </ul>
         ) : (
           <Link to="/auth" className={styles.auth}>
@@ -40,11 +44,11 @@ export default function HamMenu() {
       {/* <p>{result}</p> */}
       <li>
         <ul className={styles.info}>
-          <li onClick={handleClick}>
+          <li>
             <Link to="/faq" className={styles.faq}>FAQ</Link>
           </li>
-          <li onClick={handleClick}>
-            ABOUT US
+          <li>
+          <Link to="/aboutus" className={styles.faq}>ABOUT US</Link>
           </li>
         </ul>
       </li>

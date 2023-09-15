@@ -94,11 +94,18 @@ View order history
 
 Client side was created using React
 
-Server side was created using Express
+Server side was created using Express & Node.js
 
 Database is linked to Mongo Atlis 
 
 Application is hosted on Digital Ocean
+
+Moduel bundler used Webpack
+
+Transpiler used Babel
+
+Build system used Gulp
+
 
 
 

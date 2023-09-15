@@ -1,11 +1,27 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './OrderPage.module.scss';
 import CartDetail from '../../components/CartDetail/CartDetail';
+import * as ordersAPI from '../../utilities/orders-api'
 
-export default function OrderPage({ user, cart, handleChangeQty, handleCheckout, handleAddToWishList }) {
+export default function OrderPage({ user, handleAddToWishList }) {
+  const [cart, setCart] = useState({})
   useEffect(function () {
-    
-  }, [cart])
+    async function getCart() {
+    const data = await ordersAPI.getCart()
+    setCart(data)
+  }
+  getCart()
+}, [])
+async function handleCheckout() {
+  await ordersAPI.checkout();
+  const newCart = await ordersAPI.getCart()
+  setCart(newCart)
+  navigate('/orders');
+}
+async function handleChangeQty(itemId, newQty) {
+  const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
+  setCart(updatedCart)
+}
   const showOrder = () => (
     <div className={styles.container}>
         <CartDetail

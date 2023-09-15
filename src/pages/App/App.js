@@ -68,17 +68,7 @@ export default function App() {
     const updatedCart = await ordersAPI.addToCart(itemId)
     setCart(updatedCart)
   }
-
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty)
-    setCart(updatedCart)
-  }
-  async function handleCheckout() {
-    await ordersAPI.checkout();
-    const newCart = await ordersAPI.getCart()
-    setCart(newCart)
-    navigate('/orders');
-  }
+  
   async function handleAddToWishList(itemId) {
     const data = await wishAPI.addToWishlist(itemId)
     setWishlist(data)
@@ -99,11 +89,6 @@ export default function App() {
         className={styles.NavBar}
         user={user}
         setUser={setUser}
-        cart={cart}
-        handleChangeQty={handleChangeQty}
-        handleRemoveFromWishList={handleRemoveFromWishList}
-        handleCheckout={handleCheckout}
-        wishlist={wishlist}
         departments={departments}
         onSearch={onSearch}
       />
@@ -113,9 +98,6 @@ export default function App() {
         <Route path="/cart"
           element={<OrderPage
             user={user}
-            cart={cart}
-            handleCheckout={handleCheckout}
-            handleChangeQty={handleChangeQty}
             handleAddToWishList={handleAddToWishList}
             handleSelectItem={handleSelectItem}
           />} />
@@ -140,6 +122,8 @@ export default function App() {
             handleRemoveFromWishList={handleRemoveFromWishList}
             handleSelectItem={handleSelectItem}
             onSearch={onSearch}
+            wishlist={wishlist}
+            cart={cart}
           />}
         />
         <Route path="/home/:depName/categories" element={<CategoryListPage departments={departments} />} />
@@ -149,6 +133,8 @@ export default function App() {
             handleAddToWishList={handleAddToWishList}
             handleRemoveFromWishList={handleRemoveFromWishList}
             handleSelectItem={handleSelectItem}
+            wishlist={wishlist}
+            cart={cart}
           />}
         />
         <Route path="/home/:depName/:catName/:id"
@@ -157,9 +143,10 @@ export default function App() {
             handleAddToOrder={handleAddToOrder}
             handleAddToWishList={handleAddToWishList}
             handleRemoveFromWishList={handleRemoveFromWishList}
+            wishlist={wishlist}
+            cart={cart}
           />}
         />
-
         <Route path="/*" element={<Navigate to="/home" />} />
       </Routes>
     </main>

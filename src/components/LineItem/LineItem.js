@@ -34,5 +34,5 @@ export default function LineItem({ user, item, handleAddToWishlist, handleChange
         </div>
       </div>
     </div>
-  );
+  )
 }

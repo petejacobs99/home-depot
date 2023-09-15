@@ -5,7 +5,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as itemsAPI from "../../utilities/items-api";
 import ItemList from "../../components/ItemList/ItemList";
 
-export default function ItemListPage({ handleAddToOrder, setWishlist }) {
+export default function ItemListPage({
+  handleAddToOrder,
+  handleAddToWishList,
+  handleRemoveFromWishList,
+  cart,
+  wishlist }) {
   const [itemListItems, setItemListItems] = useState([]);
   const [activeCat, setActiveCat] = useState('');
   const categoriesRef = useRef([]);
@@ -19,27 +24,24 @@ export default function ItemListPage({ handleAddToOrder, setWishlist }) {
         const cat = item.category.name;
         return cats.includes(cat) ? cats : [...cats, cat];
       }, []);
-      /* const items = await itemsAPI.getByCategory(params.catName); */
       setItemListItems(items.items);
-      /* setActiveCat(categoriesRef.current[0]); */
       const actCatName = categoriesRef.current.find((cat) => cat === params.catName);
       setActiveCat(actCatName);
     }
     getItems();
   }, []);
 
- /*  async function handleClick(i) {
-    navigate(`/home/categories/items/${itemListItems[i]._id}`);
-  } */
-
   return (
     <div className={styles.App}>
       <div className={styles.itemList}>
-        <ItemList 
+        <ItemList
           itemListItems={itemListItems.filter(item => item.category.name === activeCat)}
-          setItemListItems={setItemListItems} 
-          onClick={handleAddToOrder}
-          setWishlist={setWishlist}
+          setItemListItems={setItemListItems}
+          handleAddToOrder={handleAddToOrder}
+          handleAddToWishList={handleAddToWishList}
+          handleRemoveFromWishList={handleRemoveFromWishList}
+          cart={cart}
+          wishlist={wishlist}
         />
       </div>
     </div>

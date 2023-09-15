@@ -4,7 +4,7 @@ import CartDetail from '../../components/CartDetail/CartDetail';
 
 export default function OrderPage({ user, cart, handleChangeQty, handleCheckout, handleAddToWishList }) {
   useEffect(function () {
-
+    
   }, [cart])
   const showOrder = () => (
     <div className={styles.container}>
@@ -27,7 +27,7 @@ export default function OrderPage({ user, cart, handleChangeQty, handleCheckout,
   return (
     <div className={styles.container}>
       <h1>Your Cart</h1>
-      {!cart.isPaid && cart.lineItems.length ? showOrder() : emptyCart()}
+      {cart.lineItems && cart.lineItems.length ? showOrder() : emptyCart()}
     </div>
   )
 }

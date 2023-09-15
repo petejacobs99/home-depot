@@ -151,6 +151,7 @@ export default function App() {
         />
         <Route path="/home/:depName/:catName/:id"
           element={<ItemDetailPage
+            user={user}
             handleAddToOrder={handleAddToOrder}
             handleAddToWishList={handleAddToWishList}
             handleRemoveFromWishList={handleRemoveFromWishList}

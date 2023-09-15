@@ -2,11 +2,19 @@ import { useState, useEffect } from "react";
 import styles from "./SearchResultsPage.module.scss";
 import { searchItems } from "../../utilities/items-api";
 import * as itemsAPI from "../../utilities/items-api";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ItemListItem from '../../components/ItemListItem/ItemListItem';
 import SearchResults from "../../components/SearchResults/SearchResults";
 
-export default function SearchResultsPage({ handleAddToOrder, handleAddToWishList, handleSelectItem, onSearch }) {
+export default function SearchResultsPage({ 
+  handleAddToOrder, 
+  onSearch, 
+  handleAddToWishList, 
+  handleRemoveFromWishList, 
+  cart, 
+  wishlist 
+}) {
+
   const [searchResultsItems, setSearchResultsItems] = useState([]); // State to store search results
   const params = useParams();
 
@@ -36,10 +44,11 @@ export default function SearchResultsPage({ handleAddToOrder, handleAddToWishLis
           searchResultsItems={searchResultsItems}
           setSearchResultsItems={setSearchResultsItems} 
           handleAddToOrder={handleAddToOrder}
-          handleAddToWishList={handleAddToWishList}
-          handleSelectItem={handleSelectItem}
           onSearch={onSearch}
-          setWishlist={setWishlist}
+          handleAddToWishList={handleAddToWishList}
+          handleRemoveFromWishList={handleRemoveFromWishList}
+          cart={cart}
+          wishlist={wishlist}
         />
       </div>
     </div>

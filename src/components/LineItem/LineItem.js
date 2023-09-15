@@ -1,14 +1,15 @@
-import React from 'react';
-import styles from './LineItem.module.scss'; // Import the SCSS module
-import { addToWishlist } from '../../utilities/wishlist-api';
-import * as ordersAPI from '../../utilities/orders-api';
+import { useState } from 'react';
+import styles from './LineItem.module.scss';
 
-export default function LineItem({ item, setFetchedCart, handleAddToWishlist, /* handleChangeQty */ }) {
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-    setFetchedCart(updatedCart);
+export default function LineItem({ user, item, handleAddToWishlist, handleChangeQty }) {
+  const [qty, setQty] = useState(item.qty)
+  const handleChange = (e) => {
+    setQty(e.target.value)
   }
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleChangeQty(item.item._id, qty)
+  }
   return (
     <div className={styles.lineItem}>
       <div className={styles.leftSide}>
@@ -20,20 +21,14 @@ export default function LineItem({ item, setFetchedCart, handleAddToWishlist, /*
         </div>
       </div>
       <div className={styles.rightSide}>
-        <div className={styles.quantity}>
-          <span
-            className={styles.quantityBtn}
-            onClick={() => handleChangeQty(item.item._id, item.qty - 1)}
-          >−</span>
-          <span className={styles.quantitySpan}>{item.qty}</span>
-          <span
-            className={styles.quantityBtn}
-            onClick={() => handleChangeQty(item.item._id, item.qty + 1)}
-          >+</span>
-        </div>
+        <form className={styles.quantity} onSubmit={(e) => handleSubmit(e)}>
+            <input className={styles.quantity} type='number' value={qty} onChange={(e) => handleChange(e)} />
+            <input className={styles.quantityBtn} type='submit' value="CHANGE QUANTITY" />
+            <button className={styles.quantityBtn} onClick={() => handleChangeQty(item.item._id, 0)}>REMOVE FROM CART</button>
+        </form>
         <div className={styles.farRight}>
           <p className={styles.price}>${item.extPrice.toFixed(2)}</p>
-          <span className={styles.wishlist} onClick={handleAddToWishlist}>ADD TO WISH LIST</span>
+          {user.isGuest ? '' : (<button className={styles.wishlist} onClick={() => handleAddToWishlist()}>ADD TO WISH LIST</button>)}
         </div>
       </div>
     </div>

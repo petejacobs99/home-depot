@@ -111,6 +111,8 @@ export default function App() {
         <Route path="/cart"
           element={<OrderPage
             user={user}
+            cart={cart}
+            handleCheckout={handleCheckout}
             handleChangeQty={handleChangeQty}
             handleAddToWishList={handleAddToWishList}
             handleSelectItem={handleSelectItem}

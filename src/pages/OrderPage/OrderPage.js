@@ -1,44 +1,33 @@
+import { useEffect } from 'react'
 import styles from './OrderPage.module.scss';
 import CartDetail from '../../components/CartDetail/CartDetail';
-import { getCart } from '../../utilities/orders-api';
-import { useState, useEffect } from "react";
 
-export default function OrderPage({ cart, handleChangeQty, handleCheckout, handleAddToWishList }) {
-  const [fetchedCart, setFetchedCart] = useState(null);
-  /* const itemsAmount = fetchedCart.lineItems.length; */
+export default function OrderPage({ user, cart, handleChangeQty, handleCheckout, handleAddToWishList }) {
+  useEffect(function () {
 
-  useEffect(() => {
-    const fetchCart = async () => {
-      const fetchedCart = await getCart();
-      setFetchedCart(fetchedCart);
-    };
-    fetchCart();
-  }, []);
+  }, [cart])
+  const showOrder = () => (
+    <div className={styles.container}>
+        <CartDetail
+          user={user}
+          cart={cart}
+          handleChangeQty={handleChangeQty}
+          handleAddToWishList={handleAddToWishList}
+        />
+        <div className={styles.total}>TOTAL: ${cart.orderTotal.toFixed(2)}</div>
+        <button className={styles.checkoutBtn} onClick={() => handleCheckout()}>
+          CHECKOUT
+        </button>
+    </div>
+  )
+  const emptyCart = () => (
+    <p>YOUR CART IS EMPTY.</p>
+  )
 
   return (
     <div className={styles.container}>
-      {/* <h1>Your Cart ({itemsAmount} items)</h1> */}
       <h1>Your Cart</h1>
-      {cart || fetchedCart ? (
-        <div className={styles.container}>
-          <CartDetail
-            cart={cart}
-            handleChangeQty={handleChangeQty}
-            fetchedCart={fetchedCart}
-            setFetchedCart={setFetchedCart}
-            handleAddToWishList={handleAddToWishList}
-          />
-          <div className={styles.total}>TOTAL: ${fetchedCart.orderTotal.toFixed(2)}</div>
-          <br />
-          <button onClick={handleCheckout} className={styles.checkoutBtn}>
-            CHECKOUT
-          </button>
-        </div>
-      ) : (
-        <p>YOUR CART IS EMPTY.</p>
-      )}
+      {!cart.isPaid && cart.lineItems.length ? showOrder() : emptyCart()}
     </div>
-  );
+  )
 }
-
-

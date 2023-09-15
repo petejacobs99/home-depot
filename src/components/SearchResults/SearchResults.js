@@ -4,16 +4,18 @@ import SearchResultsItem from "../SearchResultsItem/SearchResultsItem";
 export default function SearchResults({
   handleAddToOrder,
   setSearchResultsItems,
-  searchResultsItems
+  searchResultsItems,
+  setWishlist
 }) {
   const items = searchResultsItems.map(item =>
     <SearchResultsItem
       className={styles.item}
       key={item._id}
-      handleAddToOrder={handleAddToOrder}
+      onClick={handleAddToOrder}
       searchResultsItem={item}
       setSearchResultsItems={setSearchResultsItems}
       searchResultsItems={searchResultsItems}
+      setWishlist={setWishlist}
     />
   );
 

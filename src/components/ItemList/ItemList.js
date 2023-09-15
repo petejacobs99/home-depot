@@ -4,7 +4,8 @@ import ItemListItem from "../ItemListItem/ItemListItem";
 export default function ItemList({
   handleAddToOrder,
   setItemListItems,
-  itemListItems
+  itemListItems,
+  setWishlist
 }) {
   const items = itemListItems.map(item =>
     <ItemListItem
@@ -13,6 +14,7 @@ export default function ItemList({
       itemListItem={item}
       setItemListItems={setItemListItems}
       itemListItems={itemListItems}
+      setWishlist={setWishlist}
     />
   );
 

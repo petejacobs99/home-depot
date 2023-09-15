@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import ItemListItem from '../../components/ItemListItem/ItemListItem';
 import SearchResults from "../../components/SearchResults/SearchResults";
 
-export default function SearchResultsPage({ handleAddToOrder, onSearch }) {
+export default function SearchResultsPage({ handleAddToOrder, handleAddToWishList, handleSelectItem, onSearch }) {
   const [searchResultsItems, setSearchResultsItems] = useState([]); // State to store search results
   const params = useParams();
 
@@ -30,21 +30,16 @@ export default function SearchResultsPage({ handleAddToOrder, onSearch }) {
       <div className={styles.searchResultsContainer}>
         <h1>SEARCH RESULTS FOR "{params.term}"</h1>
       </div>
-      {/*<ItemList
-        // Pass the searchResults state as the items to be displayed
-        searchResults={searchResults}
-        setSearchResults={setSearchResults}
-        handleAddToOrder={handleAddToOrder}
-        setItemListItems={setItemListItems}
-        itemListItems={itemListItems}
-      /> */}
       <div className={styles.itemList}>
         {/* {items} */}
         <SearchResults 
           searchResultsItems={searchResultsItems}
           setSearchResultsItems={setSearchResultsItems} 
-          onClick={handleAddToOrder}
+          handleAddToOrder={handleAddToOrder}
+          handleAddToWishList={handleAddToWishList}
+          handleSelectItem={handleSelectItem}
           onSearch={onSearch}
+          setWishlist={setWishlist}
         />
       </div>
     </div>

@@ -5,17 +5,23 @@ export default function SearchResults({
   handleAddToOrder,
   setSearchResultsItems,
   searchResultsItems,
-  setWishlist
+  cart,
+  wishlist,
+  handleAddToWishList,
+  handleRemoveFromWishList
 }) {
   const items = searchResultsItems.map(item =>
     <SearchResultsItem
       className={styles.item}
       key={item._id}
-      onClick={handleAddToOrder}
+      handleAddToOrder={handleAddToOrder}
       searchResultsItem={item}
       setSearchResultsItems={setSearchResultsItems}
       searchResultsItems={searchResultsItems}
-      setWishlist={setWishlist}
+      cart={cart}
+      wishlist={wishlist}
+      handleAddToWishList={handleAddToWishList}
+      handleRemoveFromWishList={handleRemoveFromWishList}
     />
   );
 

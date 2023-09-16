@@ -14,13 +14,13 @@
   justify-content: space-between;
 }
 
-.logo {
-  color: var(--black);
+.logo img{
+  border: 0;
+  height: 2.5vmax;
 }
 
-.logo:hover {
-  text-decoration: underline;
-  color: var(--black);
+.cart:hover {
+  cursor: pointer;
 }
 
 .navBarBottom {

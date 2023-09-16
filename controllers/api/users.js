@@ -27,7 +27,6 @@ const dataController = {
 		  // Send back the token as a string
 		  res.locals.data.user = user;
 		  res.locals.data.token = token;
-	  
 		  next();
 		} catch (e) {
 		  console.log('Error creating guest:', e);
@@ -38,14 +37,11 @@ const dataController = {
 	async signUp(req, res, next) {
 		try {
 			req.body.isGuest = false
-			const user = await User.findByIdAndUpdate(req.user._id, req.body, { new: true })
-
-			// token will be a string
+			const user = await User.findById(req.user._id)
+			const updates = Object.keys(req.body)
+            updates.forEach(update => user[update] = req.body[update])
+            await user.save()
 			const token = createJWT(user);
-			// send back the token as a string
-			// which we need to account for
-			// in the client
-
 			res.locals.data.user = user;
 			res.locals.data.token = token;
 			next();
@@ -57,9 +53,8 @@ const dataController = {
 	async login(req, res, next) {
 		try {
 			const user = await User.findOne({ email: req.body.email });
-			if (!user) throw new Error();
-			const match = await bcrypt.compare(req.body.password, user.password);
-			if (!match) throw new Error();
+			if (!user || !await bcrypt.compare(req.body.password, user.password)) 
+			throw new Error();
 			res.locals.data.user = user;
 			res.locals.data.token = createJWT(user);
 			next();

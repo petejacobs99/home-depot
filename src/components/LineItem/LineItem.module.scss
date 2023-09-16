@@ -6,7 +6,7 @@
   border-bottom: 1px solid var(--khaki);
 }
 
-.leftSide, .rightSide {
+.leftSide {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,16 +26,36 @@
   text-transform: uppercase;
 }
 
-.quantity {
-  margin-right: 5vmin;
-  margin-bottom: 5vmin;
+.rightSide {
+  flex-direction: column;
+  text-align: right;
+  /* margin-left: -10vmin; */
 }
 
-.quantitySpan, .quantityBtn {
+.quantity {
+  /* margin-right: 5vmin; */
+  display: flex;
+  flex-direction: column;
+}
+
+.changeQty {
+  display: flex;
+}
+
+.quantityWindow {
   border: .1vmin solid var(--khaki);
+  width: 4vmin;
+}
+
+.quantityBtn {
   height: 4vmin;
   font-size: 2vmin;
-  padding: 1vmin;
+  padding: 1vmin 2vmin 4vmin;
+  width: 25vmin;
+}
+
+.quantity button {
+  margin-right: -100vmin;
 }
 
 .quantitySpan {
@@ -45,10 +65,6 @@
 .quantityBtn:hover {
   cursor: pointer;
   background-color: var(--khaki);
-}
-
-.farRight {
-  text-align: right;
 }
 
 .price {
